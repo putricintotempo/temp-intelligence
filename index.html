@@ -524,6 +524,53 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
 .se-info{flex:1;min-width:0;}
 /* Mon tabs */
 .tc{display:none;}.tc.on{display:block;}
+/* v22 — module differentiation */
+.journey{display:flex;align-items:center;gap:0;margin-bottom:16px;overflow-x:auto;padding:2px 0;}
+.journey-step{display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0;cursor:pointer;padding:0 6px;}
+.journey-step:hover .journey-ic{border-color:var(--n);background:var(--bg);}
+.journey-ic{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;border:1.5px solid var(--b);background:#fff;transition:all .15s;}
+.journey-lbl{font-size:10px;font-weight:600;color:var(--m);text-align:center;max-width:58px;line-height:1.3;}
+.journey-arr{color:var(--b2);font-size:13px;flex-shrink:0;padding-bottom:18px;}
+.mod-desc{font-size:12.5px;color:var(--m);line-height:1.6;padding:8px 12px;background:var(--bg);border-radius:7px;border-left:3px solid var(--b2);margin-bottom:14px;}
+.verdict{border-radius:10px;padding:14px 16px;margin-bottom:16px;display:flex;align-items:center;gap:14px;}
+.verdict.caution{background:var(--aml);border:2px solid rgba(217,119,6,.25);}
+.verdict.fail{background:var(--rl);border:2px solid rgba(204,31,45,.2);}
+.verdict.review{background:var(--bll);border:2px solid rgba(37,99,235,.15);}
+.verdict.pass{background:var(--grl);border:2px solid rgba(22,163,74,.2);}
+.verdict-icon{font-size:30px;flex-shrink:0;}
+.verdict-label{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--m);margin-bottom:2px;}
+.verdict-main{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--n);margin-bottom:3px;}
+.verdict-sub{font-size:12px;color:var(--m);}
+.rss{background:#fff;border:1.5px solid var(--b);border-radius:9px;padding:13px;margin-bottom:14px;}
+.rss-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px;}
+.rss-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--m);}
+.rss-note{font-size:10.5px;color:var(--s);font-style:italic;}
+.rss-sig{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid var(--bg);}
+.rss-sig:last-child{border-bottom:none;padding-bottom:0;}
+.chg-badge{display:inline-flex;align-items:center;gap:4px;border-radius:100px;padding:2px 8px;font-size:10.5px;font-weight:700;}
+.chg-worse{background:var(--rl);color:var(--r);}
+.chg-stable{background:#F0FDF4;color:#15803D;}
+.chg-new{background:var(--bll);color:var(--bl);}
+.chg-shift{background:var(--aml);color:var(--am);}
+.chg-entity{background:var(--pul);color:var(--pu);}
+.mon-card{background:#fff;border:1.5px solid var(--b);border-radius:10px;padding:13px 15px;margin-bottom:8px;cursor:pointer;transition:border-color .15s;}
+.mon-card:hover{border-color:var(--n);}
+.mon-card-hd{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:8px;}
+.mon-card-nm{font-size:13.5px;font-weight:700;color:var(--n);}
+.mon-card-type{font-size:11px;color:var(--m);}
+.mon-card-body{display:flex;flex-direction:column;gap:5px;}
+.mon-card-row{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--m);}
+.verify-item{display:flex;gap:8px;align-items:flex-start;padding:8px 10px;background:var(--bg);border-radius:6px;margin-bottom:5px;font-size:12.5px;}
+.verify-ic{font-size:14px;flex-shrink:0;}
+.cockpit-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;}
+.cockpit-widget{background:#fff;border:1px solid var(--b);border-radius:10px;padding:13px 14px;}
+.cw-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px;}
+.cw-ttl{font-size:12.5px;font-weight:700;color:var(--n);}
+.cw-link{font-size:11.5px;color:var(--bl);cursor:pointer;font-weight:600;}
+.ask-next{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px;padding-top:9px;border-top:1px solid var(--b);}
+.ask-next-lbl{font-size:10px;color:var(--m);font-weight:700;text-transform:uppercase;letter-spacing:.5px;width:100%;margin-bottom:2px;}
+.ask-nxt-btn{display:inline-flex;align-items:center;gap:4px;background:var(--bg);border:1.5px solid var(--b);border-radius:6px;padding:4px 9px;font-size:11px;font-weight:600;color:var(--n);cursor:pointer;transition:all .15s;}
+.ask-nxt-btn:hover{border-color:var(--n);background:#fff;}
 /* utils */
 .m4{margin-bottom:4px}.m8{margin-bottom:8px}.m10{margin-bottom:10px}.m12{margin-bottom:12px}.m14{margin-bottom:14px}.m16{margin-bottom:16px}.m18{margin-bottom:18px}.m20{margin-bottom:20px}.mt4{margin-top:4px}.mt8{margin-top:8px}.mt10{margin-top:10px}.mt12{margin-top:12px}.mt14{margin-top:14px}.flex{display:flex}.ic{align-items:center}.jb{justify-content:space-between}.g6{gap:6px}.g8{gap:8px}.g10{gap:10px}.fw{width:100%}.ser{font-family:'Playfair Display',serif}.sm{font-size:12px}.mu{color:var(--m)}.nvy{color:var(--n)}.rd{color:var(--r)}.bld{font-weight:700}.wrap{flex-wrap:wrap}
 </style>
@@ -535,8 +582,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
   <div class="sb-nav">
     <div class="nv on" onclick="P('home')" id="nv-home"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/></svg>Home</div>
     <div class="nv" onclick="P('ask')" id="nv-ask"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7z" clip-rule="evenodd"/></svg>Ask Tempo</div>
-    <div class="nv" onclick="P('dd')" id="nv-dd"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9 3a1 1 0 012 0v5.5a.5.5 0 001 0V4a1 1 0 112 0v4.5a.5.5 0 001 0V6a1 1 0 112 0v5a7 7 0 11-14 0V9a1 1 0 012 0v2.5a.5.5 0 001 0V4a1 1 0 012 0v4.5a.5.5 0 001 0V3z" clip-rule="evenodd"/></svg>Risk Intelligence</div>
     <div class="nv" onclick="P('ps')" id="nv-ps"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>Profile Screening</div>
+    <div class="nv" onclick="P('dd')" id="nv-dd"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9 3a1 1 0 012 0v5.5a.5.5 0 001 0V4a1 1 0 112 0v4.5a.5.5 0 001 0V6a1 1 0 112 0v5a7 7 0 11-14 0V9a1 1 0 012 0v2.5a.5.5 0 001 0V4a1 1 0 012 0v4.5a.5.5 0 001 0V3z" clip-rule="evenodd"/></svg>Risk Intelligence</div>
     <div class="nv" onclick="P('mon')" id="nv-mon"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zm6-4a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zm6-3a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>Media Monitoring<span class="nv-c">3</span></div>
     <div class="sb-div"></div>
     <div class="nv" onclick="P('rep')" id="nv-rep"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/></svg>Generated Reports</div>
@@ -556,49 +603,170 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
   <div class="ct">
 <!-- HOME -->
 <div class="pg on" id="page-home">
-  <div class="hero">
-    <div class="hero-ey">Tempo Intelligence</div>
-    <div class="hero-ttl">Tanyakan apa saja tentang perusahaan, tokoh, dan isu bisnis Indonesia</div>
-    <div class="hero-sub">Dijawab dari 847.000+ artikel Tempo dengan source citation, konteks historis, dan risk analysis.</div>
-    <div class="hero-ask" onclick="P('ask')">
-      <div class="hero-ask-ph">Cari tahu tentang PT Waskita Karya, regulasi OJK, risiko vendor...</div>
-      <button class="hero-ask-btn">Ask Tempo →</button>
-    </div>
-    <div class="hero-exs">
-      <div class="hero-ex" onclick="P('ask');askT('Apa risiko utama PT Waskita Karya?')">🏗️ Risiko Waskita Karya</div>
-      <div class="hero-ex" onclick="P('ask');askT('Regulasi OJK fintech P2P lending 2024–2025')">📋 Regulasi OJK Fintech</div>
-      <div class="hero-ex" onclick="P('ask');askT('Analisis hilirisasi nikel Indonesia')">⛏️ Hilirisasi Nikel</div>
-      <div class="hero-ex" onclick="P('ask');askT('Profil risiko Aguan dan jaringan bisnisnya')">👤 Profil Aguan</div>
-      <div class="hero-ex" onclick="P('ask');askT('Sentimen investor terhadap IKN Nusantara')">🏙️ IKN Nusantara</div>
-    </div>
+ <!-- Hero: Ask Tempo search -->
+ <div class="hero">
+  <div class="hero-ey">Tempo Intelligence</div>
+  <div class="hero-ttl">Tanyakan apa saja tentang perusahaan, tokoh, dan isu bisnis Indonesia</div>
+  <div class="hero-sub">Dijawab dari 847.000+ artikel Tempo dengan source citation dan konteks historis.</div>
+  <div class="hero-ask" onclick="P('ask')">
+   <div class="hero-ask-ph">Cari tahu tentang PT Waskita Karya, regulasi OJK, risiko vendor...</div>
+   <button class="hero-ask-btn">Ask Tempo →</button>
   </div>
-  <div class="fg-grid">
-    <div class="fc hl" onclick="P('ask')"><div class="fc-ic">💬</div><div class="fc-n">Ask Tempo</div></div>
-    <div class="fc" onclick="P('dd');showSV('dd','home')"><div class="fc-ic">🔍</div><div class="fc-n">Risk Intelligence</div></div>
-    <div class="fc" onclick="P('ps');showSV('ps','search')"><div class="fc-ic">👤</div><div class="fc-n">Profile Screening</div></div>
-    <div class="fc" onclick="P('mon');showSV('mon','workspace')"><div class="fc-ic">📊</div><div class="fc-n">Media Monitoring</div></div>
-    <div class="fc" onclick="P('rep');showSV('rep','home')"><div class="fc-ic">📄</div><div class="fc-n">Reports</div></div>
+  <div class="hero-exs">
+   <div class="hero-ex" onclick="P('ask');askT('Siapa PT Waskita Karya dan apa latar belakang bisnisnya?')">🏗️ Profil Waskita</div>
+   <div class="hero-ex" onclick="P('ask');askT('Regulasi OJK fintech P2P lending 2024–2025')">📋 Regulasi OJK Fintech</div>
+   <div class="hero-ex" onclick="P('ask');askT('Isu utama hilirisasi nikel Indonesia')">⛏️ Hilirisasi Nikel</div>
+   <div class="hero-ex" onclick="P('ask');askT('Siapa Aguan dan apa latar belakang bisnisnya?')">👤 Profil Aguan</div>
+   <div class="hero-ex" onclick="P('ask');askT('Perkembangan terbaru IKN Nusantara')">🏙️ IKN Nusantara</div>
   </div>
-  <div class="home-bot">
-    <div>
-      <div class="sh m10"><div class="ser" style="font-size:15px;font-weight:600;color:var(--n);">Alerts Inbox</div><span class="bx bh">3 new</span></div>
-      <div class="ai-itm" onclick="P('mon');showSV('mon','dashboard')"><div class="ai-dot" style="background:var(--r)"></div><div><div class="ai-ttl">PT Waskita Karya — Legal Development</div><div class="ai-mt">Financial & Legal · High · 2h ago</div></div></div>
-      <div class="ai-itm" onclick="P('mon');showSV('mon','dashboard')"><div class="ai-dot" style="background:var(--r)"></div><div><div class="ai-ttl">Pinjol P2P — OJK Enforcement Action</div><div class="ai-mt">Regulatory · High · 5h ago</div></div></div>
-      <div class="ai-itm" onclick="P('mon');showSV('mon','dashboard')"><div class="ai-dot" style="background:var(--am)"></div><div><div class="ai-ttl">Hilirisasi Nikel — WTO Ruling Update</div><div class="ai-mt">Policy · Medium · Yesterday</div></div></div>
-    </div>
-    <div>
-      <div class="ser m10" style="font-size:15px;font-weight:600;color:var(--n);">Recent Reports</div>
-      <div class="rli m8" onclick="P('rep');showSV('rep','exec-brief')"><div class="rli-src">From Risk Intelligence Screening</div><div class="rli-t">PT Waskita Karya — Partnership Screening Brief</div><div class="flex g6 wrap"><span class="bx bh">High Risk</span><span class="bx bn">May 5, 2025</span></div></div>
-      <div class="rli m8" onclick="P('rep');showSV('rep','home')"><div class="rli-src">From Media Monitoring</div><div class="rli-t">Nickel Industry Intelligence Brief</div><div class="flex g6"><span class="bx bn">Industry</span></div></div>
-      <div class="rli" onclick="P('rep');showSV('rep','home')"><div class="rli-src">From Profile Screening</div><div class="rli-t">Aguan — Executive Profile Report</div><div class="flex g6"><span class="bx bm">Medium Risk</span></div></div>
-    </div>
+ </div>
+
+ <!-- Intelligence Journey -->
+ <div class="card" style="padding:14px 16px;margin-bottom:14px;">
+  <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--m);margin-bottom:10px;">Alur Intelligence yang Direkomendasikan</div>
+  <div class="journey">
+   <div class="journey-step" onclick="P('ask')">
+    <div class="journey-ic">💬</div>
+    <div class="journey-lbl">Tanya & Eksplorasi</div>
+   </div>
+   <div class="journey-arr">→</div>
+   <div class="journey-step" onclick="P('ps');showSV('ps','search')">
+    <div class="journey-ic">👤</div>
+    <div class="journey-lbl">Pahami Entitas</div>
+   </div>
+   <div class="journey-arr">→</div>
+   <div class="journey-step" onclick="P('dd');showSV('dd','home')">
+    <div class="journey-ic">🔍</div>
+    <div class="journey-lbl">Nilai Risiko</div>
+   </div>
+   <div class="journey-arr">→</div>
+   <div class="journey-step" onclick="P('mon');showSV('mon','workspace')">
+    <div class="journey-ic">📡</div>
+    <div class="journey-lbl">Pantau Perubahan</div>
+   </div>
+   <div class="journey-arr">→</div>
+   <div class="journey-step" onclick="P('rep');showSV('rep','home')">
+    <div class="journey-ic">📋</div>
+    <div class="journey-lbl">Bagikan ke Stakeholder</div>
+   </div>
   </div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;">
+   <div style="flex:1;min-width:140px;background:var(--bg);border-radius:7px;padding:9px;"><div style="font-size:11px;font-weight:700;color:var(--bl);margin-bottom:3px;">Ask Tempo</div><div style="font-size:11.5px;color:var(--m);">Tanya cepat, dapat jawaban dengan citasi dari arsip Tempo.</div></div>
+   <div style="flex:1;min-width:140px;background:var(--bg);border-radius:7px;padding:9px;"><div style="font-size:11px;font-weight:700;color:var(--n);margin-bottom:3px;">Profile Screening</div><div style="font-size:11.5px;color:var(--m);">Pahami latar belakang, relasi, dan jejak media entitas.</div></div>
+   <div style="flex:1;min-width:140px;background:var(--bg);border-radius:7px;padding:9px;"><div style="font-size:11px;font-weight:700;color:var(--r);margin-bottom:3px;">Risk Intelligence</div><div style="font-size:11.5px;color:var(--m);">Nilai risiko untuk keputusan bisnis spesifik: partnership, vendor, investasi.</div></div>
+   <div style="flex:1;min-width:140px;background:var(--bg);border-radius:7px;padding:9px;"><div style="font-size:11px;font-weight:700;color:var(--am);margin-bottom:3px;">Media Monitoring</div><div style="font-size:11.5px;color:var(--m);">Pantau apa yang berubah — sinyal baru, narasi bergeser, alert terpicu.</div></div>
+   <div style="flex:1;min-width:140px;background:var(--bg);border-radius:7px;padding:9px;"><div style="font-size:11px;font-weight:700;color:var(--gr);margin-bottom:3px;">Generated Reports</div><div style="font-size:11.5px;color:var(--m);">Buat dokumen siap-share dari analisis. Ekspor PDF, kirim via link.</div></div>
+  </div>
+ </div>
+
+ <!-- Cockpit Widgets -->
+ <div class="cockpit-grid">
+  <!-- Alerts Inbox -->
+  <div class="cockpit-widget">
+   <div class="cw-hd">
+    <div class="cw-ttl">🔔 Alerts Inbox</div>
+    <div class="cw-link" onclick="P('mon');showSV('mon','workspace');monTab('inbox')">Lihat semua →</div>
+   </div>
+   <div style="display:flex;flex-direction:column;gap:6px;">
+    <div class="alert-item unread" onclick="P('mon');showSV('mon','workspace');monTab('inbox')" style="margin-bottom:0;">
+     <div class="alert-left"><div class="alert-dot" style="background:var(--r);"></div></div>
+     <div class="alert-body">
+      <div class="alert-ttl">PT Waskita Karya — Legal Development</div>
+      <div class="alert-meta">Financial & Legal · <span class="chg-badge chg-worse">↑ Risk worsened</span> · 2j lalu</div>
+     </div>
+    </div>
+    <div class="alert-item unread" onclick="P('mon');showSV('mon','workspace');monTab('inbox')" style="margin-bottom:0;">
+     <div class="alert-left"><div class="alert-dot" style="background:var(--r);"></div></div>
+     <div class="alert-body">
+      <div class="alert-ttl">Pinjol P2P — OJK Enforcement Action</div>
+      <div class="alert-meta">Regulatory · <span class="chg-badge chg-shift">Narrative shifted</span> · 5j lalu</div>
+     </div>
+    </div>
+    <div class="alert-item" onclick="P('mon');showSV('mon','workspace');monTab('inbox')" style="margin-bottom:0;">
+     <div class="alert-left"><div class="alert-dot" style="background:var(--am);"></div></div>
+     <div class="alert-body">
+      <div class="alert-ttl">Hilirisasi Nikel — WTO Ruling Update</div>
+      <div class="alert-meta">Policy · <span class="chg-badge chg-stable">— Risk stable</span> · Kemarin</div>
+     </div>
+    </div>
+   </div>
+  </div>
+
+  <!-- Active Monitors -->
+  <div class="cockpit-widget">
+   <div class="cw-hd">
+    <div class="cw-ttl">📡 Active Monitors</div>
+    <div class="cw-link" onclick="P('mon');showSV('mon','workspace');monTab('active')">Kelola →</div>
+   </div>
+   <div style="display:flex;flex-direction:column;gap:5px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:7px 9px;background:var(--bg);border-radius:6px;cursor:pointer;" onclick="showSV('mon','dashboard')">
+     <div><div style="font-size:12.5px;font-weight:600;color:var(--n);">PT Waskita Karya</div><div style="font-size:11px;color:var(--m);">2j lalu · Daily digest</div></div>
+     <span class="chg-badge chg-worse">↑ Memburuk</span>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:7px 9px;background:var(--bg);border-radius:6px;cursor:pointer;">
+     <div><div style="font-size:12.5px;font-weight:600;color:var(--n);">Pinjol P2P Lending</div><div style="font-size:11px;color:var(--m);">5j lalu · Daily digest</div></div>
+     <span class="chg-badge chg-shift">↕ Bergeser</span>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:7px 9px;background:var(--bg);border-radius:6px;cursor:pointer;">
+     <div><div style="font-size:12.5px;font-weight:600;color:var(--n);">Hilirisasi Nikel</div><div style="font-size:11px;color:var(--m);">Kemarin · Weekly brief</div></div>
+     <span class="chg-badge chg-stable">— Stabil</span>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:7px 9px;background:var(--bg);border-radius:6px;cursor:pointer;">
+     <div><div style="font-size:12.5px;font-weight:600;color:var(--n);">IKN Nusantara</div><div style="font-size:11px;color:var(--m);">2h lalu · Daily digest</div></div>
+     <span class="chg-badge chg-shift">→ Meningkat</span>
+    </div>
+   </div>
+  </div>
+
+  <!-- Recent Reports -->
+  <div class="cockpit-widget">
+   <div class="cw-hd">
+    <div class="cw-ttl">📋 Recent Reports</div>
+    <div class="cw-link" onclick="P('rep');showSV('rep','home')">Semua reports →</div>
+   </div>
+   <div style="display:flex;flex-direction:column;gap:5px;">
+    <div style="padding:7px 9px;background:var(--bg);border-radius:6px;cursor:pointer;" onclick="P('rep');showSV('rep','exec-brief')">
+     <div style="font-size:12px;font-weight:600;color:var(--n);">PT Waskita Karya — Executive Brief</div>
+     <div style="display:flex;gap:5px;align-items:center;margin-top:3px;"><span class="bx bn" style="font-size:10px;">Risk Intelligence</span><span class="status-share">Ready to Share</span></div>
+    </div>
+    <div style="padding:7px 9px;background:var(--bg);border-radius:6px;cursor:pointer;" onclick="P('rep');showSV('rep','full-report')">
+     <div style="font-size:12px;font-weight:600;color:var(--n);">PT Waskita Karya — Full Screening</div>
+     <div style="display:flex;gap:5px;align-items:center;margin-top:3px;"><span class="bx bn" style="font-size:10px;">Risk Intelligence</span><span class="status-share">Ready to Share</span></div>
+    </div>
+    <div style="padding:7px 9px;background:var(--bg);border-radius:6px;cursor:pointer;" onclick="P('rep');showSV('rep','home')">
+     <div style="font-size:12px;font-weight:600;color:var(--n);">Aguan — Executive Profile</div>
+     <div style="display:flex;gap:5px;align-items:center;margin-top:3px;"><span class="bx bn" style="font-size:10px;">Profile Screening</span><span class="status-share">Ready to Share</span></div>
+    </div>
+   </div>
+  </div>
+
+  <!-- Saved Entities -->
+  <div class="cockpit-widget">
+   <div class="cw-hd">
+    <div class="cw-ttl">🔖 Saved Entities</div>
+    <div class="cw-link" onclick="P('mon');showSV('mon','workspace');monTab('saved')">Kelola →</div>
+   </div>
+   <div style="display:flex;flex-direction:column;gap:5px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:7px 9px;background:var(--bg);border-radius:6px;">
+     <div><div style="font-size:12.5px;font-weight:600;color:var(--n);">Aguan (Sugianto Kusuma)</div><div style="font-size:11px;color:var(--m);">Person · Disimpan 28 Apr</div></div>
+     <button class="btn bo bxs" onclick="startMonitoring('Aguan')">Monitor</button>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:7px 9px;background:var(--bg);border-radius:6px;">
+     <div><div style="font-size:12.5px;font-weight:600;color:var(--n);">OJK Fintech Regulation</div><div style="font-size:11px;color:var(--m);">Topik Regulasi · Disimpan 20 Apr</div></div>
+     <button class="btn bo bxs" onclick="startMonitoring('OJK Fintech')">Monitor</button>
+    </div>
+    <div style="text-align:center;padding:8px;font-size:12px;color:var(--m);">
+     <button class="btn bgh bxs" onclick="P('ps');showSV('ps','search')">+ Cari entitas baru</button>
+    </div>
+   </div>
+  </div>
+ </div>
 </div>
 <!-- DUE DILIGENCE -->
 <div class="pg" id="page-dd">
  <div class="ddw">
   <!-- DD Home -->
-  <div class="sv on" id="dd-home">
+  <div class="sv on" id="dd-home"><div class="mod-desc">🔍 <strong>Risk Intelligence</strong> — Nilai risiko entitas untuk keputusan bisnis spesifik. Menghasilkan <em>decision verdict</em> (Proceed / Caution / Not Recommended) berbasis analisis 6 dimensi dari arsip Tempo.</div>
    <div class="sh m14"><div><div class="ttl">Risk Intelligence Screening</div><div style="font-size:13px;color:var(--m);">Screen entities sebelum partnership, investment, atau vendor decision.</div></div><button class="btn bp" onclick="showSV('dd','wizard')">+ New Screening</button></div>
    <div class="scr-item" onclick="showSV('dd','result')"><div class="si-sc" style="background:var(--r);">78</div><div style="flex:1;"><div class="si-nm">PT Waskita Karya</div><div class="si-mt"><span class="bx bh">High Risk</span><span>Partnership Screening</span><span>Indonesia</span><span>2018–2025</span></div></div><div style="font-size:11.5px;color:var(--m);text-align:right;">May 5, 2025<br><span>Complete</span></div></div>
    <div class="scr-item"><div class="si-sc" style="background:var(--am);">61</div><div style="flex:1;"><div class="si-nm">PT Wijaya Karya (WIKA)</div><div class="si-mt"><span class="bx bm">Medium Risk</span><span>Investment</span><span>Indonesia</span></div></div><div style="font-size:11.5px;color:var(--m);">Apr 28, 2025</div></div>
@@ -606,7 +774,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
    <div style="background:var(--bg);border:2px dashed var(--b2);border-radius:10px;padding:20px;text-align:center;cursor:pointer;margin-top:8px;" onclick="showSV('dd','wizard')"><div style="font-size:21px;margin-bottom:6px;">+</div><div style="font-size:13.5px;font-weight:600;color:var(--n);">Run a new screening</div><div class="sm mu mt4">Screen a company or person before partnership, investment, or vendor onboarding.</div></div>
   </div>
   <!-- DD Wizard: simplified 4-field form -->
-  <div class="sv" id="dd-wizard">
+  <div class="sv" id="dd-wizard"><div class="mod-desc">🔍 <strong>Risk Intelligence</strong> — Nilai risiko entitas untuk keputusan bisnis spesifik. Pilih use case: partnership, vendor onboarding, investasi/M&A, background check eksekutif, atau public affairs.</div>
    <div class="sh m14"><div><div class="ttl">Screening Baru</div><div style="font-size:13px;color:var(--m);">Isi detail entitas yang ingin dianalisis.</div></div></div>
    <div class="card cp">
     <div class="ttl m4" style="font-size:16px;">Screening Input</div>
@@ -656,8 +824,22 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
   </div>
   <!-- DD Result -->
   <div class="sv" id="dd-result">
+   <div class="mod-desc">🔍 <strong>Risk Intelligence</strong> — Nilai risiko entitas untuk keputusan bisnis spesifik: partnership, vendor onboarding, investasi, atau background check eksekutif. Menghasilkan decision verdict berbasis arsip Tempo.</div>
    <div class="flex ic wrap jb g8 m14">
     <div class="flex g6 wrap"><button class="btn bgh bsm" onclick="showComp()">⇄ Bandingkan</button><button class="btn bo bsm" onclick="startMonitoring('PT Waskita Karya')">📡 Start Monitoring</button><button class="ask-cta bsm" onclick="openAIP('dd')">💬 Ask Tempo</button><button class="btn bp bsm" onclick="saveRep('PT Waskita Karya · Risk Intelligence Screening')">📋 Generate Report</button></div>
+   </div>
+   <!-- Decision Verdict -->
+   <div class="verdict caution m14">
+    <div class="verdict-icon">⚠️</div>
+    <div class="verdict-body">
+     <div class="verdict-label">Decision Verdict · Partnership Screening</div>
+     <div class="verdict-main">Proceed with Mitigation</div>
+     <div class="verdict-sub">Risiko tinggi teridentifikasi — partnership dapat dilanjutkan dengan mitigasi ketat dan monitoring aktif. Legal due diligence formal wajib dilakukan sebelum penandatanganan kontrak.</div>
+    </div>
+    <div style="text-align:right;flex-shrink:0;">
+     <div style="font-family:'Playfair Display',serif;font-size:38px;font-weight:700;color:var(--am);line-height:1;">78</div>
+     <div style="font-size:10px;color:var(--m);">Decision Risk Score</div>
+    </div>
    </div>
    <div class="res-hdr"><div class="res-nm">PT Waskita Karya</div><div class="res-mt"><span>Public Company · BUMN</span><span>Infrastructure</span><span>Partnership Screening</span><span>Indonesia · 2018–2025 · 42 sources</span></div></div>
    <div class="g2 m14" style="grid-template-columns:195px 1fr;">
@@ -774,7 +956,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
    <!-- KG in DD Result — D3 Interactive -->
    <div class="card cp mt12 m14">
     <div class="sh m8">
-     <div class="ser" style="font-size:14px;font-weight:600;color:var(--n);">Peta Relasi Entitas</div>
+     <div class="ser" style="font-size:14px;font-weight:600;color:var(--n);">Risk Propagation Map</div>
      <div style="display:flex;align-items:center;gap:6px;">
       <span class="bx bn">7 entitas</span>
       <button class="kg-btn" onclick="ddKgZoomIn()">＋</button>
@@ -818,6 +1000,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
    </div>
    <div style="background:var(--bg);border-radius:8px;padding:13px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:9px;margin-bottom:20px;">
     <div class="sm mu">Analysis complete · 42 sources · High confidence · Sample data</div>
+   <!-- What requires verification -->
+   <div class="card cp m14">
+    <div style="font-size:13px;font-weight:700;color:var(--n);margin-bottom:10px;">🔎 Yang Perlu Diverifikasi di Luar Arsip Tempo</div>
+    <div style="font-size:12px;color:var(--m);margin-bottom:9px;">Intelligence ini berbasis arsip media. Hal-hal berikut memerlukan verifikasi langsung atau sumber formal:</div>
+    <div class="verify-item"><div class="verify-ic">⚖️</div><div><strong>Status penyelidikan KPK terkini</strong> — Konfirmasi apakah penyelidikan masih aktif atau sudah selesai per tanggal screening.</div></div>
+    <div class="verify-item"><div class="verify-ic">💰</div><div><strong>Status restrukturisasi utang</strong> — Dapatkan laporan keuangan audited terbaru dari WSKT atau kreditur.</div></div>
+    <div class="verify-item"><div class="verify-ic">📋</div><div><strong>Kontrak proyek aktif</strong> — Verifikasi melalui LPSE atau sistem pengadaan resmi PUPR/BUMN.</div></div>
+    <div class="verify-item"><div class="verify-ic">👥</div><div><strong>Profil direksi saat ini</strong> — Cek struktur kepemilikan dan integritas manajemen baru di AHU/OJK.</div></div>
+    <div style="background:var(--aml);border-radius:6px;padding:9px 11px;font-size:12px;color:var(--am);margin-top:8px;">⚠️ <strong>Disclaimer:</strong> Risk Intelligence ini dihasilkan dari arsip media Tempo 2018–2025. Bukan pengganti legal due diligence, audit keuangan formal, atau penilaian hukum profesional. Gunakan sebagai intelligence awal, bukan keputusan akhir.</div>
+   </div>
     <div class="flex g6 wrap"><button class="ask-cta bsm" onclick="openAIP('dd')">💬 Ask Tempo</button><button class="btn bo bsm" onclick="startMonitoring('PT Waskita Karya')">📡 Start Monitoring</button></div>
    </div>
   </div>
@@ -826,7 +1018,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
 <!-- PROFILE SCREENING -->
 <div class="pg" id="page-ps">
  <style>.daopt{background:#fff;border:1.5px solid var(--b);border-radius:6px;padding:8px 11px;margin-bottom:5px;cursor:pointer;}.daopt:hover,.daopt.on{border-color:var(--n);}</style>
- <div class="sv on" id="ps-search">
+ <div class="sv on" id="ps-search"><div class="mod-desc">👤 <strong>Profile Screening</strong> — Pahami latar belakang, relasi, jejak media, dan sinyal isu suatu entitas. Berbeda dari Risk Intelligence: ini tentang <em>memahami</em>, bukan menilai risiko untuk keputusan spesifik.</div>
   <div style="max-width:580px;margin:0 auto;text-align:center;padding:38px 20px 26px;">
    <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--n);margin-bottom:7px;">Profile Screening</div>
    <div style="font-size:13.5px;color:var(--m);margin-bottom:22px;">Cari perusahaan, orang, atau institusi untuk membangun profil intelijen.</div>
@@ -861,8 +1053,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
  </div>
  <!-- PS Result with TABS -->
  <div class="sv" id="ps-result">
+  <div class="mod-desc">👤 <strong>Profile Screening</strong> — Pahami latar belakang, relasi, jejak media, dan sinyal isu suatu entitas. Untuk penilaian risiko keputusan bisnis, gunakan <strong>Risk Intelligence</strong>.</div>
   <div class="flex ic wrap jb g8 m14">
-   
    <div class="flex g6 wrap"><button class="btn bo bsm" onclick="startMonitoring('PT Waskita Karya Tbk')">📡 Start Monitoring</button><button class="ask-cta bsm" onclick="openAIP('ps')">💬 Ask Tempo</button><button class="btn bp bsm" onclick="saveRep('PT Waskita Karya Tbk · Profile Screening')">📋 Generate Report</button></div>
   </div>
   <div style="border-radius:12px;overflow:hidden;border:1px solid var(--b);margin-bottom:20px;">
@@ -871,9 +1063,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
     <div>
      <div class="prof-nm">PT Waskita Karya Tbk</div>
      <div class="prof-mt">Public Company (BUMN) · IDX: WSKT · Infrastructure · Est. 1961</div>
-     <div class="flex g6 wrap"><span class="bx" style="background:rgba(220,38,38,.2);color:#FCA5A5;">High Risk</span><span class="bx" style="background:rgba(255,255,255,.15);color:rgba(255,255,255,.7);">42 Articles</span><span class="bx" style="background:rgba(255,255,255,.15);color:rgba(255,255,255,.7);">Updated Apr 2025</span></div>
+     <div class="flex g6 wrap"><span class="bx" style="background:rgba(255,255,255,.15);color:rgba(255,255,255,.7);">42 Artikel</span><span class="bx" style="background:rgba(255,255,255,.15);color:rgba(255,255,255,.7);">Updated Apr 2025</span><span class="bx" style="background:rgba(255,255,255,.15);color:rgba(255,255,255,.7);">Infrastructure · Est. 1961</span></div>
     </div>
-    <div style="text-align:right;flex-shrink:0;"><div class="prof-rsc">78</div><div style="font-size:11px;color:rgba(255,255,255,.5);">/ 100</div><div style="font-size:13px;font-weight:700;color:#FCA5A5;">HIGH RISK</div></div>
+    <div style="text-align:right;flex-shrink:0;"><div style="font-size:10.5px;color:rgba(255,255,255,.4);margin-bottom:3px;">Media Coverage</div><div style="font-size:13px;font-weight:700;color:#fff;">42 Artikel</div><div style="font-size:11px;color:rgba(255,255,255,.5);">2018–2025</div></div>
    </div>
    <!-- TABS -->
    <div style="background:#fff;border-top:none;">
@@ -883,7 +1075,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
      <div class="tab" onclick="pstab('entities')">Related Entities</div>
      <div class="tab" onclick="pstab('issues')">Issue Clusters</div>
      <div class="tab" onclick="pstab('timeline')">Media Timeline</div>
-     <div class="tab" onclick="pstab('redflags')">Red Flags</div>
+     <div class="tab" onclick="pstab('redflags')">Notable Issues</div>
      <div class="tab" onclick="pstab('coverage')">Coverage Trend</div>
     </div>
     <!-- Overview -->
@@ -892,7 +1084,20 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
       <div style="background:var(--bg);border-radius:7px;padding:12px;"><div style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--m);margin-bottom:8px;">Profil Bisnis</div><div style="font-size:12.5px;margin-bottom:4px;">📍 Jakarta, Indonesia</div><div style="font-size:12.5px;margin-bottom:4px;">👥 ~40.000 karyawan</div><div style="font-size:12.5px;margin-bottom:4px;">💼 Kementerian BUMN (pemilik)</div><div style="font-size:12.5px;">🏗️ Konstruksi jalan, jembatan, gedung</div></div>
       <div style="background:var(--bg);border-radius:7px;padding:12px;"><div style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--m);margin-bottom:8px;">Sinyal Risiko Utama</div><div style="font-size:12.5px;margin-bottom:5px;"><span class="bx bh" style="margin-right:5px;">Tinggi</span>Restrukturisasi utang jumbo</div><div style="font-size:12.5px;margin-bottom:5px;"><span class="bx bh" style="margin-right:5px;">Tinggi</span>Vonis eks-direksi KPK</div><div style="font-size:12.5px;margin-bottom:5px;"><span class="bx bm" style="margin-right:5px;">Sedang</span>Ketidakstabilan governance</div><div style="font-size:12.5px;"><span class="bx bh" style="margin-right:5px;">Tinggi</span>Negative coverage meningkat</div></div>
      </div>
-     <div style="background:var(--aml);border-radius:7px;padding:11px;margin-bottom:10px;"><div style="font-size:12.5px;font-weight:700;color:var(--am);margin-bottom:4px;">⚠️ Rekomendasi</div><div style="font-size:12.5px;">Lanjutkan dengan hati-hati. Lihat tab Red Flags untuk sinyal risiko lengkap.</div></div>
+     <div class="rss m10">
+      <div class="rss-hd">
+       <div class="rss-title">⚡ Risk Signal Snapshot</div>
+       <div class="rss-note">Sinyal dari arsip media — bukan penilaian risiko final</div>
+      </div>
+      <div class="rss-sig"><span class="bx bh" style="font-size:10.5px;flex-shrink:0;">Tinggi</span><div style="font-size:12.5px;">Restrukturisasi utang jumbo — belum tuntas per Apr 2025</div></div>
+      <div class="rss-sig"><span class="bx bh" style="font-size:10.5px;flex-shrink:0;">Tinggi</span><div style="font-size:12.5px;">Vonis korupsi eks-direksi — KPK masih aktif menyelidiki</div></div>
+      <div class="rss-sig"><span class="bx bm" style="font-size:10.5px;flex-shrink:0;">Sedang</span><div style="font-size:12.5px;">Ketidakstabilan governance — 3x pergantian manajemen</div></div>
+      <div class="rss-sig"><span class="bx bh" style="font-size:10.5px;flex-shrink:0;">Tinggi</span><div style="font-size:12.5px;">76% negative coverage — tren meningkat 2023–2025</div></div>
+      <div style="margin-top:11px;padding-top:9px;border-top:1px solid var(--b);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+       <div style="font-size:12px;color:var(--m);">Ingin tahu apakah entitas ini aman untuk partnership, vendor onboarding, atau investasi?</div>
+       <button class="btn bn2 bsm" onclick="P('dd');showSV('dd','wizard')">🔍 Jalankan Risk Intelligence →</button>
+      </div>
+     </div>
      <!-- Feature differentiation box -->
      <div style="background:var(--bll);border:1px solid rgba(37,99,235,.15);border-radius:8px;padding:12px;margin-bottom:12px;">
       <div style="font-size:11.5px;font-weight:700;color:var(--bl);margin-bottom:8px;">💡 Langkah selanjutnya — apa bedanya?</div>
@@ -920,7 +1125,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
      <!-- KG Controls -->
      <div style="padding:10px 16px 8px;border-bottom:1px solid var(--b);background:#fff;">
       <div class="sh m8">
-       <div class="ser" style="font-size:14px;font-weight:600;color:var(--n);">Peta Relasi Entitas</div>
+       <div class="ser" style="font-size:14px;font-weight:600;color:var(--n);">Risk Propagation Map</div>
        <span class="bx bn">8 entitas · 42 sumber</span>
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;">
@@ -1163,13 +1368,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
 <div class="pg" id="page-mon">
  <div class="sv on" id="mon-workspace">
   <!-- Header -->
-  <div class="sh m14">
+  <div class="sh m8">
    <div>
     <div class="ttl">Media Monitoring</div>
-    <div style="font-size:13px;color:var(--m);">Pantau entitas, isu, dan sinyal risiko secara aktif.</div>
    </div>
    <button class="btn bp" onclick="startMonitoring('')">+ Start Monitoring</button>
   </div>
+  <div class="mod-desc">📡 <strong>Media Monitoring</strong> — Pantau apa yang <em>berubah</em>: sinyal baru, eskalasi risiko, pergeseran narasi, dan entitas baru terdeteksi. Berbeda dari Profile Screening (memahami) dan Risk Intelligence (memutuskan) — ini tentang <em>melacak perubahan dari waktu ke waktu.</em></div>
   <!-- KPI Row -->
   <div class="kpi-g m14">
    <div class="kpi"><div class="kpi-l">Active Monitors</div><div class="kpi-v">4</div><div class="kpi-c ok">3 baru hari ini</div></div>
@@ -1183,48 +1388,80 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
    <div class="tab" onclick="monTab('inbox')">Alerts Inbox <span style="background:var(--r);color:#fff;border-radius:100px;padding:1px 6px;font-size:10px;font-weight:700;margin-left:4px;">4</span></div>
    <div class="tab" onclick="monTab('saved')">Saved Entities</div>
   </div>
-  <!-- Active Monitors Tab -->
+  <!-- Active Monitors Tab — card layout -->
   <div class="tc on" id="mont-active">
-   <div class="mon-tbl m10">
-    <table>
-     <thead><tr><th>Monitor</th><th>Tipe</th><th>Sinyal Aktif</th><th>Alert Terakhir</th><th>Tren Risiko</th><th>Aksi</th></tr></thead>
-     <tbody>
-      <tr>
-       <td><strong>PT Waskita Karya</strong><div style="font-size:11px;color:var(--m);">Company Reputation · Daily digest</div></td>
-       <td><span class="bx bn">Perusahaan</span></td>
-       <td><span class="bx bh">Financial, Legal</span></td>
-       <td>2 jam lalu</td>
-       <td><span class="trw">↑ Memburuk</span></td>
-       <td><div style="display:flex;gap:5px;"><button class="btn bo bxs" onclick="showSV('mon','dashboard')">View</button><button class="btn bo bxs" onclick="openMonSettings('waskita')" title="Settings">⚙</button></div></td>
-      </tr>
-      <tr>
-       <td><strong>Pinjol P2P Lending</strong><div style="font-size:11px;color:var(--m);">Industry Issue · Daily digest</div></td>
-       <td><span class="bx bn">Sektor</span></td>
-       <td><span class="bx bm">Regulatory</span></td>
-       <td>5 jam lalu</td>
-       <td><span class="tri">→ Meningkat</span></td>
-       <td><div style="display:flex;gap:5px;"><button class="btn bo bxs" onclick="showSV('mon','dashboard')">View</button><button class="btn bo bxs" onclick="openMonSettings('p2p')">⚙</button></div></td>
-      </tr>
-      <tr>
-       <td><strong>Hilirisasi Nikel</strong><div style="font-size:11px;color:var(--m);">Regulation / Policy · Weekly brief</div></td>
-       <td><span class="bx bn">Kebijakan</span></td>
-       <td><span class="bx blm">Policy</span></td>
-       <td>Kemarin</td>
-       <td><span class="trs">— Stabil</span></td>
-       <td><div style="display:flex;gap:5px;"><button class="btn bo bxs">View</button><button class="btn bo bxs" onclick="openMonSettings('nikel')">⚙</button></div></td>
-      </tr>
-      <tr>
-       <td><strong>IKN Nusantara</strong><div style="font-size:11px;color:var(--m);">Crisis / Controversy · Daily digest</div></td>
-       <td><span class="bx bn">Proyek</span></td>
-       <td><span class="bx bm">Political, Financial</span></td>
-       <td>2 hari lalu</td>
-       <td><span class="tri">→ Meningkat</span></td>
-       <td><div style="display:flex;gap:5px;"><button class="btn bo bxs">View</button><button class="btn bo bxs" onclick="openMonSettings('ikn')">⚙</button></div></td>
-      </tr>
-     </tbody>
-    </table>
+   <div style="font-size:11.5px;color:var(--m);margin-bottom:10px;">Klik monitor untuk melihat sinyal terbaru, perubahan narasi, dan entitas baru terdeteksi.</div>
+   <div class="mon-card" onclick="showSV('mon','dashboard')">
+    <div class="mon-card-hd">
+     <div>
+      <div class="mon-card-nm">PT Waskita Karya</div>
+      <div class="mon-card-type">Perusahaan · Company Reputation · Daily digest</div>
+     </div>
+     <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
+      <span class="chg-badge chg-worse">↑ Risk worsened</span>
+      <span style="font-size:10.5px;color:var(--m);">2 jam lalu</span>
+     </div>
+    </div>
+    <div class="mon-card-body">
+     <div class="mon-card-row"><span class="chg-badge chg-new">🆕 New since last viewed</span><span>3 artikel baru · Legal, Financial</span></div>
+     <div class="mon-card-row"><span class="chg-badge chg-shift">↕ Narrative shifted</span><span>Framing berubah dari "restrukturisasi" ke "default risk"</span></div>
+     <div class="mon-card-row" style="color:var(--m);font-size:11px;">Sinyal aktif: Financial Distress, Legal/Korupsi · Alert dipicu oleh: negative coverage spike</div>
+    </div>
+    <div style="display:flex;gap:5px;margin-top:8px;"><button class="btn bo bxs" onclick="showSV('mon','dashboard');event.stopPropagation()">Lihat Detail</button><button class="btn bo bxs" onclick="openMonSettings('waskita');event.stopPropagation()">⚙ Settings</button></div>
    </div>
-   <div style="background:var(--bg);border:2px dashed var(--b2);border-radius:10px;padding:20px;text-align:center;cursor:pointer;" onclick="startMonitoring('')">
+   <div class="mon-card">
+    <div class="mon-card-hd">
+     <div>
+      <div class="mon-card-nm">Pinjol P2P Lending</div>
+      <div class="mon-card-type">Sektor · Industry Issue · Daily digest</div>
+     </div>
+     <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
+      <span class="chg-badge chg-shift">↕ Narrative shifted</span>
+      <span style="font-size:10.5px;color:var(--m);">5 jam lalu</span>
+     </div>
+    </div>
+    <div class="mon-card-body">
+     <div class="mon-card-row"><span class="chg-badge chg-new">🆕 New since last viewed</span><span>2 artikel baru · OJK Enforcement</span></div>
+     <div class="mon-card-row"><span class="chg-badge chg-entity">🔗 New entity detected</span><span>Asosiasi Fintech Indonesia muncul dalam konteks baru</span></div>
+     <div class="mon-card-row" style="color:var(--m);font-size:11px;">Alert dipicu oleh: regulatory mention · OJK enforcement action terdeteksi</div>
+    </div>
+    <div style="display:flex;gap:5px;margin-top:8px;"><button class="btn bo bxs">Lihat Detail</button><button class="btn bo bxs" onclick="openMonSettings('p2p');event.stopPropagation()">⚙ Settings</button></div>
+   </div>
+   <div class="mon-card">
+    <div class="mon-card-hd">
+     <div>
+      <div class="mon-card-nm">Hilirisasi Nikel</div>
+      <div class="mon-card-type">Kebijakan · Regulation / Policy · Weekly brief</div>
+     </div>
+     <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
+      <span class="chg-badge chg-stable">— Risk stable</span>
+      <span style="font-size:10.5px;color:var(--m);">Kemarin</span>
+     </div>
+    </div>
+    <div class="mon-card-body">
+     <div class="mon-card-row"><span class="chg-badge chg-stable">✓ Tidak ada perubahan signifikan</span><span>Narasi konsisten dengan minggu lalu</span></div>
+     <div class="mon-card-row" style="color:var(--m);font-size:11px;">Sinyal aktif: Policy · WTO ruling update sudah dipantau · tidak ada eskalasi baru</div>
+    </div>
+    <div style="display:flex;gap:5px;margin-top:8px;"><button class="btn bo bxs">Lihat Detail</button><button class="btn bo bxs" onclick="openMonSettings('nikel');event.stopPropagation()">⚙ Settings</button></div>
+   </div>
+   <div class="mon-card">
+    <div class="mon-card-hd">
+     <div>
+      <div class="mon-card-nm">IKN Nusantara</div>
+      <div class="mon-card-type">Proyek · Crisis / Controversy · Daily digest</div>
+     </div>
+     <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
+      <span class="chg-badge chg-shift">→ Meningkat</span>
+      <span style="font-size:10.5px;color:var(--m);">2 hari lalu</span>
+     </div>
+    </div>
+    <div class="mon-card-body">
+     <div class="mon-card-row"><span class="chg-badge chg-new">🆕 New since last viewed</span><span>1 artikel baru · Investor sentiment</span></div>
+     <div class="mon-card-row" style="color:var(--m);font-size:11px;">Sinyal aktif: Political, Financial · Alert dipicu oleh: negative sentiment spike</div>
+    </div>
+    <div style="display:flex;gap:5px;margin-top:8px;"><button class="btn bo bxs">Lihat Detail</button><button class="btn bo bxs" onclick="openMonSettings('ikn');event.stopPropagation()">⚙ Settings</button></div>
+   </div>
+   <div style="background:var(--bg);border:2px dashed var(--b2);border-radius:10px;padding:20px;text-align:center;cursor:pointer;margin-top:8px;" onclick="startMonitoring('')">
     <div style="font-size:20px;margin-bottom:6px;">📡</div>
     <div style="font-size:13px;font-weight:600;color:var(--n);">Start Monitoring entitas baru</div>
     <div style="font-size:12px;color:var(--m);margin-top:4px;">Lacak perusahaan, topik industri, regulasi, atau isu secara aktif.</div>
@@ -1242,8 +1479,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
     <div class="alert-left"><div class="alert-dot" style="background:var(--r);"></div></div>
     <div class="alert-body">
      <div class="alert-ttl">PT Waskita Karya — Legal Development</div>
-     <div class="alert-sub">Monitor: PT Waskita Karya · Sinyal: New legal/corruption mention</div>
-     <div class="alert-meta">Tempo.co · Financial & Legal · High · <strong>2 jam lalu</strong></div>
+     <div class="alert-sub">Monitor: PT Waskita Karya · Dipicu oleh: <strong>legal/corruption mention</strong></div>
+     <div class="alert-meta" style="display:flex;align-items:center;gap:6px;">Tempo.co · <span class="chg-badge chg-worse">↑ Risk worsened</span> · <strong>2 jam lalu</strong></div>
     </div>
     <button class="bev" style="flex-shrink:0;" onclick="showSV('mon','dashboard');event.stopPropagation()">Lihat →</button>
    </div>
@@ -1251,8 +1488,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
     <div class="alert-left"><div class="alert-dot" style="background:var(--r);"></div></div>
     <div class="alert-body">
      <div class="alert-ttl">Pinjol P2P — OJK Enforcement Action</div>
-     <div class="alert-sub">Monitor: Pinjol P2P Lending · Sinyal: Coverage volume spike</div>
-     <div class="alert-meta">Tempo.co · Regulatory · High · <strong>5 jam lalu</strong></div>
+     <div class="alert-sub">Monitor: Pinjol P2P Lending · Dipicu oleh: <strong>coverage volume spike</strong></div>
+     <div class="alert-meta" style="display:flex;align-items:center;gap:6px;">Tempo.co · <span class="chg-badge chg-shift">↕ Narrative shifted</span> · <strong>5 jam lalu</strong></div>
     </div>
     <button class="bev" style="flex-shrink:0;">Lihat →</button>
    </div>
@@ -1260,8 +1497,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
     <div class="alert-left"><div class="alert-dot" style="background:var(--am);"></div></div>
     <div class="alert-body">
      <div class="alert-ttl">Hilirisasi Nikel — WTO Ruling Update</div>
-     <div class="alert-sub">Monitor: Hilirisasi Nikel · Sinyal: Narrative shift detected</div>
-     <div class="alert-meta">Koran Tempo · Policy · Medium · <strong>Kemarin</strong></div>
+     <div class="alert-sub">Monitor: Hilirisasi Nikel · Dipicu oleh: <strong>narrative shift detected</strong></div>
+     <div class="alert-meta" style="display:flex;align-items:center;gap:6px;">Koran Tempo · <span class="chg-badge chg-stable">— Risk stable</span> · <strong>Kemarin</strong></div>
     </div>
     <button class="bev" style="flex-shrink:0;">Lihat →</button>
    </div>
@@ -1269,8 +1506,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
     <div class="alert-left"><div class="alert-dot" style="background:var(--am);"></div></div>
     <div class="alert-body">
      <div class="alert-ttl">IKN Nusantara — Investor Sentiment Drop</div>
-     <div class="alert-sub">Monitor: IKN Nusantara · Sinyal: Negative sentiment spike</div>
-     <div class="alert-meta">Majalah Tempo · Political · Medium · <strong>2 hari lalu</strong></div>
+     <div class="alert-sub">Monitor: IKN Nusantara · Dipicu oleh: <strong>negative sentiment spike</strong></div>
+     <div class="alert-meta" style="display:flex;align-items:center;gap:6px;">Majalah Tempo · <span class="chg-badge chg-shift">→ Meningkat</span> · <strong>2 hari lalu</strong></div>
     </div>
     <button class="bev" style="flex-shrink:0;">Lihat →</button>
    </div>
@@ -1328,7 +1565,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
   </div>
  </div>
  <!-- Start New Monitor Wizard -->
- <div class="sv" id="mon-wizard">
+ <div class="sv" id="mon-wizard"><div class="mod-desc">📡 <strong>Start New Monitor</strong> — Setelah memahami atau menilai risiko suatu entitas, aktifkan monitoring untuk melacak apa yang berubah dari waktu ke waktu.</div>
   <div class="sh m14"><div><div class="ttl">Start New Monitor</div><div style="font-size:13px;color:var(--m);">Lacak entitas atau isu secara aktif dan atur alert rules.</div></div></div>
   <div style="max-width:700px;margin:0 auto;">
    <div class="stepper" id="mon-st"><div class="si on" id="msi1"><div class="sc">1</div><div class="sl">Objective</div></div><div class="si" id="msi2"><div class="sc">2</div><div class="sl">Entitas</div></div><div class="si" id="msi3"><div class="sc">3</div><div class="sl">Signals</div></div><div class="si" id="msi4"><div class="sc">4</div><div class="sl">Alert Rules</div></div><div class="si" id="msi5"><div class="sc">5</div><div class="sl">Konfirmasi</div></div></div>
@@ -1491,7 +1728,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
 <div class="pg" id="page-rep">
 
  <!-- HOME: report list -->
- <div class="sv on" id="rep-home">
+ <div class="sv on" id="rep-home"><div class="mod-desc">📋 <strong>Generated Reports</strong> — Ubah analisis menjadi dokumen siap-share untuk stakeholder. Pilih template sesuai audiens, ekspor ke PDF, atau bagikan via link. Bukan modul analisis — ini <em>output layer</em>.</div>
   <div class="sh m14">
    <div>
     <div class="ttl">Generated Reports</div>
@@ -1766,7 +2003,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
  <div class="ask-hst">
   <div class="ask-hd"><div class="ask-ht">Conversations</div><button class="ask-new" onclick="newChat()">+</button></div>
   <div class="hist-l">
-   <div class="hi on" onclick="loadC(1)"><div class="hi-t">Risiko utama Waskita Karya</div><div class="hi-d">Today · Partnership risk</div></div>
+   <div class="hi on" onclick="loadC(1)"><div class="hi-t">Siapa PT Waskita Karya?</div><div class="hi-d">Today · Entity exploration</div></div>
    <div class="hi" onclick="loadC(2)"><div class="hi-t">Regulasi OJK fintech terbaru</div><div class="hi-d">Yesterday</div></div>
    <div class="hi" onclick="loadC(3)"><div class="hi-t">Hilirisasi nikel Indonesia</div><div class="hi-d">Apr 28</div></div>
    <div class="hi" onclick="loadC(4)"><div class="hi-t">IKN — sentimen investor</div><div class="hi-d">Apr 20</div></div>
@@ -1775,15 +2012,15 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
  <div class="ask-main">
   <div class="chat-win" id="chat-win">
    <div class="ce" id="chat-empty">
-    <div class="ce-av">TI</div>
-    <div class="ce-ttl">Selamat datang di Tempo Intelligence</div>
-    <div class="ce-sub">Tanyakan apa saja tentang perusahaan, tokoh, industri, regulasi, atau isu bisnis Indonesia — dijawab dari arsip Tempo dengan source citation.</div>
+    <div class="ce-av">AT</div>
+    <div class="ce-ttl">Ask Tempo</div>
+    <div class="ce-sub">Tanya cepat tentang entitas, regulasi, industri, atau isu bisnis Indonesia — dijawab dari 847K+ arsip Tempo dengan kutipan sumber. Untuk pemahaman mendalam, gunakan Profile Screening. Untuk penilaian risiko, gunakan Risk Intelligence.</div>
     <div class="ce-tp-g">
-     <div class="ce-tp" onclick="askT('Apa risiko utama PT Waskita Karya untuk partnership?')">Risiko Waskita Karya</div>
-     <div class="ce-tp" onclick="askT('Perkembangan regulasi OJK fintech P2P lending')">Regulasi OJK Fintech</div>
-     <div class="ce-tp" onclick="askT('Analisis isu hilirisasi nikel Indonesia')">Hilirisasi Nikel</div>
-     <div class="ce-tp" onclick="askT('Sentimen investor terhadap IKN Nusantara')">IKN Nusantara</div>
-     <div class="ce-tp" onclick="askT('Red flag BUMN karya dari arsip Tempo')">Red Flag BUMN Karya</div>
+     <div class="ce-tp" onclick="askT('Siapa PT Waskita Karya dan apa latar belakang bisnisnya?')">👤 Siapa PT Waskita Karya?</div>
+     <div class="ce-tp" onclick="askT('Apa yang terjadi dengan kasus KPK dan Waskita Karya?')">⚖️ Kasus KPK Waskita</div>
+     <div class="ce-tp" onclick="askT('Apa regulasi OJK terbaru untuk fintech P2P lending?')">📋 Regulasi OJK Fintech</div>
+     <div class="ce-tp" onclick="askT('Apa isu utama hilirisasi nikel Indonesia?')">⛏️ Hilirisasi Nikel</div>
+     <div class="ce-tp" onclick="askT('Siapa Aguan dan apa kontroversinya?')">👤 Siapa Aguan?</div>
     </div>
    </div>
    <div id="chat-msgs" style="display:none;flex-direction:column;gap:13px;"></div>
@@ -1887,6 +2124,36 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
    </ul>
   </div>
  </div>
+ <!-- Row 2: entity profile + monitoring digest -->
+ <div class="tpl-grid" style="margin-top:10px;">
+  <div class="tpl-card" onclick="selTpl(this,'entity-profile')" id="tpl-entity-profile">
+   <div class="tpl-icon">👤</div>
+   <div class="tpl-name">Entity Profile Report</div>
+   <div class="tpl-for">Untuk: Research, Background Check</div>
+   <div class="tpl-desc">Laporan profil entitas komprehensif — siapa mereka, relasi, jejak media, dan issue clusters. Tanpa decision verdict.</div>
+   <ul class="tpl-items">
+    <li>Profil bisnis & background</li>
+    <li>Relasi entitas kunci</li>
+    <li>Issue clusters & media footprint</li>
+    <li>Historical media timeline</li>
+    <li>Risk Signal Snapshot (bukan scoring)</li>
+   </ul>
+  </div>
+  <div class="tpl-card" onclick="selTpl(this,'mon-digest')" id="tpl-mon-digest">
+   <div class="tpl-icon">📡</div>
+   <div class="tpl-name">Monitoring Digest</div>
+   <div class="tpl-for">Untuk: Weekly briefing, Team update</div>
+   <div class="tpl-desc">Ringkasan perkembangan dari monitor aktif — apa yang berubah, sinyal baru, dan alert yang terpicu dalam periode tertentu.</div>
+   <ul class="tpl-items">
+    <li>Ringkasan per monitor aktif</li>
+    <li>Sinyal baru terdeteksi</li>
+    <li>Perubahan narasi signifikan</li>
+    <li>Alert yang terpicu</li>
+    <li>Entitas baru terdeteksi</li>
+   </ul>
+  </div>
+  <div></div>
+ </div>
  <div style="background:var(--bg);border-radius:7px;padding:10px 13px;font-size:12.5px;color:var(--m);">
   ℹ️ Report digenerate dari analisis yang sudah selesai — bukan sekadar disimpan. Hasilnya dokumen baru yang bisa diekspor ke PDF/Word dan dibagikan via link ke siapa saja.
  </div>
@@ -1942,7 +2209,7 @@ const svMeta = {
   dd:  { result:'Hasil Screening', wizard:'Screening Baru', loading:null },
   ps:  { result:'Profil Entitas', search:null },
   mon: { dashboard:'Detail Monitor', wizard:'Start New Monitor', loading:null, workspace:null },
-  rep: { 'exec-brief':'Executive Brief', 'full-report':'Full Screening Report', 'risk-summary':'Risk Summary', home:null }
+  rep: { 'exec-brief':'Executive Brief', 'full-report':'Full Screening Report', 'risk-summary':'Risk Summary', 'entity-profile':'Entity Profile Report', 'mon-digest':'Monitoring Digest', home:null }
 };
 // Default subview to restore when navigating back to a page from breadcrumb
 const svDefault = { dd:'home', ps:'search', mon:'workspace', rep:'home' };
@@ -2930,7 +3197,7 @@ function selTpl(el, tpl){
 }
 function doGenReport(){
   closeM('gen-rep-ov');
-  const names = {'exec-brief':'Executive Brief','full-report':'Full Screening Report','risk-summary':'Risk Summary'};
+  const names = {'exec-brief':'Executive Brief','full-report':'Full Screening Report','risk-summary':'Risk Summary','entity-profile':'Entity Profile Report','mon-digest':'Monitoring Digest'};
   const label = document.getElementById('gen-progress-label');
   const bar = document.getElementById('gen-progress-bar');
   const prog = document.getElementById('gen-rep-progress');
@@ -2996,54 +3263,79 @@ function openShareModal(){
 let chatOn=false;
 // Richer AI conversation responses
 const aiResp={
+'Siapa PT Waskita Karya dan apa latar belakang bisnisnya?':{
+  main:'PT Waskita Karya Tbk adalah <strong>BUMN konstruksi Indonesia</strong> yang berdiri sejak 1961, terdaftar di BEI (IDX: WSKT). Perusahaan ini mengerjakan infrastruktur berskala nasional — jalan tol, jembatan, gedung, dan kawasan — dengan Kementerian BUMN sebagai pemegang saham mayoritas (60.5%).',
+  fi:['Berdiri 1961 · Listed di BEI sebagai WSKT · ~40.000 karyawan · Berbasis di Jakarta.','Anak usaha utama: Waskita Beton Precast (WSBP, listed) dan Waskita Karya Realty.','Dikenal sebagai salah satu kontraktor terbesar yang mengerjakan proyek Tol Trans-Jawa dan proyek IKN Nusantara.','Per 2024–2025, sedang dalam proses restrukturisasi utang dan pergantian manajemen. Termasuk anggota BUMN Karya Group bersama WIKA, PTPP, dan Adhi Karya.'],
+  srcs:['SRC-001 · Tempo.co · Apr 2025 · Profil perusahaan','SRC-005 · Majalah Tempo · 2024 · Governance & Ownership','SRC-010 · Koran Tempo · 2023 · BUMN Karya comparison'],
+  conf:'Tinggi — Data perusahaan bersumber dari 42 artikel Tempo 2018–2025. Untuk pemahaman relasi entitas dan jejak media lengkap, gunakan Profile Screening.',
+  fu:['Apa anak perusahaan Waskita Karya?','Siapa saja yang pernah menjadi direksi Waskita?','Proyek besar apa yang dikerjakan Waskita?'],
+  next:[{icon:'👤',label:'Lihat Profil Lengkap',action:"P('ps');showSV('ps','result')"},{icon:'🔍',label:'Jalankan Risk Screening',action:"P('dd');showSV('dd','wizard')"},{icon:'📡',label:'Start Monitoring',action:"startMonitoring('PT Waskita Karya')"},{icon:'📋',label:'Generate Brief',action:"saveRep('PT Waskita Karya · Ask Tempo')"}]
+},
 'Apa risiko utama PT Waskita Karya untuk partnership?':{
-  main:'Berdasarkan <strong>42 sumber Tempo (2018–2025)</strong>, PT Waskita Karya menunjukkan <strong>risiko tinggi (78/100)</strong> untuk partnership — meningkat dari skor 48 di 2019 akibat akumulasi tiga krisis sekaligus.',
-  fi:['<strong>Financial Distress (85/100):</strong> Utang Rp 84 triliun dalam proses restrukturisasi, obligasi hampir default 2024. D/E ratio mencapai level tertinggi dalam histori perusahaan.','<strong>Legal/Korupsi (82/100):</strong> 2 mantan direktur divonis 6–8 tahun. KPK masih aktif menyelidiki 3 proyek fiktif senilai Rp 2,1 triliun. Risiko belum selesai.','<strong>Media Narrative (76/100):</strong> 76% pemberitaan 2023–2025 bersentimen negatif. Narrative shift signifikan dari "BUMN ekspansi" ke "BUMN krisis".','<strong>Governance (63/100):</strong> Pergantian manajemen 3 kali dalam 3 tahun menunjukkan ketidakstabilan kepemimpinan di saat dibutuhkan paling stabil.'],
-  tl:[['2018','Ekspansi agresif, debt exposure naik'],['2020','Cash flow tekanan, pandemi memperburuk'],['2021','KPK mulai selidiki proyek fiktif — legal risk naik'],['2023','Vonis eks-direksi — risk score melesat ke 78'],['2025','Restrukturisasi kritis + pemberitaan puncak negatif']],
-  srcs:['SRC-001 · Tempo.co · Apr 2025','SRC-002 · Majalah Tempo · Des 2023','SRC-003 · Tempo.co · Jul 2023','SRC-004 · Majalah Tempo · Sep 2022','+38 sumber lainnya'],
-  fu:['Status restrukturisasi utang terkini?','Proyek fiktif apa yang diselidiki KPK?','Bandingkan dengan WIKA, PTPP, Adhi Karya','Mitigasi kontrak apa yang disarankan?']
+  main:'Berdasarkan <strong>42 sumber Tempo (2018–2025)</strong>, ada tiga risiko utama yang secara langsung mempengaruhi keputusan partnership dengan Waskita Karya. Untuk penilaian risiko formal dengan decision verdict, gunakan <strong>Risk Intelligence</strong>.',
+  fi:['<strong>Utang Rp 84 triliun</strong> dalam proses restrukturisasi yang belum tuntas — kemampuan bayar kewajiban kepada mitra dipertanyakan.','<strong>2 mantan direktur divonis korupsi</strong> (KPK masih aktif menyelidiki 3 proyek fiktif senilai Rp 2,1T) — risiko asosiasi reputasi nyata.','<strong>76% pemberitaan negatif</strong> 2023–2025 — citra publik berubah dari "BUMN ekspansif" ke "BUMN krisis".','Pergantian manajemen 3x dalam 3 tahun — sinyal ketidakstabilan governance di tengah krisis.'],
+  srcs:['SRC-001 · Tempo.co · Apr 2025','SRC-002 · Majalah Tempo · Des 2023','SRC-003 · Tempo.co · Jul 2023','+38 sumber lainnya'],
+  conf:'Tinggi — Didukung 42 artikel Tempo. Ini adalah sinyal awal dari arsip media, bukan penilaian keputusan bisnis final.',
+  fu:['Status restrukturisasi utang terkini?','Proyek fiktif apa yang diselidiki KPK?','Bandingkan dengan WIKA, PTPP, Adhi Karya'],
+  next:[{icon:'🔍',label:'Jalankan Risk Intelligence →',action:"P('dd');showSV('dd','wizard')"},{icon:'👤',label:'Lihat Profil Entitas',action:"P('ps');showSV('ps','result')"},{icon:'📡',label:'Start Monitoring',action:"startMonitoring('PT Waskita Karya')"},{icon:'📋',label:'Generate Brief',action:"saveRep('PT Waskita Karya · Ask Tempo')"}]
 },
 'Status restrukturisasi utang terkini?':{
   main:'Berdasarkan pemberitaan Tempo terbaru (Apr 2025), restrukturisasi utang Waskita Karya berada di <strong>tahap kritis</strong> dengan tenggat negosiasi yang berulang kali diperpanjang.',
-  fi:['Total utang Rp 84 triliun, termasuk obligasi senilai Rp 26 triliun yang jadwal pembayarannya terus direschedule.','Per April 2025, Kementerian BUMN memberikan "dukungan penuh" namun belum ada kepastian injeksi modal.','3 kreditur utama (BRI, Mandiri, BTN) sedang negosiasi ulang syarat-syarat restrukturisasi.','Jika gagal diselesaikan Q2 2025, risiko cross-default pada instrumen utang lainnya meningkat signifikan.'],
-  tl:[['2021','Awal negosiasi restrukturisasi'],['2022','Perpanjangan pertama — kondisi belum pulih'],['2024','Tenggat baru ditetapkan Desember 2024'],['Q1 2025','Perpanjangan lagi — negosiasi masih berjalan']],
+  fi:['Total utang Rp 84 triliun — obligasi senilai Rp 26 triliun jadwal pembayarannya terus direschedule.','Per April 2025, Kementerian BUMN memberikan "dukungan penuh" namun belum ada kepastian injeksi modal.','3 kreditur utama (BRI, Mandiri, BTN) masih negosiasi ulang syarat restrukturisasi.','Jika gagal diselesaikan Q2 2025, risiko cross-default pada instrumen utang lainnya meningkat signifikan.'],
   srcs:['SRC-001 · Tempo.co · Apr 12, 2025','SRC-012 · Koran Tempo · Mar 2025','SRC-015 · Majalah Tempo · Feb 2025'],
-  fu:['Siapa saja kreditur utama Waskita?','Bagaimana dampaknya pada proyek yang sedang berjalan?','Apa risiko bagi subkontraktor?']
+  conf:'Sedang-Tinggi — Per tanggal prototype (Mei 2025). Status aktual mungkin telah berkembang. Verifikasi langsung dari laporan keuangan audited WSKT.',
+  fu:['Siapa saja kreditur utama Waskita?','Dampak ke proyek yang sedang berjalan?','Risiko bagi subkontraktor?'],
+  next:[{icon:'🔍',label:'Jalankan Risk Intelligence',action:"P('dd');showSV('dd','wizard')"},{icon:'📡',label:'Monitor Perkembangan',action:"startMonitoring('PT Waskita Karya')"},{icon:'📋',label:'Generate Report',action:"saveRep('PT Waskita Karya · Ask Tempo')"}]
 },
 'Bandingkan dengan WIKA, PTPP, Adhi Karya':{
-  main:'Dari 4 BUMN Karya yang ada di arsip Tempo, Waskita memiliki <strong>profil risiko paling tinggi</strong> dengan selisih signifikan, terutama di dimensi Legal dan Financial.',
-  fi:['<strong>PT Waskita Karya (78/100 — HIGH):</strong> Legal 82, Financial 85 — satu-satunya BUMN Karya dengan vonis korupsi aktif.','<strong>PT Wijaya Karya (61/100 — MED):</strong> Legal 55, Financial 58 — masalah keuangan ada tapi tidak seberat Waskita. Belum ada vonis korupsi.','<strong>PT PP (55/100 — MED):</strong> Legal 38, Financial 52 — lebih bersih dari sisi legal. Coverage negatif lebih terbatas.','<strong>Adhi Karya (52/100 — MED):</strong> Legal 35, Financial 50 — profil risiko paling rendah dari keempat BUMN Karya.'],
-  tl:[],
+  main:'Dari 4 BUMN Karya di arsip Tempo, Waskita memiliki <strong>sinyal risiko tertinggi</strong> — terutama di Legal dan Financial. Ini adalah perbandingan sinyal media, bukan risk assessment formal.',
+  fi:['<strong>PT Waskita Karya:</strong> Legal & korupsi aktif, utang terbesar, governance tidak stabil — sinyal paling berat.','<strong>PT Wijaya Karya (WIKA):</strong> Masalah keuangan ada tapi tidak seberat Waskita. Belum ada vonis korupsi.','<strong>PT PP:</strong> Coverage negatif lebih terbatas. Sisi legal relatif lebih bersih dari arsip media.','<strong>Adhi Karya:</strong> Profil media paling ringan dari keempat BUMN Karya — coverage lebih terbatas dan lebih netral.'],
   srcs:['SRC-020 · Majalah Tempo · Mar 2025','SRC-021 · Tempo.co · Feb 2025','SRC-022 · Koran Tempo · Jan 2025'],
-  fu:['Apakah Adhi Karya alternatif yang lebih aman?','Bagaimana perbandingan track record delivery proyek?','Risiko BUMN Karya group secara keseluruhan?']
+  conf:'Sedang — Perbandingan ini berbasis volume dan sentimen pemberitaan, bukan audit keuangan formal. Gunakan Risk Intelligence untuk formal scoring per entitas.',
+  fu:['Apakah Adhi Karya alternatif yang lebih aman?','Track record delivery proyek BUMN Karya?','Risiko BUMN Karya group secara sistemik?'],
+  next:[{icon:'🔍',label:'Risk Screening WIKA',action:"P('dd');showSV('dd','wizard')"},{icon:'👤',label:'Profil Adhi Karya',action:"P('ps');showSV('ps','search')"},{icon:'📋',label:'Buat Laporan Perbandingan',action:"saveRep('BUMN Karya Comparison · Ask Tempo')"}]
 },
-'Perkembangan terbaru regulasi OJK fintech P2P':{
+'Apa regulasi OJK terbaru untuk fintech P2P lending?':{
   main:'Berdasarkan arsip Tempo (2023–2025), OJK telah memperketat regulasi fintech P2P lending secara signifikan — dari pendekatan <strong>"regulatory sandbox"</strong> ke <strong>enforcement aktif</strong>.',
-  fi:['POJK 10/2022 mewajibkan ekuitas minimum Rp 25 miliar — 47 platform tidak memenuhi dan dicabut izinnya per 2024.','OJK mewajibkan sistem manajemen risiko kredit terintegrasi dan pelaporan real-time sejak Q1 2025.','Fintech P2P kini tunduk pada aturan anti-pencucian uang yang setara dengan bank — AML/CFT framework penuh.','Batas suku bunga efektif tahunan (EIR) diturunkan: pinjaman produktif maks 24%, konsumtif maks 36%.'],
-  tl:[['2022','POJK 10/2022 diterbitkan — era regulatory tightening'],['2023','OJK cabut izin 47 platform nakal'],['2024','Enforcement AML/CFT mulai aktif'],['2025','Laporan real-time diwajibkan']],
+  fi:['POJK 10/2022 mewajibkan ekuitas minimum Rp 25 miliar — 47 platform tidak memenuhi dan dicabut izinnya per 2024.','OJK mewajibkan sistem manajemen risiko kredit terintegrasi dan pelaporan real-time sejak Q1 2025.','Fintech P2P kini tunduk pada aturan AML/CFT framework penuh — setara bank.','Batas suku bunga EIR: pinjaman produktif maks 24%, konsumtif maks 36%.'],
   srcs:['SRC-R01 · Tempo.co · Mar 2025','SRC-R02 · Majalah Tempo · Nov 2024','SRC-R03 · Koran Tempo · Jun 2024'],
-  fu:['Platform P2P mana yang paling terdampak?','Bagaimana OJK mengawasi pinjaman lintas batas?','Risiko bagi investor P2P retail?']
+  conf:'Tinggi — Dikonfirmasi dari beberapa sumber Tempo 2022–2025.',
+  fu:['Platform P2P mana yang paling terdampak?','Bagaimana OJK mengawasi pinjaman lintas batas?','Risiko bagi investor P2P retail?'],
+  next:[{icon:'📡',label:'Monitor Regulasi OJK',action:"startMonitoring('OJK Fintech Regulation')"},{icon:'👤',label:'Profil OJK',action:"P('ps');showSV('ps','search')"},{icon:'📋',label:'Generate Brief Regulasi',action:"saveRep('Regulasi OJK Fintech · Ask Tempo')"}]
 }
 };
-const defResp={main:'Berdasarkan arsip Tempo yang tersedia, ini adalah prototype dengan dataset terbatas.',fi:['Pertanyaan Anda dicatat untuk pengembangan produk.','Dalam produk penuh, AI akan menjawab dari 847K+ artikel Tempo dengan kutipan sumber.'],tl:[],srcs:[],fu:['Apa risiko utama Waskita Karya?','Regulasi OJK fintech terbaru?','Bandingkan BUMN Karya?']};
+const defResp={
+  main:'Berdasarkan arsip Tempo yang tersedia, ini adalah prototype dengan dataset terbatas. Pertanyaan Anda dicatat untuk pengembangan produk.',
+  fi:['Dalam produk penuh, Ask Tempo menjawab dari 847K+ artikel Tempo dengan kutipan sumber.','Coba pertanyaan tentang Waskita Karya, OJK fintech, atau BUMN Karya untuk melihat demo lengkap.'],
+  srcs:[],
+  conf:'N/A — Dataset terbatas di prototype ini.',
+  fu:['Siapa PT Waskita Karya?','Apa risiko utama Waskita untuk partnership?','Regulasi OJK fintech terbaru?'],
+  next:[{icon:'👤',label:'Coba Profile Screening',action:"P('ps');showSV('ps','search')"},{icon:'🔍',label:'Coba Risk Intelligence',action:"P('dd');showSV('dd','wizard')"}]
+};
 // Pre-loaded conversation histories
 const chatHistories={
   1:[
+    {role:'u',text:'Siapa PT Waskita Karya dan apa latar belakang bisnisnya?'},
+    {role:'a',key:'Siapa PT Waskita Karya dan apa latar belakang bisnisnya?'},
     {role:'u',text:'Apa risiko utama PT Waskita Karya untuk partnership?'},
     {role:'a',key:'Apa risiko utama PT Waskita Karya untuk partnership?'},
-    {role:'u',text:'Status restrukturisasi utang terkini?'},
-    {role:'a',key:'Status restrukturisasi utang terkini?'},
     {role:'u',text:'Bandingkan dengan WIKA, PTPP, Adhi Karya'},
     {role:'a',key:'Bandingkan dengan WIKA, PTPP, Adhi Karya'}
   ],
   2:[
-    {role:'u',text:'Perkembangan terbaru regulasi OJK fintech P2P'},
-    {role:'a',key:'Perkembangan terbaru regulasi OJK fintech P2P'}
+    {role:'u',text:'Apa regulasi OJK terbaru untuk fintech P2P lending?'},
+    {role:'a',key:'Apa regulasi OJK terbaru untuk fintech P2P lending?'}
   ]
 };
 function askT(q){document.getElementById('ask-f').value=q;sendAsk();}
 function newChat(){chatOn=false;document.getElementById('chat-empty').style.display='flex';document.getElementById('chat-msgs').style.display='none';document.getElementById('chat-msgs').innerHTML='';document.getElementById('ask-f').value='';document.querySelectorAll('.hi').forEach(h=>h.classList.remove('on'));}
-function buildAResp(r){const tl=r.tl&&r.tl.length?`<div class="ai-sh">Timeline Kunci</div>${r.tl.map(t=>`<div class="ai-fi"><div style="font-weight:700;color:var(--n);min-width:34px;">${t[0]}</div><span>${t[1]}</span></div>`).join('')}`:'';const srcs=r.srcs&&r.srcs.length?`<div class="ai-sh">Sumber dari Arsip Tempo</div><div class="ai-src">${r.srcs.map(s=>`<div class="ai-s">${s}</div>`).join('')}</div>`:'';return `<div class="ai-lbl">Tempo Intelligence — Analisis berbasis sumber</div><div class="ai-d">${r.main}</div><div class="ai-sh">Temuan Utama</div>${r.fi.map(f=>`<div class="ai-fi">${f}</div>`).join('')}${tl}${srcs}<div style="display:inline-flex;align-items:center;gap:5px;background:var(--grl);border-radius:4px;padding:4px 8px;font-size:11px;color:var(--gr);font-weight:600;margin-top:8px;">✓ Kepercayaan Tinggi · Arsip Tempo</div><div style="font-size:11px;background:var(--gl);border-radius:4px;padding:5px 8px;margin-top:7px;line-height:1.4;color:var(--g);">⚠️ Berbasis sumber Tempo. Tidak menggantikan due diligence formal.</div><div class="fu-chips">${r.fu.map(f=>`<div class="fu" onclick="document.getElementById('ask-f').value='${f.replace(/'/g,"\\'")}';sendAsk()">${f}</div>`).join('')}</div>`;}
+function buildAResp(r){
+  const srcs=r.srcs&&r.srcs.length?`<div class="ai-sh">📎 Sumber dari Arsip Tempo</div><div class="ai-src">${r.srcs.map(s=>`<div class="ai-s">${s}</div>`).join('')}</div>`:'';
+  const confBadge=r.conf?`<div style="display:inline-flex;align-items:center;gap:5px;background:var(--grl);border-radius:4px;padding:4px 8px;font-size:11px;color:var(--gr);font-weight:600;margin-top:8px;">✓ Kepercayaan: ${r.conf.split(' — ')[0]}</div><div style="font-size:11px;color:var(--m);padding:5px 8px;background:var(--bg);border-radius:4px;margin-top:5px;line-height:1.5;">${r.conf}</div>`:'';
+  const nextActs=r.next&&r.next.length?`<div class="ask-next"><div class="ask-next-lbl">Langkah selanjutnya</div>${r.next.map(n=>`<button class="ask-nxt-btn" onclick="${n.action}">${n.icon} ${n.label}</button>`).join('')}</div>`:'';
+  const fuChips=r.fu&&r.fu.length?`<div class="fu-chips">${r.fu.map(f=>`<div class="fu" onclick="document.getElementById('ask-f').value='${f.replace(/'/g,"\\'")}';sendAsk()">${f}</div>`).join('')}</div>`:'';
+  return `<div class="ai-lbl">Ask Tempo — Jawaban dari arsip Tempo</div><div class="ai-d">${r.main}</div><div class="ai-sh">💡 Poin Utama</div>${r.fi.map(f=>`<div class="ai-fi">${f}</div>`).join('')}${srcs}${confBadge}<div style="font-size:11px;background:var(--aml);border-radius:4px;padding:5px 8px;margin-top:7px;line-height:1.4;color:var(--am);">⚠️ Berbasis arsip media Tempo. Tidak menggantikan due diligence, riset lapangan, atau analisis hukum formal.</div>${nextActs}${fuChips}`;
+}
 function loadC(n){
   document.querySelectorAll('.hi').forEach(h=>h.classList.remove('on'));
   const allHi=document.querySelectorAll('.hi');
@@ -3057,11 +3349,11 @@ function loadC(n){
   msgs.innerHTML='';
   hist.forEach(msg=>{
     if(msg.role==='u'){msgs.innerHTML+=`<div class="mu"><div class="mu-b">${msg.text}</div></div>`;}
-    else{const r=aiResp[msg.key]||defResp;msgs.innerHTML+=`<div class="ma"><div class="ma-av">TI</div><div class="ma-b">${buildAResp(r)}</div></div>`;}
+    else{const r=aiResp[msg.key]||defResp;msgs.innerHTML+=`<div class="ma"><div class="ma-av">AT</div><div class="ma-b">${buildAResp(r)}</div></div>`;}
   });
   scrollC();
 }
-function sendAsk(){const f=document.getElementById('ask-f');const q=f.value.trim();if(!q)return;f.value='';if(!chatOn){chatOn=true;document.getElementById('chat-empty').style.display='none';document.getElementById('chat-msgs').style.display='flex';}const msgs=document.getElementById('chat-msgs');msgs.innerHTML+=`<div class="mu"><div class="mu-b">${q}</div></div>`;scrollC();const tid='t'+Date.now();msgs.innerHTML+=`<div class="ma" id="${tid}"><div class="ma-av">TI</div><div class="ma-b"><div class="tkg"><div class="tdk"></div><div class="tdk"></div><div class="tdk"></div></div></div></div>`;scrollC();setTimeout(()=>{const r=aiResp[q]||defResp;const el=document.getElementById(tid);if(el)el.querySelector('.ma-b').innerHTML=buildAResp(r);scrollC();},1600);}
+function sendAsk(){const f=document.getElementById('ask-f');const q=f.value.trim();if(!q)return;f.value='';if(!chatOn){chatOn=true;document.getElementById('chat-empty').style.display='none';document.getElementById('chat-msgs').style.display='flex';}const msgs=document.getElementById('chat-msgs');msgs.innerHTML+=`<div class="mu"><div class="mu-b">${q}</div></div>`;scrollC();const tid='t'+Date.now();msgs.innerHTML+=`<div class="ma" id="${tid}"><div class="ma-av">AT</div><div class="ma-b"><div class="tkg"><div class="tdk"></div><div class="tdk"></div><div class="tdk"></div></div></div></div>`;scrollC();setTimeout(()=>{const r=aiResp[q]||defResp;const el=document.getElementById(tid);if(el)el.querySelector('.ma-b').innerHTML=buildAResp(r);scrollC();},1600);}
 function scrollC(){const w=document.getElementById('chat-win');w.scrollTop=w.scrollHeight;}
 document.addEventListener('keydown',e=>{const f=document.getElementById('ask-f');if(f&&document.activeElement===f&&e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendAsk();}const af=document.getElementById('aip-f');if(af&&document.activeElement===af&&e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendAIPmsg(af.value);}});
 // init
