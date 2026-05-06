@@ -1429,6 +1429,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
     </div>
    </div>
   </div>
+ </div><!-- end ddw -->
+</div><!-- end page-dd -->
 
 <!-- PROFILE SCREENING -->
 <div class="pg" id="page-ps">
@@ -2237,11 +2239,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
  </div>
 
  <!-- SUBVIEW: Executive Brief -->
+
+ <!-- SUBVIEW: Executive Brief -->
  <div class="sv" id="rep-exec-brief">
   <div class="sh m14">
    <div><div class="ttl">Executive Brief</div><div style="font-size:12px;color:var(--m);">PT Waskita Karya · Risk Intelligence Screening · 5 Mei 2025</div></div>
    <div class="flex g6">
-    
     <button class="btn bo bsm" onclick="openShareModal()">🔗 Bagikan</button>
     <button class="btn bp bsm" onclick="openExp()">⬇ Ekspor PDF</button>
    </div>
@@ -2249,52 +2252,69 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
   <div style="max-width:680px;">
    <div class="rep-card">
     <div class="rep-preview-hd">
-     <div class="rep-preview-label">Executive Brief · Tempo Intelligence</div>
+     <div class="rep-preview-label">Executive Brief · Tempo Intelligence · Partnership Screening</div>
      <div class="rep-preview-title">PT Waskita Karya Tbk — Partnership Risk Assessment</div>
-     <div class="rep-preview-meta"><span>Disiapkan untuk: Strategy Team</span><span>5 Mei 2025</span><span>Confidential</span></div>
+     <div class="rep-preview-meta"><span>Disiapkan untuk: Strategy / Corporate Development Team</span><span>5 Mei 2025</span><span>Confidential</span></div>
     </div>
-    <div class="exec-risk-block">
-     <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--m);margin-bottom:10px;">Overall Risk Score</div>
-     <div class="exec-risk-num">78</div>
-     <div style="font-size:11px;color:var(--m);margin-top:3px;">dari 100</div>
-     <div class="exec-risk-label">HIGH RISK</div>
-     <div class="exec-risk-sub">Berdasarkan 42 sumber Tempo · 2018–2025</div>
-     <div style="display:flex;height:8px;border-radius:100px;overflow:hidden;margin:12px auto;max-width:200px;background:var(--b);">
-      <div style="width:78%;background:var(--r);border-radius:100px;"></div>
+    <!-- Verdict + Score -->
+    <div style="display:flex;gap:16px;align-items:center;background:var(--aml);border:2px solid rgba(217,119,6,.2);border-radius:10px;padding:16px;margin-bottom:18px;flex-wrap:wrap;">
+     <div style="text-align:center;flex-shrink:0;">
+      <div style="font-family:'Playfair Display',serif;font-size:48px;font-weight:700;color:var(--am);line-height:1;">76</div>
+      <div style="font-size:10px;color:var(--m);">/ 100 · Decision Risk</div>
      </div>
-     <div style="display:flex;justify-content:center;gap:18px;font-size:11px;color:var(--m);">
-      <span>0 <span style="color:var(--gr);">Rendah</span></span>
-      <span>40 <span style="color:var(--am);">Sedang</span></span>
-      <span>70 <span style="color:var(--r);">Tinggi</span></span>
+     <div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--m);margin-bottom:4px;">Decision Verdict · Partnership Screening</div>
+      <div style="font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--am);margin-bottom:4px;">⚠ Review Required</div>
+      <div style="font-size:12.5px;color:var(--t);line-height:1.6;">PT Waskita Karya menunjukkan risiko partnership yang meningkat. Sinyal pemulihan ada, tetapi verifikasi lebih lanjut diperlukan sebelum melanjutkan.</div>
      </div>
     </div>
-    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--m);margin-bottom:10px;">3 Temuan Kunci untuk Pengambil Keputusan</div>
+    <!-- Risk Momentum -->
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
+     <span style="font-size:11px;color:var(--m);padding:4px 0;">Risk Momentum:</span>
+     <span class="chg-badge chg-worse">Financial: Improving but High</span>
+     <span class="chg-badge chg-stable">Governance: Stable</span>
+     <span class="chg-badge chg-shift">Capital Market: Under Watch</span>
+     <span class="chg-badge" style="background:var(--pul);color:var(--pu);">Operational: Mixed</span>
+    </div>
+    <!-- 3 Key Findings -->
+    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--m);margin-bottom:10px;">3 Decision Red Flags untuk Pengambil Keputusan</div>
     <div class="exec-finding">
      <div class="exec-finding-num">1</div>
      <div>
-      <div style="font-size:13.5px;font-weight:700;color:var(--n);margin-bottom:3px;">Risiko Finansial Sangat Tinggi (85/100)</div>
-      <div style="font-size:12.5px;color:var(--m);line-height:1.6;">Waskita Karya sedang dalam proses restrukturisasi utang Rp 84 triliun yang belum selesai. Kemampuan mereka memenuhi kewajiban terhadap mitra baru masih dipertanyakan hingga Q2 2025.</div>
+      <div style="font-size:13.5px;font-weight:700;color:var(--n);margin-bottom:3px;">Financial Distress — Restrukturisasi Utang Rp 84T Belum Tuntas</div>
+      <div style="font-size:12.5px;color:var(--m);line-height:1.6;">Kemampuan Waskita memenuhi kewajiban kepada mitra baru dipertanyakan selama negosiasi restrukturisasi belum selesai. 28 sumber Tempo mengonfirmasi tekanan likuiditas aktif per April 2025.</div>
      </div>
     </div>
     <div class="exec-finding">
      <div class="exec-finding-num">2</div>
      <div>
-      <div style="font-size:13.5px;font-weight:700;color:var(--n);margin-bottom:3px;">Rekam Jejak Hukum Aktif (82/100)</div>
-      <div style="font-size:12.5px;color:var(--m);line-height:1.6;">Dua mantan direktur telah divonis korupsi proyek fiktif. KPK masih aktif menyelidiki. Bermitra dengan Waskita membawa risiko asosiasi reputasi yang nyata.</div>
+      <div style="font-size:13.5px;font-weight:700;color:var(--n);margin-bottom:3px;">Legal/Governance — Vonis Korupsi & KPK Masih Aktif</div>
+      <div style="font-size:12.5px;color:var(--m);line-height:1.6;">Dua mantan direktur divonis korupsi proyek fiktif (eks-Dirut 8 tahun, eks-CFO 6 tahun). KPK masih aktif menyelidiki. Bermitra dengan Waskita membawa risiko asosiasi reputasi yang nyata. Bukti: Formal Legal Action — Confirmed.</div>
      </div>
     </div>
-    <div class="exec-finding">
-     <div class="exec-finding-num">3</div>
+    <div class="exec-finding" style="border-color:var(--bl);">
+     <div class="exec-finding-num" style="color:var(--gr);">↑</div>
      <div>
-      <div style="font-size:13.5px;font-weight:700;color:var(--n);margin-bottom:3px;">76% Pemberitaan Bernada Negatif (2023–2025)</div>
-      <div style="font-size:12.5px;color:var(--m);line-height:1.6;">Citra publik Waskita berubah permanen dari "BUMN ekspansif" menjadi "BUMN dalam krisis". Tren ini belum menunjukkan pembalikan signifikan.</div>
+      <div style="font-size:13.5px;font-weight:700;color:var(--gr);margin-bottom:3px;">Recovery Signal — Masih Perlu Verifikasi</div>
+      <div style="font-size:12.5px;color:var(--m);line-height:1.6;">Sindikasi 5 bank, manajemen baru, dan kontrak pemerintah yang berlanjut adalah sinyal positif. Namun belum terkonfirmasi dari laporan keuangan audited — jangan jadikan alasan untuk skip due diligence.</div>
      </div>
     </div>
+    <!-- Recommendation -->
     <div class="exec-rec">
-     <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--am);margin-bottom:6px;">⚠️ Rekomendasi Eksekutif</div>
-     <div style="font-size:13.5px;color:var(--t);line-height:1.7;font-weight:500;"><strong>Lanjutkan dengan mitigasi ketat.</strong> Wajibkan jaminan performa, audit keuangan independen, dan review berkala setiap 3 bulan. Pertimbangkan WIKA atau Adhi Karya sebagai alternatif dengan profil risiko lebih rendah.</div>
+     <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--am);margin-bottom:6px;">⚠️ Rekomendasi Eksekutif — Partnership Screening</div>
+     <div style="font-size:13.5px;color:var(--t);line-height:1.7;font-weight:500;"><strong>Lanjutkan hanya setelah verifikasi keuangan, hukum, dan governance selesai.</strong> Minta laporan audited terbaru, verifikasi status KPK, tambahkan performance bond dan anti-corruption clause dalam kontrak. Aktifkan Media Monitoring 90 hari sebelum tanda tangan.</div>
     </div>
-    <div class="exec-footer">📋 Untuk analisis lengkap termasuk semua evidence, lihat <strong>Full Screening Report</strong> · Digenerate dari 42 sumber arsip Tempo · Bukan pengganti legal due diligence formal.</div>
+    <!-- Business Impact snippet -->
+    <div style="background:var(--bg);border-radius:7px;padding:11px 13px;margin-bottom:14px;">
+     <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--m);margin-bottom:7px;">Business Impact per Use Case</div>
+     <div style="display:flex;gap:6px;flex-wrap:wrap;">
+      <span style="background:rgba(204,31,45,.1);color:var(--r);border-radius:4px;padding:3px 8px;font-size:11px;font-weight:700;">Investment/M&A: Very High</span>
+      <span style="background:rgba(217,119,6,.1);color:var(--am);border-radius:4px;padding:3px 8px;font-size:11px;font-weight:700;">Partnership: High</span>
+      <span style="background:rgba(217,119,6,.1);color:var(--am);border-radius:4px;padding:3px 8px;font-size:11px;font-weight:700;">Vendor: High</span>
+      <span style="background:rgba(37,99,235,.1);color:var(--bl);border-radius:4px;padding:3px 8px;font-size:11px;font-weight:700;">Public Affairs: Medium-High</span>
+     </div>
+    </div>
+    <div class="exec-footer">📋 Untuk analisis lengkap termasuk semua evidence, risk drivers, dan mitigation checklist — lihat <strong>Full Screening Report</strong> · Digenerate dari 42 sumber arsip Tempo · Bukan pengganti legal due diligence formal.</div>
    </div>
   </div>
  </div>
@@ -2302,9 +2322,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
  <!-- SUBVIEW: Full Screening Report -->
  <div class="sv" id="rep-full-report">
   <div class="sh m14">
-   <div><div class="ttl">Full Screening Report</div><div style="font-size:12px;color:var(--m);">PT Waskita Karya · Risk Intelligence Screening · 42 sumber · 5 Mei 2025</div></div>
+   <div><div class="ttl">Full Screening Report</div><div style="font-size:12px;color:var(--m);">PT Waskita Karya · Partnership Screening · 42 sumber · 5 Mei 2025</div></div>
    <div class="flex g6">
-    
     <button class="btn bo bsm" onclick="openShareModal()">🔗 Bagikan</button>
     <button class="btn bp bsm" onclick="openExp()">⬇ Ekspor PDF</button>
    </div>
@@ -2312,50 +2331,83 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
   <div style="max-width:680px;">
    <div class="rep-card">
     <div class="rep-preview-hd">
-     <div class="rep-preview-label">Full Screening Report · Tempo Intelligence</div>
+     <div class="rep-preview-label">Full Screening Report · Tempo Intelligence · Partnership Screening</div>
      <div class="rep-preview-title">PT Waskita Karya Tbk — Partnership Screening Analysis</div>
-     <div class="rep-preview-meta"><span>Risk Intelligence Screening · Partnership</span><span>5 Mei 2025</span><span>42 sumber · 2018–2025</span></div>
+     <div class="rep-preview-meta"><span>Risk Intelligence Screening</span><span>5 Mei 2025</span><span>42 sumber · 2020–2025</span><span>Confidential</span></div>
     </div>
-    <div style="display:grid;grid-template-columns:120px 1fr;gap:14px;margin-bottom:18px;">
-     <div style="background:var(--rl);border-radius:8px;padding:14px;text-align:center;">
-      <div style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--r);">78</div>
+    <!-- Verdict summary row -->
+    <div style="display:grid;grid-template-columns:140px 1fr;gap:14px;margin-bottom:18px;align-items:start;">
+     <div style="background:var(--aml);border-radius:8px;padding:14px;text-align:center;">
+      <div style="font-family:'Playfair Display',serif;font-size:38px;font-weight:700;color:var(--am);">76</div>
       <div style="font-size:10px;color:var(--m);">/ 100</div>
-      <div style="font-size:11px;font-weight:700;color:var(--r);margin-top:3px;">HIGH RISK</div>
+      <div style="font-size:11px;font-weight:700;color:var(--am);margin-top:4px;">⚠ Review Required</div>
+      <div style="font-size:10.5px;color:var(--m);margin-top:4px;">Confidence: Medium-High</div>
+      <div style="font-size:10.5px;color:var(--pu);margin-top:2px;">Momentum: Mixed</div>
      </div>
      <div>
-      <div class="rep-st" style="margin-bottom:7px;">Ringkasan Eksekutif</div>
-      <div style="font-size:13px;line-height:1.7;">PT Waskita Karya menunjukkan <strong>risiko tinggi (78/100)</strong>. Tiga faktor utama: restrukturisasi utang Rp 84 triliun yang belum selesai, rekam jejak korupsi level direksi, dan ketidakstabilan governance dengan tiga pergantian manajemen dalam tiga tahun.</div>
+      <div class="rep-st" style="margin-bottom:6px;">Ringkasan Eksekutif</div>
+      <div style="font-size:12.5px;line-height:1.7;">PT Waskita Karya menunjukkan <strong>risiko Review Required (76/100)</strong> untuk partnership. Tiga faktor utama: tekanan restrukturisasi utang Rp 84T yang belum selesai, rekam jejak korupsi level direksi yang terkonfirmasi di pengadilan, dan capital market pressure aktif. Recovery signal ada namun belum cukup turunkan risk secara signifikan.</div>
      </div>
     </div>
-    <div class="rep-st">Breakdown Risiko per Dimensi</div>
-    <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:16px;">
-     <div style="display:flex;align-items:center;gap:10px;font-size:12.5px;"><div style="width:130px;flex-shrink:0;font-weight:600;color:var(--n);">Financial Distress</div><div style="flex:1;background:var(--bg);border-radius:100px;height:6px;"><div style="width:85%;height:6px;border-radius:100px;background:var(--r);"></div></div><div style="width:30px;text-align:right;font-weight:700;color:var(--r);">85</div><span class="bx bh" style="font-size:10px;">High</span></div>
-     <div style="display:flex;align-items:center;gap:10px;font-size:12.5px;"><div style="width:130px;flex-shrink:0;font-weight:600;color:var(--n);">Legal / Korupsi</div><div style="flex:1;background:var(--bg);border-radius:100px;height:6px;"><div style="width:82%;height:6px;border-radius:100px;background:var(--r);"></div></div><div style="width:30px;text-align:right;font-weight:700;color:var(--r);">82</div><span class="bx bh" style="font-size:10px;">High</span></div>
-     <div style="display:flex;align-items:center;gap:10px;font-size:12.5px;"><div style="width:130px;flex-shrink:0;font-weight:600;color:var(--n);">Media Narrative</div><div style="flex:1;background:var(--bg);border-radius:100px;height:6px;"><div style="width:76%;height:6px;border-radius:100px;background:var(--r);"></div></div><div style="width:30px;text-align:right;font-weight:700;color:var(--r);">76</div><span class="bx bh" style="font-size:10px;">High</span></div>
-     <div style="display:flex;align-items:center;gap:10px;font-size:12.5px;"><div style="width:130px;flex-shrink:0;font-weight:600;color:var(--n);">Governance</div><div style="flex:1;background:var(--bg);border-radius:100px;height:6px;"><div style="width:63%;height:6px;border-radius:100px;background:var(--am);"></div></div><div style="width:30px;text-align:right;font-weight:700;color:var(--am);">63</div><span class="bx bm" style="font-size:10px;">Med</span></div>
-     <div style="display:flex;align-items:center;gap:10px;font-size:12.5px;"><div style="width:130px;flex-shrink:0;font-weight:600;color:var(--n);">Political Exposure</div><div style="flex:1;background:var(--bg);border-radius:100px;height:6px;"><div style="width:55%;height:6px;border-radius:100px;background:var(--am);"></div></div><div style="width:30px;text-align:right;font-weight:700;color:var(--am);">55</div><span class="bx bm" style="font-size:10px;">Med</span></div>
-     <div style="display:flex;align-items:center;gap:10px;font-size:12.5px;"><div style="width:130px;flex-shrink:0;font-weight:600;color:var(--n);">ESG / Social</div><div style="flex:1;background:var(--bg);border-radius:100px;height:6px;"><div style="width:42%;height:6px;border-radius:100px;background:var(--bl);"></div></div><div style="width:30px;text-align:right;font-weight:700;color:var(--bl);">42</div><span class="bx blm" style="font-size:10px;">Low</span></div>
+    <!-- Risk Exposure Composition -->
+    <div class="rep-st">Komposisi Paparan Risiko</div>
+    <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:16px;">
+     <div style="display:flex;align-items:center;gap:10px;font-size:12.5px;"><div style="width:140px;flex-shrink:0;font-weight:600;color:var(--n);">Financial Distress</div><div style="flex:1;background:var(--bg);border-radius:100px;height:6px;"><div style="width:35%;height:6px;border-radius:100px;background:var(--r);"></div></div><div style="width:32px;text-align:right;font-weight:700;color:var(--r);">35%</div><span class="bx bh" style="font-size:10px;">High</span></div>
+     <div style="display:flex;align-items:center;gap:10px;font-size:12.5px;"><div style="width:140px;flex-shrink:0;font-weight:600;color:var(--n);">Legal & Governance</div><div style="flex:1;background:var(--bg);border-radius:100px;height:6px;"><div style="width:25%;height:6px;border-radius:100px;background:var(--am);"></div></div><div style="width:32px;text-align:right;font-weight:700;color:var(--am);">25%</div><span class="bx bh" style="font-size:10px;">High</span></div>
+     <div style="display:flex;align-items:center;gap:10px;font-size:12.5px;"><div style="width:140px;flex-shrink:0;font-weight:600;color:var(--n);">Capital Market</div><div style="flex:1;background:var(--bg);border-radius:100px;height:6px;"><div style="width:18%;height:6px;border-radius:100px;background:var(--bl);"></div></div><div style="width:32px;text-align:right;font-weight:700;color:var(--bl);">18%</div><span class="bx bm" style="font-size:10px;">Med-High</span></div>
+     <div style="display:flex;align-items:center;gap:10px;font-size:12.5px;"><div style="width:140px;flex-shrink:0;font-weight:600;color:var(--n);">Operational Delivery</div><div style="flex:1;background:var(--bg);border-radius:100px;height:6px;"><div style="width:12%;height:6px;border-radius:100px;background:var(--pu);"></div></div><div style="width:32px;text-align:right;font-weight:700;color:var(--pu);">12%</div><span class="bx bm" style="font-size:10px;">Medium</span></div>
+     <div style="display:flex;align-items:center;gap:10px;font-size:12.5px;"><div style="width:140px;flex-shrink:0;font-weight:600;color:var(--n);">Reputational</div><div style="flex:1;background:var(--bg);border-radius:100px;height:6px;"><div style="width:10%;height:6px;border-radius:100px;background:var(--s);"></div></div><div style="width:32px;text-align:right;font-weight:700;color:var(--s);">10%</div><span class="bx bn" style="font-size:10px;">Low-Med</span></div>
     </div>
-    <div class="rep-st">Red Flags Utama</div>
+    <!-- Top Decision Red Flags -->
+    <div class="rep-st">Decision Red Flags — Relevan untuk Partnership</div>
     <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:16px;">
-     <div style="background:#fff;border:1.5px solid rgba(204,31,45,.2);border-radius:8px;padding:11px 13px;"><div style="display:flex;align-items:center;gap:7px;margin-bottom:4px;"><span class="bx bh" style="font-size:10px;">High · Financial</span><div style="font-size:13px;font-weight:700;color:var(--n);">Default obligasi dan restrukturisasi utang</div></div><div style="font-size:12px;color:var(--m);">Utang Rp 84T dalam proses restrukturisasi. Tiga kreditur sindikasi menuntut kepastian jadwal sebelum Q2 2025. Sumber: Tempo.co, 12 Apr 2025</div></div>
-     <div style="background:#fff;border:1.5px solid rgba(204,31,45,.2);border-radius:8px;padding:11px 13px;"><div style="display:flex;align-items:center;gap:7px;margin-bottom:4px;"><span class="bx bh" style="font-size:10px;">High · Legal</span><div style="font-size:13px;font-weight:700;color:var(--n);">Vonis korupsi eks-direksi dan penyelidikan KPK aktif</div></div><div style="font-size:12px;color:var(--m);">Eks-Dirut divonis 8 tahun, eks-CFO divonis 6 tahun. KPK masih menyelidiki 3 proyek fiktif senilai Rp 2,1T. Sumber: Majalah Tempo, Des 2023</div></div>
-     <div style="background:#fff;border:1.5px solid rgba(217,119,6,.15);border-radius:8px;padding:11px 13px;"><div style="display:flex;align-items:center;gap:7px;margin-bottom:4px;"><span class="bx bm" style="font-size:10px;">Med · Governance</span><div style="font-size:13px;font-weight:700;color:var(--n);">3x pergantian manajemen dalam 3 tahun</div></div><div style="font-size:12px;color:var(--m);">Ketidakstabilan kepemimpinan di tengah krisis. Direksi ketiga dilantik November 2024. Sumber: Tempo.co, Nov 2024</div></div>
+     <div style="background:#fff;border:1.5px solid rgba(204,31,45,.2);border-radius:8px;padding:11px 13px;">
+      <div style="display:flex;align-items:center;gap:7px;margin-bottom:4px;"><span class="bx bh" style="font-size:10px;">High · Financial</span><div style="font-size:13px;font-weight:700;color:var(--n);">Restrukturisasi Utang Rp 84T — Official/Ongoing</div></div>
+      <div style="font-size:12px;color:var(--m);">28 sumber arsip Tempo. Negosiasi sindikasi 5 bank belum tuntas. Kemampuan bayar kewajiban kepada mitra baru dipertanyakan. Sumber: Tempo.co Apr 2025, Majalah Tempo Apr 2025.</div>
+     </div>
+     <div style="background:#fff;border:1.5px solid rgba(204,31,45,.2);border-radius:8px;padding:11px 13px;">
+      <div style="display:flex;align-items:center;gap:7px;margin-bottom:4px;"><span class="bx bh" style="font-size:10px;">High · Legal</span><div style="font-size:13px;font-weight:700;color:var(--n);">Vonis Korupsi Eks-Direksi — Confirmed, KPK Masih Aktif</div></div>
+      <div style="font-size:12px;color:var(--m);">Eks-Dirut 8 tahun, eks-CFO 6 tahun (PN Tipikor, Des 2023). KPK menyelidiki 3 proyek fiktif Rp 2,1T. 18 sumber Tempo. Formal Legal Action — Confirmed.</div>
+     </div>
+     <div style="background:#fff;border:1.5px solid rgba(217,119,6,.15);border-radius:8px;padding:11px 13px;">
+      <div style="display:flex;align-items:center;gap:7px;margin-bottom:4px;"><span class="bx bm" style="font-size:10px;">Med-High · Market</span><div style="font-size:13px;font-weight:700;color:var(--n);">Capital Market Pressure — Suspensi BEI & Peringatan OJK</div></div>
+      <div style="font-size:12px;color:var(--m);">Saham WSKT kena suspensi. OJK beri peringatan keterbukaan informasi. 9 sumber. Official Market Action — Under Watch.</div>
+     </div>
+     <div style="background:var(--grl);border:1.5px solid rgba(22,163,74,.2);border-radius:8px;padding:11px 13px;">
+      <div style="display:flex;align-items:center;gap:7px;margin-bottom:4px;"><span class="bx" style="background:var(--grl);color:var(--gr);font-size:10px;">Recovery Signal</span><div style="font-size:13px;font-weight:700;color:var(--gr);">Sinyal Pemulihan — Belum Terkonfirmasi dari Sumber Primer</div></div>
+      <div style="font-size:12px;color:var(--m);">Sindikasi kredit 5 bank, manajemen baru, kontrak pemerintah berlanjut. Company Response level — perlu verifikasi laporan keuangan audited.</div>
+     </div>
     </div>
-    <div class="rep-st">Rekomendasi Detail</div>
-    <div class="rep-fi">Lakukan <strong>legal due diligence formal</strong> untuk memverifikasi status penyelidikan KPK aktif sebelum menandatangani kontrak.</div>
-    <div class="rep-fi">Minta <strong>klarifikasi tertulis</strong> atas status restrukturisasi utang dan kemampuan memenuhi kewajiban kepada mitra.</div>
-    <div class="rep-fi">Masukkan <strong>performance bond dan risk mitigation clause</strong> dalam perjanjian kerjasama.</div>
-    <div class="rep-fi">Aktifkan <strong>Media Monitoring</strong> untuk memantau perkembangan baru setiap hari.</div>
-    <div class="rep-fi">Pertimbangkan <strong>PT PP (risk 55) atau Adhi Karya (risk 52)</strong> sebagai alternatif.</div>
+    <!-- Risk Event Chronology (condensed) -->
+    <div class="rep-st">Risk Event Chronology (Ringkasan)</div>
+    <div style="display:flex;gap:0;overflow-x:auto;margin-bottom:16px;padding:4px 0;">
+     <div style="flex-shrink:0;text-align:center;padding:0 10px;"><div style="width:8px;height:8px;border-radius:50%;background:var(--am);margin:0 auto 5px;"></div><div style="font-size:10px;font-weight:700;color:var(--am);">2020–21</div><div style="font-size:10.5px;color:var(--m);margin-top:3px;max-width:72px;">Tekanan fin. mulai intensif</div></div>
+     <div style="flex:1;border-top:1.5px solid var(--b);margin-top:4px;"></div>
+     <div style="flex-shrink:0;text-align:center;padding:0 10px;"><div style="width:8px;height:8px;border-radius:50%;background:var(--am);margin:0 auto 5px;"></div><div style="font-size:10px;font-weight:700;color:var(--am);">2022</div><div style="font-size:10.5px;color:var(--m);margin-top:3px;max-width:72px;">Utang & likuiditas jadi sorotan</div></div>
+     <div style="flex:1;border-top:1.5px solid var(--b);margin-top:4px;"></div>
+     <div style="flex-shrink:0;text-align:center;padding:0 10px;"><div style="width:8px;height:8px;border-radius:50%;background:var(--r);margin:0 auto 5px;"></div><div style="font-size:10px;font-weight:700;color:var(--r);">2023</div><div style="font-size:10.5px;color:var(--m);margin-top:3px;max-width:72px;">Vonis korupsi eks-direksi</div></div>
+     <div style="flex:1;border-top:1.5px solid var(--b);margin-top:4px;"></div>
+     <div style="flex-shrink:0;text-align:center;padding:0 10px;"><div style="width:8px;height:8px;border-radius:50%;background:var(--bl);margin:0 auto 5px;"></div><div style="font-size:10px;font-weight:700;color:var(--bl);">2023–24</div><div style="font-size:10.5px;color:var(--m);margin-top:3px;max-width:72px;">Suspensi BEI & OJK warning</div></div>
+     <div style="flex:1;border-top:1.5px solid var(--b);margin-top:4px;"></div>
+     <div style="flex-shrink:0;text-align:center;padding:0 10px;"><div style="width:8px;height:8px;border-radius:50%;background:var(--gr);margin:0 auto 5px;"></div><div style="font-size:10px;font-weight:700;color:var(--gr);">2024–25</div><div style="font-size:10.5px;color:var(--m);margin-top:3px;max-width:72px;">Restrukturisasi aktif · Under Watch</div></div>
+    </div>
+    <!-- Mitigation (condensed) -->
+    <div class="rep-st">Rekomendasi Mitigasi</div>
+    <div class="rep-fi">Minta <strong>laporan keuangan audited</strong> terbaru dan verifikasi status restrukturisasi dari kreditur.</div>
+    <div class="rep-fi">Lakukan <strong>legal & litigation review</strong> — konfirmasi status penyelidikan KPK aktif.</div>
+    <div class="rep-fi">Tambahkan <strong>performance bond, anti-corruption clause, dan termination clause</strong> dalam kontrak.</div>
+    <div class="rep-fi">Aktifkan <strong>Media Monitoring 90 hari</strong> sebelum keputusan final — pantau perkembangan baru.</div>
+    <div class="rep-fi">Eskalasi ke <strong>tim legal/compliance</strong> sebelum tanda tangan apapun.</div>
+    <!-- Source table -->
     <div class="rep-st mt12">Daftar Sumber (42 Artikel)</div>
     <table style="width:100%;border-collapse:collapse;margin-bottom:10px;"><thead><tr>
      <th style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--m);padding:6px 8px;border-bottom:1.5px solid var(--b);text-align:left;background:var(--bg);">Judul Artikel</th>
      <th style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--m);padding:6px 8px;border-bottom:1.5px solid var(--b);text-align:left;background:var(--bg);">Media</th>
-     <th style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--m);padding:6px 8px;border-bottom:1.5px solid var(--b);text-align:left;background:var(--bg);">Tanggal</th>
+     <th style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--m);padding:6px 8px;border-bottom:1.5px solid var(--b);text-align:left;background:var(--bg);">Kategori</th>
     </tr></thead><tbody>
-     <tr><td style="font-size:11.5px;padding:6px 8px;border-bottom:1px solid var(--b);">Waskita Karya Hadapi Restrukturisasi Utang Jumbo</td><td style="font-size:11.5px;padding:6px 8px;border-bottom:1px solid var(--b);">Tempo.co</td><td style="font-size:11.5px;padding:6px 8px;border-bottom:1px solid var(--b);">12 Apr 2025</td></tr>
-     <tr><td style="font-size:11.5px;padding:6px 8px;border-bottom:1px solid var(--b);">Eks Direksi Waskita Divonis dalam Kasus Korupsi</td><td style="font-size:11.5px;padding:6px 8px;border-bottom:1px solid var(--b);">Majalah Tempo</td><td style="font-size:11.5px;padding:6px 8px;border-bottom:1px solid var(--b);">18 Des 2023</td></tr>
+     <tr><td style="font-size:11.5px;padding:6px 8px;border-bottom:1px solid var(--b);">Waskita Karya Hadapi Restrukturisasi Utang Jumbo</td><td style="font-size:11.5px;padding:6px 8px;border-bottom:1px solid var(--b);">Tempo.co</td><td style="font-size:11.5px;padding:6px 8px;border-bottom:1px solid var(--b);"><span class="bx bh" style="font-size:9.5px;">Financial</span></td></tr>
+     <tr><td style="font-size:11.5px;padding:6px 8px;border-bottom:1px solid var(--b);">Eks Direksi Waskita Divonis dalam Kasus Korupsi</td><td style="font-size:11.5px;padding:6px 8px;border-bottom:1px solid var(--b);">Majalah Tempo</td><td style="font-size:11.5px;padding:6px 8px;border-bottom:1px solid var(--b);"><span class="bx bh" style="font-size:9.5px;">Legal</span></td></tr>
+     <tr><td style="font-size:11.5px;padding:6px 8px;border-bottom:1px solid var(--b);">Saham WSKT Kena Suspensi Perdagangan</td><td style="font-size:11.5px;padding:6px 8px;border-bottom:1px solid var(--b);">Tempo.co</td><td style="font-size:11.5px;padding:6px 8px;border-bottom:1px solid var(--b);"><span class="bx bm" style="font-size:9.5px;">Capital Market</span></td></tr>
      <tr><td style="font-size:11.5px;padding:6px 8px;" colspan="3"><em style="color:var(--m);">+ 39 sumber lainnya tersedia di versi penuh</em></td></tr>
     </tbody></table>
     <div style="background:var(--aml);border-radius:6px;padding:9px 12px;font-size:12px;color:var(--am);">⚠️ Digenerate dari arsip Tempo. Tidak menggantikan legal due diligence formal. Data per 5 Mei 2025.</div>
@@ -2366,9 +2418,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
  <!-- SUBVIEW: Risk Summary -->
  <div class="sv" id="rep-risk-summary">
   <div class="sh m14">
-   <div><div class="ttl">Risk Summary</div><div style="font-size:12px;color:var(--m);">PT Waskita Karya · Risk Intelligence Screening · 5 Mei 2025</div></div>
+   <div><div class="ttl">Risk Summary</div><div style="font-size:12px;color:var(--m);">PT Waskita Karya · Partnership Screening · 5 Mei 2025</div></div>
    <div class="flex g6">
-    
     <button class="btn bo bsm" onclick="openShareModal()">🔗 Bagikan</button>
     <button class="btn bp bsm" onclick="openExp()">⬇ Ekspor PDF</button>
    </div>
@@ -2376,42 +2427,45 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
   <div style="max-width:680px;">
    <div class="rep-card">
     <div class="rep-preview-hd">
-     <div class="rep-preview-label">Risk Summary · Tempo Intelligence</div>
+     <div class="rep-preview-label">Risk Summary · Tempo Intelligence · Partnership Screening</div>
      <div class="rep-preview-title">PT Waskita Karya Tbk — Ringkasan Risiko Partnership</div>
-     <div class="rep-preview-meta"><span>5 Mei 2025</span><span>42 sumber · 2018–2025</span></div>
+     <div class="rep-preview-meta"><span>5 Mei 2025</span><span>42 sumber · 2020–2025</span></div>
     </div>
-    <div class="verdict-block fail">
-     <div style="font-size:28px;font-weight:700;font-family:'Playfair Display',serif;color:var(--r);">⚠ PROCEED WITH CAUTION</div>
-     <div style="font-size:13.5px;font-weight:600;color:var(--r);margin-top:5px;">Risk Score: 78/100 · HIGH RISK</div>
-     <div style="font-size:12px;color:var(--m);margin-top:6px;">3 dari 6 dimensi berada di level High Risk</div>
+    <div class="verdict-block review" style="background:var(--aml);border:2px solid rgba(217,119,6,.2);">
+     <div style="font-size:26px;font-weight:700;font-family:'Playfair Display',serif;color:var(--am);">⚠ REVIEW REQUIRED</div>
+     <div style="font-size:13.5px;font-weight:600;color:var(--am);margin-top:5px;">Decision Risk Score: 76/100 · Confidence: Medium-High</div>
+     <div style="font-size:12px;color:var(--m);margin-top:6px;">Risk Momentum: Mixed / Under Watch · 3 dari 5 risk drivers di level High</div>
     </div>
-    <div class="rep-st">Risk Scorecard</div>
+    <!-- Risk Exposure Scorecard -->
+    <div class="rep-st">Risk Exposure Scorecard</div>
     <table class="scorecard">
-     <thead><tr><th>Dimensi</th><th>Skor</th><th>Level</th><th>Sinyal Utama</th></tr></thead>
+     <thead><tr><th>Kategori Risiko</th><th>Komposisi</th><th>Level</th><th>Momentum</th></tr></thead>
      <tbody>
-      <tr style="background:rgba(204,31,45,.04);"><td style="font-weight:600;">Financial Distress</td><td><strong style="color:var(--r);font-size:16px;font-family:'Playfair Display',serif;">85</strong></td><td><span class="bx bh" style="font-size:10.5px;">High</span></td><td style="font-size:12px;color:var(--m);">Restrukturisasi utang Rp 84T belum selesai</td></tr>
-      <tr style="background:rgba(204,31,45,.04);"><td style="font-weight:600;">Legal / Korupsi</td><td><strong style="color:var(--r);font-size:16px;font-family:'Playfair Display',serif;">82</strong></td><td><span class="bx bh" style="font-size:10.5px;">High</span></td><td style="font-size:12px;color:var(--m);">Vonis direksi + penyelidikan KPK aktif</td></tr>
-      <tr style="background:rgba(204,31,45,.04);"><td style="font-weight:600;">Media Narrative</td><td><strong style="color:var(--r);font-size:16px;font-family:'Playfair Display',serif;">76</strong></td><td><span class="bx bh" style="font-size:10.5px;">High</span></td><td style="font-size:12px;color:var(--m);">76% negative coverage 2023–2025</td></tr>
-      <tr style="background:rgba(217,119,6,.04);"><td style="font-weight:600;">Governance</td><td><strong style="color:var(--am);font-size:16px;font-family:'Playfair Display',serif;">63</strong></td><td><span class="bx bm" style="font-size:10.5px;">Medium</span></td><td style="font-size:12px;color:var(--m);">3x pergantian manajemen dalam 3 tahun</td></tr>
-      <tr style="background:rgba(217,119,6,.04);"><td style="font-weight:600;">Political Exposure</td><td><strong style="color:var(--am);font-size:16px;font-family:'Playfair Display',serif;">55</strong></td><td><span class="bx bm" style="font-size:10.5px;">Medium</span></td><td style="font-size:12px;color:var(--m);">Ketergantungan tinggi pada proyek pemerintah</td></tr>
-      <tr><td style="font-weight:600;">ESG / Social</td><td><strong style="color:var(--bl);font-size:16px;font-family:'Playfair Display',serif;">42</strong></td><td><span class="bx blm" style="font-size:10.5px;">Low-Med</span></td><td style="font-size:12px;color:var(--m);">Subkontraktor klaim pembayaran tertunda</td></tr>
-      <tr style="border-top:2px solid var(--b);"><td style="font-weight:700;">Overall</td><td><strong style="color:var(--r);font-size:20px;font-family:'Playfair Display',serif;">78</strong></td><td><span class="bx bh">HIGH RISK</span></td><td style="font-size:12px;color:var(--m);">Berdasarkan 42 sumber Tempo</td></tr>
+      <tr style="background:rgba(204,31,45,.04);"><td style="font-weight:600;">Financial Distress</td><td><strong style="color:var(--r);">35%</strong></td><td><span class="bx bh" style="font-size:10.5px;">High</span></td><td><span class="chg-badge chg-watch" style="background:var(--aml);color:var(--am);">Improving, still High</span></td></tr>
+      <tr style="background:rgba(204,31,45,.04);"><td style="font-weight:600;">Legal & Governance</td><td><strong style="color:var(--am);">25%</strong></td><td><span class="bx bh" style="font-size:10.5px;">High</span></td><td><span class="chg-badge chg-stable">Stable</span></td></tr>
+      <tr style="background:rgba(37,99,235,.03);"><td style="font-weight:600;">Capital Market</td><td><strong style="color:var(--bl);">18%</strong></td><td><span class="bx bm" style="font-size:10.5px;">Med-High</span></td><td><span class="chg-badge chg-shift">Under Watch</span></td></tr>
+      <tr><td style="font-weight:600;">Operational Delivery</td><td><strong style="color:var(--pu);">12%</strong></td><td><span class="bx bm" style="font-size:10.5px;">Medium</span></td><td><span class="chg-badge" style="background:var(--pul);color:var(--pu);">Mixed</span></td></tr>
+      <tr><td style="font-weight:600;">Reputational</td><td><strong style="color:var(--s);">10%</strong></td><td><span class="bx blm" style="font-size:10.5px;">Low-Med</span></td><td><span class="chg-badge chg-stable">Stable</span></td></tr>
+      <tr style="border-top:2px solid var(--b);"><td style="font-weight:700;">Overall</td><td><strong style="color:var(--am);font-size:18px;font-family:'Playfair Display',serif;">76</strong></td><td><span class="ds-verdict review" style="font-size:10px;">⚠ Review Required</span></td><td><span class="chg-badge" style="background:var(--pul);color:var(--pu);">Mixed / Under Watch</span></td></tr>
      </tbody>
     </table>
-    <div class="rep-st">5 Red Flag Teratas</div>
+    <!-- Top 5 Decision Red Flags -->
+    <div class="rep-st">5 Decision Red Flag Teratas</div>
     <div style="display:flex;flex-direction:column;gap:5px;margin-bottom:16px;">
-     <div style="display:flex;gap:8px;align-items:flex-start;padding:8px 10px;background:#fff;border:1px solid rgba(204,31,45,.15);border-radius:6px;font-size:12.5px;"><span style="color:var(--r);font-weight:700;flex-shrink:0;">①</span><div><strong>Default obligasi</strong> — Restrukturisasi Rp 84T belum selesai per Apr 2025</div></div>
-     <div style="display:flex;gap:8px;align-items:flex-start;padding:8px 10px;background:#fff;border:1px solid rgba(204,31,45,.15);border-radius:6px;font-size:12.5px;"><span style="color:var(--r);font-weight:700;flex-shrink:0;">②</span><div><strong>Vonis korupsi eks-direksi</strong> — Eks-Dirut 8 tahun, eks-CFO 6 tahun (Des 2023)</div></div>
-     <div style="display:flex;gap:8px;align-items:flex-start;padding:8px 10px;background:#fff;border:1px solid rgba(204,31,45,.15);border-radius:6px;font-size:12.5px;"><span style="color:var(--r);font-weight:700;flex-shrink:0;">③</span><div><strong>KPK masih aktif</strong> — 3 proyek fiktif senilai Rp 2,1T masih diselidiki</div></div>
-     <div style="display:flex;gap:8px;align-items:flex-start;padding:8px 10px;background:#fff;border:1px solid rgba(204,31,45,.15);border-radius:6px;font-size:12.5px;"><span style="color:var(--r);font-weight:700;flex-shrink:0;">④</span><div><strong>Ketidakstabilan governance</strong> — 3 pergantian CEO dalam 3 tahun</div></div>
-     <div style="display:flex;gap:8px;align-items:flex-start;padding:8px 10px;background:#fff;border:1px solid rgba(217,119,6,.15);border-radius:6px;font-size:12.5px;"><span style="color:var(--am);font-weight:700;flex-shrink:0;">⑤</span><div><strong>Pemberitaan negatif dominan</strong> — 76% negative coverage, tren meningkat</div></div>
+     <div style="display:flex;gap:8px;align-items:flex-start;padding:8px 10px;background:#fff;border:1px solid rgba(204,31,45,.15);border-radius:6px;font-size:12.5px;"><span style="color:var(--r);font-weight:700;flex-shrink:0;">①</span><div><strong>Utang Rp 84T belum direstrukturisasi</strong> — Official/Ongoing per Apr 2025 · 28 sumber</div></div>
+     <div style="display:flex;gap:8px;align-items:flex-start;padding:8px 10px;background:#fff;border:1px solid rgba(204,31,45,.15);border-radius:6px;font-size:12.5px;"><span style="color:var(--r);font-weight:700;flex-shrink:0;">②</span><div><strong>Vonis korupsi eks-direksi</strong> — Confirmed · KPK masih aktif menyelidiki</div></div>
+     <div style="display:flex;gap:8px;align-items:flex-start;padding:8px 10px;background:#fff;border:1px solid rgba(204,31,45,.15);border-radius:6px;font-size:12.5px;"><span style="color:var(--r);font-weight:700;flex-shrink:0;">③</span><div><strong>Capital market pressure</strong> — Suspensi BEI · OJK warning aktif</div></div>
+     <div style="display:flex;gap:8px;align-items:flex-start;padding:8px 10px;background:#fff;border:1px solid rgba(217,119,6,.15);border-radius:6px;font-size:12.5px;"><span style="color:var(--am);font-weight:700;flex-shrink:0;">④</span><div><strong>Governance instability</strong> — 3x pergantian manajemen dalam 3 tahun</div></div>
+     <div style="display:flex;gap:8px;align-items:flex-start;padding:8px 10px;background:#fff;border:1px solid rgba(217,119,6,.15);border-radius:6px;font-size:12.5px;"><span style="color:var(--am);font-weight:700;flex-shrink:0;">⑤</span><div><strong>Operational delivery risk</strong> — 200+ subkontraktor claim pembayaran tertunda</div></div>
     </div>
-    <div style="background:var(--bg);border-radius:7px;padding:10px 13px;font-size:12px;color:var(--m);">📋 Untuk analisis lengkap dengan semua evidence, generate <strong>Full Screening Report</strong>. Data per 5 Mei 2025.</div>
+    <!-- Recovery signal note -->
+    <div style="background:var(--grl);border:1px solid rgba(22,163,74,.2);border-radius:7px;padding:10px 13px;font-size:12.5px;color:var(--gr);margin-bottom:12px;">✅ <strong>Recovery Signal (Moderate):</strong> Sindikasi kredit 5 bank aktif, manajemen baru, kontrak pemerintah berlanjut — tapi belum cukup turunkan overall risk. Verifikasi mandiri diperlukan.</div>
+    <div style="background:var(--bg);border-radius:7px;padding:10px 13px;font-size:12px;color:var(--m);">📋 Untuk analisis lengkap dengan semua evidence, risk drivers, dan mitigation checklist, generate <strong>Full Screening Report</strong>. Data per 5 Mei 2025.</div>
    </div>
   </div>
  </div>
 
-</div>
+</div><!-- end page-rep -->
 
 <!-- ASK TI -->
 <div class="pg" id="page-ask">
@@ -2665,6 +2719,7 @@ function showSV(pg,id){
   document.getElementById('bc').innerHTML=bcHTML(pg,id);
   document.querySelector('.ct').scrollTop=0;
   if(pg==='dd'&&id==='result')setTimeout(initDDKG,80);
+  if(pg==='mon'&&id==='workspace')setTimeout(()=>monTab(_lastMonTab||'active'),0);
 }
 // DD
 function selPC(el){document.querySelectorAll('.pc').forEach(c=>c.classList.remove('on'));el.classList.add('on');}
@@ -2785,7 +2840,9 @@ function doSaveEntity(){
   document.getElementById('save-entity-ft').innerHTML='<button class="btn bo bsm" onclick="closeM(\'save-entity-ov\')">Tutup</button><button class="btn bp bsm" onclick="closeM(\'save-entity-ov\');startMonitoring(\'PT Waskita Karya\')">📡 Start Monitoring →</button>';
 }
 // Mon workspace tabs
+let _lastMonTab='active';
 function monTab(id){
+  _lastMonTab=id;
   document.querySelectorAll('#mon-tabs .tab').forEach((t,i)=>{t.classList.remove('on');});
   document.querySelectorAll('#mon-workspace .tc').forEach(c=>c.classList.remove('on'));
   const tabMap={active:0,inbox:1,saved:2};
