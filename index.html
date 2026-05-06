@@ -2067,7 +2067,15 @@ function initKG(){
   pat.append('path').attr('d','M 28 0 L 0 0 0 28').attr('fill','none').attr('stroke','#E8EDF2').attr('stroke-width',.4);
   _kgSvg.append('rect').attr('width',W).attr('height',H).attr('fill','url(#kgbg)');
   // Zoom
-  _kgZoom=d3.zoom().scaleExtent([.25,4]).on('zoom',e=>_kgG.attr('transform',e.transform));
+  _kgZoom=d3.zoom()
+    .scaleExtent([.25,4])
+    .filter(e=>{
+      // Pinch-to-zoom on trackpad sends wheel + ctrlKey=true on macOS
+      // Regular scroll (ctrlKey=false) passes through to page
+      if(e.type==='wheel')return e.ctrlKey;
+      return !e.button; // allow drag pan
+    })
+    .on('zoom',e=>_kgG.attr('transform',e.transform));
   _kgSvg.call(_kgZoom);
   _kgSvg.on('click.desel',e=>{if(e.target.tagName==='rect'||e.target===_kgSvg.node())kgClearSelection();});
   _kgG=_kgSvg.append('g');
@@ -2430,7 +2438,13 @@ function initDDKG(){
   const pat=defs.append('pattern').attr('id','ddkgbg').attr('width',28).attr('height',28).attr('patternUnits','userSpaceOnUse');
   pat.append('path').attr('d','M 28 0 L 0 0 0 28').attr('fill','none').attr('stroke','#E8EDF2').attr('stroke-width',.4);
   _ddKgSvg.append('rect').attr('width',W).attr('height',H).attr('fill','url(#ddkgbg)');
-  _ddKgZoom=d3.zoom().scaleExtent([.25,4]).on('zoom',e=>_ddKgG.attr('transform',e.transform));
+  _ddKgZoom=d3.zoom()
+    .scaleExtent([.25,4])
+    .filter(e=>{
+      if(e.type==='wheel')return e.ctrlKey;
+      return !e.button;
+    })
+    .on('zoom',e=>_ddKgG.attr('transform',e.transform));
   _ddKgSvg.call(_ddKgZoom);
   _ddKgSvg.on('click.desel',e=>{if(e.target.tagName==='rect'||e.target===_ddKgSvg.node())ddKgClearSel();});
   _ddKgG=_ddKgSvg.append('g');
