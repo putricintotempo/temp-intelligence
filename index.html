@@ -70,9 +70,22 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
 .bn{background:rgba(15,26,46,.07);color:var(--n);}
 .bg_{background:var(--gl);color:var(--g);}
 .btn{display:inline-flex;align-items:center;gap:5px;padding:8px 15px;border-radius:6px;font-size:12.5px;font-weight:600;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;white-space:nowrap;transition:all .15s;}
-.bp{background:var(--r);color:#fff;}.bp:hover{background:var(--rd);}
-.bo{background:#fff;color:var(--n);border:1.5px solid var(--b);}.bo:hover{border-color:var(--r);color:var(--r);}
-.bn2{background:var(--n);color:#fff;}.bn2:hover{background:var(--nl);}
+
+/* PRIMARY — satu per konteks, main output action (Generate Report, Aktifkan Monitor, Run Screening) */
+.bp{background:var(--r);color:#fff;border:1.5px solid var(--r);}.bp:hover{background:var(--rd);border-color:var(--rd);}
+
+/* SECONDARY — supporting workflow actions (Start Monitoring, Export, Share, Compare) */
+.bo{background:#fff;color:var(--n);border:1.5px solid var(--b2);}.bo:hover{border-color:var(--n);background:var(--bg);}
+
+/* NAVIGATION — lintas fitur / feature navigation (Jalankan Risk Intelligence →) */
+.bn2{background:var(--n);color:#fff;border:1.5px solid var(--n);}.bn2:hover{background:var(--nl);border-color:var(--nl);}
+
+/* GHOST — utility / assistant features, lightest weight (Ask Tempo) */
+.bgh{background:var(--bg);color:var(--t);border:1.5px solid var(--b);}.bgh:hover{border-color:var(--b2);background:#fff;}
+
+/* DEPRECATED — alias untuk compatibility */
+.bn{background:rgba(15,26,46,.07);color:var(--n);}
+
 .bsm{padding:5px 10px;font-size:12px;}
 .bxs{padding:3px 8px;font-size:11px;}
 .fi{border:1.5px solid var(--b);border-radius:6px;padding:8px 11px;font-size:13px;font-family:'DM Sans',sans-serif;color:var(--t);outline:none;}
@@ -444,8 +457,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
 .aip-f{flex:1;border:1.5px solid var(--b);border-radius:5px;padding:6px 9px;font-size:12px;font-family:'DM Sans',sans-serif;outline:none;resize:none;}
 .aip-f:focus{border-color:var(--r);}
 .aip-send{background:var(--r);color:#fff;border:none;padding:6px 10px;border-radius:5px;font-size:12px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;}
-.ask-cta{display:inline-flex;align-items:center;gap:5px;background:var(--n);color:#fff;border:none;padding:8px 15px;border-radius:6px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;}
-.ask-cta:hover{background:var(--nl);}
+.ask-cta{display:inline-flex;align-items:center;gap:5px;background:var(--bg);color:var(--t);border:1.5px solid var(--b);padding:8px 15px;border-radius:6px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap;transition:all .15s;}
+.ask-cta:hover{border-color:var(--b2);background:#fff;}
+.ask-cta.bsm{padding:5px 10px;font-size:12px;}
 /* drawers */
 .drwov{position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:100;display:none;backdrop-filter:blur(2px);}
 .drwov.open{display:block;}
@@ -643,7 +657,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
   <!-- DD Result -->
   <div class="sv" id="dd-result">
    <div class="flex ic wrap jb g8 m14">
-    <div class="flex g6 wrap"><button class="btn bo bsm" onclick="showComp()">⇄ Bandingkan</button><button class="btn bo bsm" onclick="startMonitoring('PT Waskita Karya')">📡 Start Monitoring</button><button class="ask-cta bsm" onclick="openAIP('dd')">💬 Ask Tempo</button><button class="btn bp bsm" onclick="saveRep('PT Waskita Karya · Risk Intelligence Screening')">📋 Generate Report</button></div>
+    <div class="flex g6 wrap"><button class="btn bgh bsm" onclick="showComp()">⇄ Bandingkan</button><button class="btn bo bsm" onclick="startMonitoring('PT Waskita Karya')">📡 Start Monitoring</button><button class="ask-cta bsm" onclick="openAIP('dd')">💬 Ask Tempo</button><button class="btn bp bsm" onclick="saveRep('PT Waskita Karya · Risk Intelligence Screening')">📋 Generate Report</button></div>
    </div>
    <div class="res-hdr"><div class="res-nm">PT Waskita Karya</div><div class="res-mt"><span>Public Company · BUMN</span><span>Infrastructure</span><span>Partnership Screening</span><span>Indonesia · 2018–2025 · 42 sources</span></div></div>
    <div class="g2 m14" style="grid-template-columns:195px 1fr;">
@@ -888,7 +902,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
        <div style="display:flex;gap:9px;align-items:flex-start;"><div style="background:var(--pu);color:#fff;border-radius:4px;padding:2px 7px;font-size:10px;font-weight:700;flex-shrink:0;margin-top:1px;">Media Monitoring</div><div style="font-size:12px;">Tracking ongoing setelah keputusan — pantau perkembangan baru secara real-time.</div></div>
       </div>
      </div>
-     <div class="flex g8 wrap"><button class="btn bn2 bsm" onclick="P('dd');showSV('dd','wizard')">🔍 Jalankan Risk Intelligence →</button><button class="btn bo bsm" onclick="startMonitoring('PT Waskita Karya Tbk')">📡 Start Monitoring</button><button class="ask-cta bsm" onclick="openAIP('ps')">💬 Ask Tempo</button></div>
     </div>
     <!-- Key Facts -->
     <div class="tc cp" id="pst-keyfacts">
@@ -1345,7 +1358,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
      <div class="fg"><label class="lbl">Cakupan Sumber</label><select class="sel fw"><option>Semua Sumber Tempo</option><option>Tempo.co saja</option><option>Majalah Tempo saja</option></select></div>
      <div class="fg" style="grid-column:1/-1;"><label class="lbl">Kata Kunci Utama</label><input class="fi fw" placeholder="e.g. Waskita, WSKT, konstruksi BUMN"></div>
     </div>
-    <div class="snav"><button class="btn bo" onclick="goMon(1)">← Kembali</button><button class="btn bp" onclick="goMon(3)">Lanjut →</button></div>
+    <div class="snav"><button class="btn bgh" onclick="goMon(1)">← Kembali</button><button class="btn bp" onclick="goMon(3)">Lanjut →</button></div>
    </div>
    <!-- Step 3: Signals -->
    <div class="card cp" id="ms3" style="display:none;">
@@ -1359,7 +1372,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
      <div class="sg" onclick="this.classList.toggle('ck')"><div class="sgc"></div><div><div style="font-size:12.5px;font-weight:600;">Eksposur politik</div><div style="font-size:11px;color:var(--m);">Keterlibatan aktor atau kebijakan pemerintah</div></div></div>
      <div class="sg ck" onclick="this.classList.toggle('ck')"><div class="sgc"></div><div><div style="font-size:12.5px;font-weight:600;">Narrative shift terdeteksi</div><div style="font-size:11px;color:var(--m);">Perubahan framing dominan pemberitaan</div></div></div>
     </div>
-    <div class="snav"><button class="btn bo" onclick="goMon(2)">← Kembali</button><button class="btn bp" onclick="goMon(4)">Lanjut →</button></div>
+    <div class="snav"><button class="btn bgh" onclick="goMon(2)">← Kembali</button><button class="btn bp" onclick="goMon(4)">Lanjut →</button></div>
    </div>
    <!-- Step 4: Alert Rules -->
    <div class="card cp" id="ms4" style="display:none;">
@@ -1379,7 +1392,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
      <div style="font-size:12px;font-weight:600;color:var(--n);margin-bottom:5px;">Preview Alert Rule:</div>
      <div style="font-size:12.5px;color:var(--m);">Alert akan dikirim ke <strong>Alerts Inbox</strong> dan muncul di <strong>Home → Alerts Inbox</strong> setiap hari pukul 07:00 WIB jika ada spike coverage >50%.</div>
     </div>
-    <div class="snav"><button class="btn bo" onclick="goMon(3)">← Kembali</button><button class="btn bp" onclick="goMon(5)">Lanjut →</button></div>
+    <div class="snav"><button class="btn bgh" onclick="goMon(3)">← Kembali</button><button class="btn bp" onclick="goMon(5)">Lanjut →</button></div>
    </div>
    <!-- Step 5: Confirm -->
    <div class="card cp" id="ms5" style="display:none;">
@@ -1398,7 +1411,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
      ✓ Setelah diaktifkan, monitor ini akan berjalan otomatis. Alert akan muncul di <strong>Alerts Inbox</strong>.
     </div>
     <div class="mon-ok" id="mon-ok">✅ <strong>Monitor aktif!</strong> Mengarahkan ke workspace...</div>
-    <div class="snav"><button class="btn bo" onclick="goMon(4)">← Kembali</button><button class="btn bp" onclick="createMon()" style="padding:10px 22px;">📡 Aktifkan Monitor →</button></div>
+    <div class="snav"><button class="btn bgh" onclick="goMon(4)">← Kembali</button><button class="btn bp" onclick="createMon()" style="padding:10px 22px;">📡 Aktifkan Monitor →</button></div>
    </div>
   </div>
  </div>
