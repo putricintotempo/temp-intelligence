@@ -906,6 +906,34 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
       <div class="flex ic g5 sm mu"><div style="width:8px;height:8px;background:var(--s);border-radius:50%;"></div>Peers/Group</div>
       <div style="margin-left:auto;font-size:10px;color:var(--s);"><strong>Tebal garis</strong> = kekuatan relasi · Putus-putus = relasi lemah · <span style="color:var(--r);">Merah</span> = risiko tinggi</div>
      </div>
+     <!-- Entity Table -->
+     <div style="padding:14px 16px 18px;background:#fff;border-top:1px solid var(--b);">
+      <div class="sh m10">
+       <div style="font-size:13.5px;font-weight:700;color:var(--n);">Daftar Entitas Terdeteksi</div>
+       <div style="display:flex;align-items:center;gap:6px;">
+        <span class="bx bn" id="ent-table-count">25 entitas · 42 sumber</span>
+        <div style="font-size:11px;color:var(--m);">Klik "Lihat Artikel" untuk melihat sumber berita terkait</div>
+       </div>
+      </div>
+      <div style="background:var(--bll);border-radius:6px;padding:8px 11px;font-size:11.5px;color:var(--bl);margin-bottom:12px;line-height:1.6;">
+       ℹ️ <strong>Mention</strong> = total kemunculan nama entitas di seluruh teks artikel. <strong>Artikel</strong> = jumlah dokumen unik yang menyebut entitas ini. Satu artikel bisa memuat beberapa mention.
+      </div>
+      <div style="overflow-x:auto;">
+       <table id="ent-table" style="width:100%;border-collapse:collapse;font-size:12.5px;">
+        <thead>
+         <tr style="border-bottom:2px solid var(--b);background:var(--bg);">
+          <th style="text-align:left;padding:8px 10px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--m);">Nama Entitas</th>
+          <th style="text-align:left;padding:8px 10px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--m);">Tipe</th>
+          <th style="text-align:left;padding:8px 10px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--m);">Kekuatan Rel.</th>
+          <th style="text-align:center;padding:8px 10px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--m);">Mention</th>
+          <th style="text-align:center;padding:8px 10px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--m);">Artikel</th>
+          <th style="text-align:center;padding:8px 10px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--m);"></th>
+         </tr>
+        </thead>
+        <tbody id="ent-table-body"></tbody>
+       </table>
+      </div>
+     </div>
     </div>
 
     <!-- Issue Clusters — redesigned with consistent visual coverage bars -->
@@ -1714,6 +1742,71 @@ function showComp(){document.getElementById('comp-ov').classList.add('open');}
 // ========================================================
 // D3 FORCE-DIRECTED KNOWLEDGE GRAPH
 // ========================================================
+// ── Entity article data ──────────────────────────────────
+// articles = distinct documents; mentions = total occurrences in text
+const KG_ARTICLES = {
+ waskita:[
+  {id:'W001',title:'Waskita Karya Hadapi Restrukturisasi Utang Jumbo',src:'Tempo.co',date:'12 Apr 2025',type:'Berita',sent:'Negative',mentions:7,summary:'PT Waskita Karya menghadapi tekanan restrukturisasi utang senilai Rp 84 triliun yang memasuki tahap kritis pada Q1 2025. Tiga kreditur utama (Mandiri, BRI, BTN) menuntut kepastian jadwal pembayaran ulang sebelum akhir Juni.'},
+  {id:'W002',title:'KPK Telusuri Aliran Dana Proyek Fiktif Waskita',src:'Tempo.co',date:'22 Feb 2025',type:'Berita',sent:'Negative',mentions:5,summary:'Penyidik KPK menelusuri aliran dana senilai Rp 2,1 triliun dari proyek fiktif yang diduga melibatkan eks-manajemen Waskita Karya. Penggeledahan di dua lokasi dilakukan Februari 2025.'},
+  {id:'W003',title:'Eks Direksi Waskita Divonis 8 Tahun Penjara',src:'Majalah Tempo',date:'18 Des 2023',type:'Investigasi',sent:'Negative',mentions:12,summary:'Mantan Direktur Utama Waskita Karya divonis 8 tahun penjara oleh Pengadilan Tipikor Jakarta atas korupsi pengadaan proyek fiktif. Hakim menyebut kerugian negara mencapai Rp 2,5 triliun.'},
+  {id:'W004',title:'Manajemen Baru Waskita Siapkan Transformasi 2025',src:'Tempo.co',date:'3 Nov 2024',type:'Berita',sent:'Mixed',mentions:4,summary:'Direksi ketiga dalam tiga tahun dilantik November 2024. Manajemen baru berjanji fokus pada penyelesaian restrukturisasi utang dan pemulihan proyek aktif yang tertunda.'},
+  {id:'W005',title:'Investor Soroti Beban Utang BUMN Karya',src:'Majalah Tempo',date:'14 Sep 2022',type:'Investigasi',sent:'Negative',mentions:6,summary:'Investigasi Majalah Tempo mengungkap debt-to-equity ratio Waskita Karya mencapai level paling mengkhawatirkan dalam sejarah perusahaan. Analis menyebut risiko gagal bayar sangat nyata jika tidak ada intervensi.'},
+  {id:'W006',title:'Proyek IKN Waskita Tertunda, Subkontraktor Khawatir',src:'Koran Tempo',date:'15 Mar 2025',type:'Berita',sent:'Negative',mentions:3,summary:'Penyelesaian dua paket konstruksi IKN yang dikerjakan Waskita mengalami penundaan. Puluhan subkontraktor melaporkan pembayaran tertunda lebih dari 3 bulan.'}
+ ],
+ kpk:[
+  {id:'K001',title:'KPK Dalami Proyek Fiktif Infrastruktur BUMN',src:'Tempo.co',date:'21 Jul 2023',type:'Investigasi',sent:'Negative',mentions:9,summary:'KPK memperluas penyidikan ke tiga proyek infrastruktur fiktif senilai Rp 2,1 triliun. Dokumen proyek dan aset terkait disita dalam penggeledahan di kantor pusat Waskita.'},
+  {id:'K002',title:'Kasus Korupsi Infrastruktur Seret Pejabat Lama',src:'Tempo.co',date:'18 Mar 2023',type:'Berita',sent:'Negative',mentions:6,summary:'KPK menetapkan tersangka ketiga dalam kasus korupsi proyek infrastruktur BUMN. Dugaan keterlibatan pejabat Kementerian PUPR ikut didalami.'},
+  {id:'K003',title:'KPK Kembangkan Penyelidikan Aliran Dana Waskita',src:'Majalah Tempo',date:'5 Nov 2024',type:'Investigasi',sent:'Negative',mentions:4,summary:'Pasca-vonis eks-direksi, KPK mengembangkan penyelidikan ke dugaan aliran dana ke pihak ketiga. Beberapa nama baru disebut sebagai saksi kunci dalam persidangan.'}
+ ],
+ dir1:[
+  {id:'D101',title:'Eks Dirut Waskita Divonis 8 Tahun — Terbukti Korupsi',src:'Majalah Tempo',date:'18 Des 2023',type:'Investigasi',sent:'Negative',mentions:12,summary:'Mantan Direktur Utama periode 2018-2021 divonis 8 tahun penjara. Hakim menyatakan terbukti menyetujui pembayaran proyek fiktif dan menerima aliran dana Rp 18,3 miliar.'},
+  {id:'D102',title:'KPK Tetapkan Mantan Dirut Waskita sebagai Tersangka',src:'Tempo.co',date:'12 Jun 2022',type:'Berita',sent:'Negative',mentions:7,summary:'KPK menetapkan mantan Direktur Utama Waskita Karya sebagai tersangka dalam kasus pengadaan proyek fiktif. Ia diduga memerintahkan pembayaran proyek senilai Rp 2,5 triliun yang tidak pernah dikerjakan.'}
+ ],
+ dir2:[
+  {id:'D201',title:'Eks CFO Waskita Divonis 6 Tahun Penjara',src:'Majalah Tempo',date:'20 Des 2023',type:'Investigasi',sent:'Negative',mentions:8,summary:'Mantan Direktur Keuangan periode 2016-2020 divonis 6 tahun penjara. Terbukti menyetujui pencairan dana proyek fiktif dan menerima gratifikasi Rp 9,2 miliar dari kontraktor fiktif.'},
+  {id:'D202',title:'Peran CFO dalam Penggelembungan Proyek Waskita',src:'Tempo.co',date:'8 Aug 2023',type:'Investigasi',sent:'Negative',mentions:5,summary:'Dakwaan jaksa mengungkap peran CFO dalam skema markup proyek. Dana yang seharusnya untuk proyek dialihkan ke rekening perusahaan cangkang milik pihak terafiliasi.'}
+ ],
+ tipikor:[
+  {id:'T001',title:'PN Tipikor Mulai Sidang Eks Direksi Waskita',src:'Tempo.co',date:'15 Mar 2023',type:'Berita',sent:'Negative',mentions:6,summary:'Pengadilan Negeri Tindak Pidana Korupsi Jakarta mulai menyidangkan perkara eks-direksi Waskita Karya. Jaksa KPK membacakan dakwaan di hadapan majelis hakim.'},
+  {id:'T002',title:'Vonis Eks Direksi Waskita: 6 dan 8 Tahun',src:'Tempo.co',date:'18 Des 2023',type:'Berita',sent:'Negative',mentions:10,summary:'Majelis hakim Pengadilan Tipikor Jakarta menjatuhkan vonis 8 tahun kepada eks-Dirut dan 6 tahun kepada eks-CFO. Keduanya juga diwajibkan membayar uang pengganti kerugian negara.'}
+ ],
+ kemen:[
+  {id:'KB001',title:'Restrukturisasi BUMN Karya Masuk Tahap Baru',src:'Tempo.co',date:'10 Feb 2025',type:'Berita',sent:'Mixed',mentions:7,summary:'Kementerian BUMN mengumumkan skema restrukturisasi baru untuk tiga BUMN Karya termasuk Waskita. Skema mencakup penyertaan modal negara bersyarat dan divestasi aset non-inti.'},
+  {id:'KB002',title:'Kemen BUMN Lantik Direksi Baru Waskita',src:'Tempo.co',date:'3 Nov 2024',type:'Berita',sent:'Mixed',mentions:5,summary:'Menteri BUMN melantik jajaran direksi baru Waskita Karya. Pergantian ketiga dalam tiga tahun ini disebut sebagai langkah memperkuat tata kelola di tengah krisis.'},
+  {id:'KB003',title:'Dukungan Pemerintah untuk BUMN Karya di Tengah Krisis',src:'Majalah Tempo',date:'Jul 2024',type:'Analisis',sent:'Mixed',mentions:4,summary:'Majalah Tempo menganalisis dilema pemerintah: memberikan bailout ke BUMN Karya bermasalah menciptakan moral hazard, namun membiarkan kolaps berpotensi mengguncang sektor infrastruktur nasional.'}
+ ],
+ mandiri:[
+  {id:'M001',title:'Bank Mandiri Pimpin Sindikasi Restrukturisasi Waskita',src:'Tempo.co',date:'28 Jan 2025',type:'Berita',sent:'Negative',mentions:6,summary:'Bank Mandiri selaku lead arranger sindikasi kredit Waskita memimpin negosiasi ulang syarat-syarat fasilitas senilai Rp 22 triliun. Tenggat negosiasi ditetapkan akhir Maret 2025.'},
+  {id:'M002',title:'Kreditur Sindikasi Tuntut Kepastian Restrukturisasi',src:'Koran Tempo',date:'12 Mar 2025',type:'Berita',sent:'Negative',mentions:4,summary:'Lima bank dalam sindikasi kredit Waskita mengeluarkan joint statement menuntut kepastian penyelesaian restrukturisasi sebelum Q2 2025. Risiko cross-default disebutkan sebagai ancaman utama.'}
+ ],
+ bond:[
+  {id:'BO001',title:'Obligasi Waskita Terancam Default — Kreditur Cemas',src:'Majalah Tempo',date:'22 Apr 2025',type:'Investigasi',sent:'Negative',mentions:9,summary:'Pemegang obligasi Waskita senilai Rp 26 triliun mempertanyakan kemampuan bayar perseroan. Rating agency menurunkan outlook dari stable ke negative watch. Kupon terakhir dibayar dengan perpanjangan grace period.'},
+  {id:'BO002',title:'Investor Pertanyakan Nilai Jaminan Obligasi Waskita',src:'Tempo.co',date:'8 Feb 2025',type:'Berita',sent:'Negative',mentions:5,summary:'Pemegang obligasi mempertanyakan nilai aset jaminan yang digunakan sebagai collateral. Beberapa aset tol yang dijaminkan dinilai masih dalam sengketa atau belum beroperasi penuh.'}
+ ],
+ wsbp:[
+  {id:'WB001',title:'Waskita Beton Precast Terancam Delisting BEI',src:'Tempo.co',date:'14 Mar 2025',type:'Berita',sent:'Negative',mentions:5,summary:'OJK memberikan peringatan kepada Waskita Beton Precast terkait kewajiban penyampaian laporan keuangan yang terlambat. Saham WSBP diperdagangkan di level terendah.'},
+  {id:'WB002',title:'Obligasi WSBP Juga Masuk Radar KPK',src:'Majalah Tempo',date:'Nov 2023',type:'Investigasi',sent:'Negative',mentions:4,summary:'Penyelidik KPK menelusuri apakah skema penerbitan obligasi WSBP terkait dengan penggelembungan nilai proyek induk usahanya, PT Waskita Karya.'}
+ ],
+ toltj:[
+  {id:'TJ001',title:'Waskita Toll Road: Aset Potensial atau Beban?',src:'Majalah Tempo',date:'Jun 2024',type:'Analisis',sent:'Mixed',mentions:7,summary:'Analis menilai aset tol Trans-Jawa yang dikelola Waskita Toll Road memiliki nilai strategis tinggi namun cash flow operasional belum cukup untuk menutupi cicilan utang korporasi induk.'},
+  {id:'TJ002',title:'Divestasi Ruas Tol Waskita Ditawarkan ke Hutama Karya',src:'Tempo.co',date:'Jan 2025',type:'Berita',sent:'Mixed',mentions:5,summary:'Pemerintah menjajaki kemungkinan pengalihan beberapa ruas tol Trans-Jawa dari Waskita ke Hutama Karya sebagai bagian dari restrukturisasi aset BUMN Karya.'}
+ ],
+ pem:[
+  {id:'PM001',title:'Pemerintah Dorong Penyelesaian Proyek Strategis Waskita',src:'Koran Tempo',date:'10 Ags 2024',type:'Berita',sent:'Mixed',mentions:6,summary:'Pemerintah menetapkan beberapa proyek strategis nasional yang dikerjakan Waskita sebagai prioritas penyelesaian. Dukungan anggaran diberikan melalui penyertaan modal negara bersyarat.'}
+ ],
+ pupr:[
+  {id:'PU001',title:'PUPR Evaluasi Kinerja Kontraktor BUMN — Waskita Jadi Fokus',src:'Koran Tempo',date:'Mar 2025',type:'Berita',sent:'Negative',mentions:4,summary:'Kementerian PUPR memperketat evaluasi kinerja kontraktor BUMN setelah beberapa proyek mengalami keterlambatan. Proyek Waskita menjadi salah satu fokus pengawasan khusus.'}
+ ],
+ bumn:[
+  {id:'BG001',title:'Beban Utang BUMN Karya Jadi Sorotan Investor',src:'Majalah Tempo',date:'14 Sep 2022',type:'Investigasi',sent:'Negative',mentions:11,summary:'Investigasi mendalam mengungkap beban utang kumulatif BUMN Karya (Waskita, WIKA, PTPP, Adhi) mencapai Rp 200+ triliun. Analis memperingatkan risiko sistemik jika satu entitas gagal bayar.'}
+ ],
+ subkon:[
+  {id:'SK001',title:'Subkontraktor Waskita Merugi Akibat Penundaan Pembayaran',src:'Tempo.co',date:'25 Mar 2025',type:'Berita',sent:'Negative',mentions:5,summary:'Asosiasi Kontraktor Indonesia melaporkan lebih dari 200 subkontraktor Waskita mengalami penundaan pembayaran lebih dari 90 hari. Total piutang yang belum dibayar ditaksir Rp 1,8 triliun.'}
+ ]
+};
+// For entities without article data, return placeholder
+function getKGArticles(id){return KG_ARTICLES[id]||[];}
+
 const KGN = [
   // ── Core ──
   {id:'waskita',name:'PT Waskita\nKarya',fullName:'PT Waskita Karya Tbk',color:'#CC1F2D',r:44,weight:42,type:'main',
@@ -1988,6 +2081,8 @@ function initKG(){
   });
   // Cool down after 3s
   setTimeout(()=>_kgSim.alphaTarget(0),3000);
+  // Populate entity table
+  buildEntityTable();
 }
 
 function kgShowTip(e,d){
@@ -2030,6 +2125,10 @@ function kgClickNode(e,d,W,H){
     .attr('stroke-opacity',l=>{const s=l.source.id||l.source,t=l.target.id||l.target;return(s===d.id||t===d.id)?.9:.06;})
     .attr('stroke-width',l=>{const s=l.source.id||l.source,t=l.target.id||l.target;return(s===d.id||t===d.id)?(l.width+1.5):l.width;});
   _kgLabelSel.transition().duration(280).attr('opacity',l=>{const s=l.source.id||l.source,t=l.target.id||l.target;return(s===d.id||t===d.id)?1:0;}).attr('font-size',l=>{const s=l.source.id||l.source,t=l.target.id||l.target;return(s===d.id||t===d.id)?9.5:8;});
+  // Highlight corresponding table row and scroll to it
+  document.querySelectorAll('#ent-table-body tr').forEach(r=>r.style.outline='none');
+  const row=document.getElementById('etr-'+d.id);
+  if(row){row.style.outline='2px solid var(--r)';row.style.outlineOffset='-1px';setTimeout(()=>row.scrollIntoView({behavior:'smooth',block:'center'}),300);}
 }
 
 function kgClearSelection(){
@@ -2039,6 +2138,7 @@ function kgClearSelection(){
   if(_kgLinkSel)_kgLinkSel.transition().duration(280).attr('stroke-opacity',.55).attr('stroke-width',d=>d.width);
   if(_kgLabelSel)_kgLabelSel.transition().duration(280).attr('opacity',1).attr('font-size',8);
   if(_kgSvg&&_kgZoom)_kgSvg.transition().duration(380).call(_kgZoom.transform,d3.zoomIdentity);
+  document.querySelectorAll('#ent-table-body tr').forEach(r=>r.style.outline='none');
 }
 
 function setKGScope(btn,scope){
@@ -2056,27 +2156,192 @@ function setKGWeight(btn,w){
   applyKGFilters();
 }
 function applyKGFilters(){
-  if(!_kgInited||!_kgNodes)return;
-  const dn=parseInt(document.getElementById('sl-dn').value);
-  const mw=parseInt(document.getElementById('sl-mw').value);
-  const dep=parseInt(document.getElementById('sl-dep').value);
-  const ph=parseInt(document.getElementById('sl-ph').value||4);
+  if(!_kgInited||!_kgNodes||!_kgLinks)return;
+  const dn=parseInt(document.getElementById('sl-dn').value)||7;
+  const dep=parseInt(document.getElementById('sl-dep').value)||2;
+  const ph=parseInt(document.getElementById('sl-ph')?document.getElementById('sl-ph').value:4)||4;
+  const mw=parseInt(document.getElementById('sl-mw').value)||1;
   document.getElementById('v-dn').textContent=dn;
   document.getElementById('v-dep').textContent=dep;
   if(document.getElementById('v-ph'))document.getElementById('v-ph').textContent=ph;
   document.getElementById('v-mw').textContent=mw;
-  // Sort non-center nodes by weight desc, keep top dn with weight >= mw
-  const sorted=[..._kgNodes].filter(n=>n.id!=='waskita').sort((a,b)=>b.weight-a.weight);
+
+  // D3 mutates links: source/target become objects — always use .id fallback
+  const sid=n=>(n&&typeof n==='object'?n.id:n);
+
+  // Build adjacency map from current simulation links
+  const adj={};
+  _kgLinks.forEach(l=>{
+    const s=sid(l.source),t=sid(l.target);
+    if(!adj[s])adj[s]=[];if(!adj[t])adj[t]=[];
+    adj[s].push({to:t,w:l.weight||1});
+    adj[t].push({to:s,w:l.weight||1});
+  });
+
+  // BFS from 'waskita' up to dep hops, max dn neighbors per hop, weight >= mw
   const visible=new Set(['waskita']);
-  sorted.slice(0,Math.min(dn,sorted.length)).forEach(n=>{if(n.weight>=mw)visible.add(n.id);});
-  if(_kgNodeSel)_kgNodeSel.transition().duration(220).attr('opacity',d=>visible.has(d.id)?1:0).attr('pointer-events',d=>visible.has(d.id)?'all':'none');
-  if(_kgLinkSel)_kgLinkSel.transition().duration(220).attr('stroke-opacity',l=>{const s=l.source.id||l.source,t=l.target.id||l.target;return(visible.has(s)&&visible.has(t))?.55:0;});
-  if(_kgLabelSel)_kgLabelSel.transition().duration(220).attr('opacity',l=>{const s=l.source.id||l.source,t=l.target.id||l.target;return(visible.has(s)&&visible.has(t))?1:0;});
-  // Reheat simulation gently
-  if(_kgSim)_kgSim.alpha(.15).restart();
+  const frontier=['waskita'];
+  for(let d=0;d<dep;d++){
+    const nextFrontier=[];
+    for(const src of frontier){
+      const neighbors=(adj[src]||[]).filter(e=>e.w>=mw&&!visible.has(e.to));
+      // sort by weight desc, take top ph per hop
+      neighbors.sort((a,b)=>b.w-a.w);
+      neighbors.slice(0,ph).forEach(e=>{
+        if(visible.size-1<dn){visible.add(e.to);nextFrontier.push(e.to);}
+      });
+    }
+    frontier.length=0;frontier.push(...nextFrontier);
+    if(visible.size-1>=dn)break;
+  }
+
+  // Apply visibility to nodes (no simulation restart — just visual)
+  if(_kgNodeSel)_kgNodeSel
+    .attr('opacity',d=>visible.has(d.id)?1:0)
+    .attr('pointer-events',d=>visible.has(d.id)?'all':'none');
+
+  // Apply visibility to links — safe source/target id extraction
+  if(_kgLinkSel)_kgLinkSel
+    .attr('stroke-opacity',l=>{
+      const s=sid(l.source),t=sid(l.target);
+      return(visible.has(s)&&visible.has(t))?.6:0;
+    });
+
+  // Apply visibility to labels
+  if(_kgLabelSel)_kgLabelSel
+    .attr('opacity',l=>{
+      const s=sid(l.source),t=sid(l.target);
+      return(visible.has(s)&&visible.has(t))?1:0;
+    });
+
+  // Sync entity table rows
+  syncEntityTable(visible);
 }
 
 function kgZoomIn(){if(_kgSvg&&_kgZoom)_kgSvg.transition().duration(300).call(_kgZoom.scaleBy,1.3);}
+
+// ── Entity Table ──────────────────────────────────────────
+const TYPE_LABELS={main:'Entitas Utama',legal:'Investigasi/Hukum',governance:'Pemerintah',political:'Politik',financial:'Bank/Kreditur',subsidiary:'Anak Perusahaan',project:'Proyek',group:'Kelompok',peer:'Kompetitor',other:'Lainnya'};
+const STR_LABELS={Kuat:'<span style="color:var(--r);font-weight:600;">Kuat</span>',Sedang:'<span style="color:var(--am);font-weight:600;">Sedang</span>',Lemah:'<span style="color:var(--gr);font-weight:600;">Lemah</span>','N/A':'<span style="color:var(--m);">—</span>'};
+
+function buildEntityTable(){
+  const tbody=document.getElementById('ent-table-body');
+  if(!tbody||!KGN)return;
+  tbody.innerHTML=KGN.map(n=>{
+    const arts=getKGArticles(n.id);
+    const artCount=arts.length;
+    // total mentions across articles
+    const totalMentions=arts.length>0?arts.reduce((acc,a)=>acc+(a.mentions||1),0):n.weight||0;
+    const strLabel=STR_LABELS[n.str||'N/A']||STR_LABELS['N/A'];
+    const typeLabel=TYPE_LABELS[n.type]||n.type;
+    const hasArts=artCount>0;
+    return `<tr id="etr-${n.id}" style="border-bottom:1px solid var(--b);transition:background .15s;" onmouseenter="this.style.background='var(--bg)'" onmouseleave="this.style.background=''">`+
+      `<td style="padding:9px 10px;"><div style="display:flex;align-items:center;gap:7px;"><div style="width:9px;height:9px;border-radius:50%;background:${n.color};flex-shrink:0;"></div><span style="font-weight:600;color:var(--n);">${n.fullName}</span></div></td>`+
+      `<td style="padding:9px 10px;"><span class="bx bn" style="font-size:10.5px;">${typeLabel}</span></td>`+
+      `<td style="padding:9px 10px;">${strLabel}</td>`+
+      `<td style="padding:9px 10px;text-align:center;font-weight:600;color:var(--n);">${totalMentions}</td>`+
+      `<td style="padding:9px 10px;text-align:center;font-weight:600;color:var(--n);">${artCount>0?artCount:'<span style="color:var(--s);">—</span>'}</td>`+
+      `<td style="padding:9px 10px;text-align:center;">`+(hasArts?`<button class="bev" onclick="openEntityArticles('${n.id}')">Lihat ${artCount} Artikel →</button>`:`<span style="font-size:11px;color:var(--s);">Tidak tersedia</span>`)+`</td>`+
+    `</tr>`;
+  }).join('');
+}
+
+function syncEntityTable(visible){
+  // Show/hide rows based on visible set from filter
+  if(!document.getElementById('ent-table-body'))return;
+  KGN.forEach(n=>{
+    const row=document.getElementById('etr-'+n.id);
+    if(row)row.style.display=visible.has(n.id)?'':'none';
+  });
+  const visCount=visible.size;
+  const cnt=document.getElementById('ent-table-count');
+  if(cnt)cnt.textContent=visCount+' entitas · 42 sumber';
+}
+
+// ── Article Drawer ────────────────────────────────────────
+const SENT_BADGE={Negative:'<span class="bx bh" style="font-size:10px;">Negatif</span>',Mixed:'<span class="bx bm" style="font-size:10px;">Mixed</span>',Positive:'<span class="bx bl" style="font-size:10px;">Positif</span>'};
+const TYPE_BADGE=tp=>`<span style="background:var(--pul);color:var(--pu);border-radius:3px;padding:1px 6px;font-size:10px;font-weight:600;">${tp}</span>`;
+
+function openEntityArticles(nodeId){
+  const node=KGN.find(n=>n.id===nodeId);
+  const arts=getKGArticles(nodeId);
+  if(!node)return;
+  document.getElementById('ent-art-title').textContent=node.fullName+' — Artikel Terkait';
+  const artCount=arts.length;
+  const totalMentions=arts.reduce((acc,a)=>acc+(a.mentions||1),0);
+  document.getElementById('ent-art-sub').textContent=artCount>0?`${artCount} artikel · ${totalMentions} total mention · Arsip Tempo`:'Belum ada artikel dalam database sampel';
+
+  const body=document.getElementById('ent-art-body');
+  if(artCount===0){
+    body.innerHTML=`<div class="empty" style="padding:32px 16px;"><div class="eic">📭</div><div class="ettl">Tidak ada artikel sampel</div><div class="etxt">Data artikel untuk entitas ini belum tersedia dalam prototype. Dalam produk penuh, arsip Tempo akan menampilkan semua artikel yang menyebut entitas ini.</div></div>`;
+  } else {
+    body.innerHTML=`<div style="background:var(--bll);border-radius:6px;padding:8px 11px;font-size:11.5px;color:var(--bl);margin-bottom:13px;line-height:1.6;">
+      <strong>Mention</strong> = total kemunculan nama di teks. <strong>Artikel</strong> = jumlah dokumen unik. ${totalMentions} mention dari ${artCount} artikel.
+    </div>`+
+    arts.map(a=>`
+      <div class="evi" style="margin-bottom:11px;cursor:pointer;" onclick="openArticleDetail('${a.id}','${nodeId}')">
+       <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin-bottom:6px;">
+        <span style="font-size:12px;font-weight:700;color:var(--n);">${a.src}</span>
+        <span style="background:var(--bg);border-radius:3px;padding:1px 6px;font-size:10px;color:var(--m);">${a.srcType||'Berita Online'}</span>
+        ${TYPE_BADGE(a.type)}
+        ${SENT_BADGE[a.sent]||''}
+       </div>
+       <div style="font-size:11px;color:var(--m);margin-bottom:5px;">📅 ${a.date} · <span style="font-weight:600;color:var(--n);">${a.mentions} mention</span> dalam artikel ini</div>
+       <div class="eitt" style="margin-bottom:7px;line-height:1.4;">${a.title}</div>
+       <div style="font-size:12.5px;color:var(--m);line-height:1.6;margin-bottom:8px;">${a.summary}</div>
+       <div style="display:flex;justify-content:flex-end;padding-top:6px;border-top:1px solid var(--b);">
+        <a href="#" onclick="openArticleDetail('${a.id}','${nodeId}');return false" style="font-size:11.5px;color:var(--bl);font-weight:600;text-decoration:none;">↗ Buka Artikel Lengkap (contoh)</a>
+       </div>
+      </div>`).join('');
+  }
+  document.getElementById('ent-art-ov').classList.add('open');
+  document.getElementById('ent-art-drw').classList.add('open');
+}
+
+function openArticleDetail(artId, nodeId){
+  // Find article
+  const arts=getKGArticles(nodeId);
+  const a=arts.find(x=>x.id===artId);
+  if(!a){window.open('https://tempo.co','_blank');return;}
+  // Show in an overlay modal-style
+  const node=KGN.find(n=>n.id===nodeId);
+  const existing=document.getElementById('art-detail-modal');
+  if(existing)existing.remove();
+  const modal=document.createElement('div');
+  modal.id='art-detail-modal';
+  modal.style.cssText='position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(2px);';
+  modal.innerHTML=`<div style="background:#fff;border-radius:12px;width:600px;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.2);">
+    <div style="padding:16px 20px;border-bottom:1px solid var(--b);display:flex;align-items:flex-start;justify-content:space-between;gap:12px;">
+     <div>
+      <div style="font-size:11px;color:var(--m);margin-bottom:3px;">${a.src} · ${a.date}</div>
+      <div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--n);line-height:1.35;">${a.title}</div>
+     </div>
+     <button onclick="document.getElementById('art-detail-modal').remove()" style="background:none;border:1px solid var(--b);border-radius:5px;width:28px;height:28px;cursor:pointer;font-size:16px;color:var(--m);flex-shrink:0;display:flex;align-items:center;justify-content:center;">✕</button>
+    </div>
+    <div style="padding:16px 20px;">
+     <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;">
+      ${TYPE_BADGE(a.type)} ${SENT_BADGE[a.sent]||''}
+      <span class="bx blm">Entitas: ${node?node.fullName:nodeId}</span>
+      <span class="bx bn">${a.mentions} mention</span>
+     </div>
+     <div style="font-size:13.5px;color:var(--t);line-height:1.75;margin-bottom:16px;">${a.summary}</div>
+     <div style="font-size:12.5px;color:var(--m);margin-bottom:14px;">
+      <em>Catatan: Ini adalah ringkasan dari arsip Tempo. Artikel lengkap tersedia di platform Tempo dengan akses berlangganan.</em>
+     </div>
+     <div style="display:flex;gap:8px;justify-content:flex-end;padding-top:12px;border-top:1px solid var(--b);">
+      <button class="btn bo bsm" onclick="document.getElementById('art-detail-modal').remove()">Tutup</button>
+      <a href="https://tempo.co" target="_blank" class="btn bp bsm" style="text-decoration:none;">↗ Buka di Tempo.co (contoh)</a>
+     </div>
+    </div>
+   </div>`;
+  document.body.appendChild(modal);
+  modal.addEventListener('click',e=>{if(e.target===modal)modal.remove();});
+}
+
+function closeEntArticles(){
+  document.getElementById('ent-art-ov').classList.remove('open');
+  document.getElementById('ent-art-drw').classList.remove('open');
+}
 function kgZoomOut(){if(_kgSvg&&_kgZoom)_kgSvg.transition().duration(300).call(_kgZoom.scaleBy,0.77);}
 function kgReset(){kgClearSelection();if(_kgSvg&&_kgZoom)_kgSvg.transition().duration(380).call(_kgZoom.transform,d3.zoomIdentity);}
 
@@ -2299,5 +2564,17 @@ document.addEventListener('keydown',e=>{const f=document.getElementById('ask-f')
 // init
 P('home');
 </script>
+<!-- ENTITY ARTICLES DRAWER -->
+<div class="drwov" id="ent-art-ov" onclick="closeEntArticles()"></div>
+<div class="drw" id="ent-art-drw">
+ <div class="dhd">
+  <div>
+   <div class="dt" id="ent-art-title">Artikel Terkait</div>
+   <div class="ds" id="ent-art-sub">Sumber dari arsip Tempo</div>
+  </div>
+  <button class="dx" onclick="closeEntArticles()">✕</button>
+ </div>
+ <div class="drw-body" id="ent-art-body"></div>
+</div>
 </body>
 </html>
