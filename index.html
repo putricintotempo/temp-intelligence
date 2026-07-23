@@ -2202,29 +2202,48 @@ Pantau insentif fiskal, ketentuan TKDN, penjualan kendaraan penumpang, harga dan
 
   <!-- ═══ VELOCITY ═══ -->
   <div class="insight-section card cp m14" id="ins-sec-velocity" style="margin-top:18px;">
-   <div class="sh m8"><div class="ser" style="font-size:15px;font-weight:600;color:var(--n);">Velocity Isu</div><span class="demo-flag" title="Velocity menggabungkan perubahan volume dokumen relevan, keragaman sumber, aktivitas aktor, materialitas kejadian, dan kecepatan munculnya perkembangan baru.">ⓘ Data simulasi prototype</span></div>
-   <div class="vel-gauge-wrap m14">
-    <div><div class="vel-gauge-num">78<span style="font-size:16px;color:var(--m);">/100</span></div><div class="sig-status sig-status-accel" style="margin-top:4px;">Rapidly Rising</div></div>
-    <div style="flex:1;display:flex;flex-wrap:wrap;gap:16px;">
-     <div><div style="font-size:10.5px;color:var(--m);font-weight:700;text-transform:uppercase;">vs 6 Minggu Sebelumnya</div><div style="font-size:16px;font-weight:700;color:var(--r);">+42%</div></div>
-     <div><div style="font-size:10.5px;color:var(--m);font-weight:700;text-transform:uppercase;">Aktor Baru</div><div style="font-size:16px;font-weight:700;color:var(--n);">7</div></div>
-     <div><div style="font-size:10.5px;color:var(--m);font-weight:700;text-transform:uppercase;">Kejadian Material Baru</div><div style="font-size:16px;font-weight:700;color:var(--n);">12</div></div>
-     <div><div style="font-size:10.5px;color:var(--m);font-weight:700;text-transform:uppercase;">Keragaman Sumber</div><div style="font-size:16px;font-weight:700;color:var(--gr);">Tinggi</div></div>
+   <div class="sh m8"><div class="ser" style="font-size:15px;font-weight:600;color:var(--n);">Kecepatan Perkembangan Isu</div></div>
+   <div style="background:var(--bll);border-radius:7px;padding:9px 12px;font-size:12px;color:var(--bl);margin-bottom:16px;line-height:1.6;">ℹ️ Diukur dari <strong>kepadatan peristiwa material</strong> yang tercatat di tab Timeline — bukan jumlah artikel. Volume artikel tidak selalu mencerminkan seberapa cepat isu berkembang: satu peristiwa penting bisa memicu banyak artikel yang mengulang fakta yang sama.</div>
+
+   <!-- Turning Point -->
+   <div style="border-left:4px solid var(--r);background:var(--rl);border-radius:0 8px 8px 0;padding:13px 16px;margin-bottom:14px;" id="turning-point-body"><!-- populated by JS: renderTurningPoint() --></div>
+
+   <!-- Two Peaks -->
+   <div class="g2" style="gap:12px;margin-bottom:16px;">
+    <div style="background:var(--bg);border-radius:8px;padding:13px 15px;">
+     <div style="font-size:10.5px;font-weight:700;text-transform:uppercase;color:var(--m);margin-bottom:5px;letter-spacing:.4px;">📊 Peak Intensitas</div>
+     <div style="font-size:13px;font-weight:700;color:var(--n);margin-bottom:5px;">18–30 Des 2025 · 3 peristiwa</div>
+     <div style="font-size:11.5px;color:var(--m);line-height:1.55;">Periode dengan peristiwa material paling padat — tiga keputusan kebijakan besar terjadi berdekatan dalam ~2 minggu: kepastian penghentian insentif CBU, komitmen produksi lokal 15 produsen, dan publikasi skema pajak final 2026.</div>
+    </div>
+    <div style="background:var(--bg);border-radius:8px;padding:13px 15px;">
+     <div style="font-size:10.5px;font-weight:700;text-transform:uppercase;color:var(--m);margin-bottom:5px;letter-spacing:.4px;">⭐ Peak Materialitas</div>
+     <div style="font-size:13px;font-weight:700;color:var(--n);margin-bottom:5px;">19 Des 2025 · Kepastian insentif CBU</div>
+     <div style="font-size:11.5px;color:var(--m);line-height:1.55;">Peristiwa tunggal berdampak paling besar — meski bukan bagian periode paling ramai secara volume, ini menyelesaikan satu ketidakpastian kebijakan paling material di seluruh signal ini.</div>
     </div>
    </div>
-   <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--m);margin-bottom:6px;">Volume Dokumen Mingguan</div>
+   <div class="snote m14">💡 Peak Intensitas dan Peak Materialitas bisa jadi periode/peristiwa yang <strong>berbeda</strong> — periode paling "ramai" belum tentu berisi peristiwa paling berdampak, dan sebaliknya.</div>
+
+   <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--m);margin-bottom:6px;">Kepadatan Peristiwa Material per Bulan</div>
    <div class="bc-wrap" id="vel-chart" style="height:110px;margin-bottom:6px;"><!-- populated by JS --></div>
-   <div class="snote m14">📈 Lonjakan sejalan dengan: angka industri bulanan baru, pengumuman model EV, diskusi insentif kebijakan, ekspansi perakitan lokal.</div>
-   <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--m);margin-bottom:8px;">Pendorong Topik</div>
+   <div class="snote m14">📈 Setelah klaster kebijakan Desember 2025, tidak ada peristiwa material baru selama ~4 minggu, sebelum peluncuran Toyota Veloz Hybrid EV (Jan 2026) — lalu klaster kedua muncul Apr–Jul 2026 seputar volatilitas kompetitor dan isu kualitas produk.</div>
+
+   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;">
+    <div style="background:var(--bg);border-radius:7px;padding:10px;text-align:center;"><div style="font-size:10px;color:var(--m);font-weight:700;text-transform:uppercase;margin-bottom:3px;">Total Peristiwa Material</div><div style="font-size:16px;font-weight:700;color:var(--n);">13</div></div>
+    <div style="background:var(--bg);border-radius:7px;padding:10px;text-align:center;"><div style="font-size:10px;color:var(--m);font-weight:700;text-transform:uppercase;margin-bottom:3px;">Jarak Rata-rata Antar Peristiwa</div><div style="font-size:16px;font-weight:700;color:var(--n);">~5 minggu</div></div>
+    <div style="background:var(--bg);border-radius:7px;padding:10px;text-align:center;"><div style="font-size:10px;color:var(--m);font-weight:700;text-transform:uppercase;margin-bottom:3px;">Peristiwa 90 Hari Terakhir</div><div style="font-size:16px;font-weight:700;color:var(--r);">4</div></div>
+   </div>
+
+   <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--m);margin-bottom:8px;">Komposisi Topik Peristiwa Material</div>
+   <div style="font-size:11.5px;color:var(--m);margin-bottom:8px;">Berdasarkan tema peristiwa material di Timeline — bukan proporsi volume artikel mentah.</div>
    <div style="display:flex;height:14px;border-radius:6px;overflow:hidden;margin-bottom:9px;">
-    <div style="width:32%;background:var(--r);" title="Penjualan & kompetisi BEV 32%"></div><div style="width:24%;background:#D97706;" title="PHEV & perakitan lokal 24%"></div><div style="width:18%;background:var(--bl);" title="Kebijakan & insentif 18%"></div><div style="width:16%;background:var(--pu);" title="Peluncuran model & harga 16%"></div><div style="width:10%;background:#65A30D;" title="Narasi lingkungan 10%"></div>
+    <div style="width:31%;background:var(--r);" title="Kompetisi & volatilitas BEV 31%"></div><div style="width:23%;background:#D97706;" title="Kebijakan insentif & TKDN 23%"></div><div style="width:15%;background:var(--bl);" title="Respons produk Astra/Toyota 15%"></div><div style="width:15%;background:var(--pu);" title="Isu kualitas & reputasi produk 15%"></div><div style="width:16%;background:#65A30D;" title="Infrastruktur pengisian daya 16%"></div>
    </div>
    <div class="flex g10 wrap" style="font-size:11px;color:var(--m);">
-    <div class="flex ic g5"><div style="width:8px;height:8px;background:var(--r);border-radius:2px;"></div>Penjualan &amp; kompetisi BEV (32%)</div>
-    <div class="flex ic g5"><div style="width:8px;height:8px;background:#D97706;border-radius:2px;"></div>PHEV &amp; perakitan lokal (24%)</div>
-    <div class="flex ic g5"><div style="width:8px;height:8px;background:var(--bl);border-radius:2px;"></div>Kebijakan &amp; insentif (18%)</div>
-    <div class="flex ic g5"><div style="width:8px;height:8px;background:var(--pu);border-radius:2px;"></div>Peluncuran model &amp; harga (16%)</div>
-    <div class="flex ic g5"><div style="width:8px;height:8px;background:#65A30D;border-radius:2px;"></div>Narasi lingkungan (10%)</div>
+    <div class="flex ic g5"><div style="width:8px;height:8px;background:var(--r);border-radius:2px;"></div>Kompetisi &amp; volatilitas BEV (31%)</div>
+    <div class="flex ic g5"><div style="width:8px;height:8px;background:#D97706;border-radius:2px;"></div>Kebijakan insentif &amp; TKDN (23%)</div>
+    <div class="flex ic g5"><div style="width:8px;height:8px;background:var(--bl);border-radius:2px;"></div>Respons produk Astra/Toyota (15%)</div>
+    <div class="flex ic g5"><div style="width:8px;height:8px;background:var(--pu);border-radius:2px;"></div>Isu kualitas &amp; reputasi produk (15%)</div>
+    <div class="flex ic g5"><div style="width:8px;height:8px;background:#65A30D;border-radius:2px;"></div>Infrastruktur pengisian daya (16%)</div>
    </div>
   </div>
 
@@ -5177,7 +5196,7 @@ const EV_SIGNAL={
   {date:'Jun 2026',title:'BYD Rebound 488%, Pangsa Merek Cina Naik ke 18%',desc:'Wholesale BYD melonjak ke 5.264 unit; pangsa pasar gabungan merek Cina naik dari 12% (2025) ke 18% (2026) di H1 2026.',type:'Market',actor:'Kompetitor',cit:'c5'},
   {date:'Jul 2026',title:'Skandal Refund BYD di Australia Mencuat ke Publik',desc:'BYD Australia menawarkan refund penuh ke 1.265 konsumen akibat kesalahan tahun produksi kendaraan — berpotensi berdampak pada persepsi merek secara regional.',type:'Market',actor:'Kompetitor',cit:'c14'}
  ],
- velocityWeekly:[{l:'M1',v:42},{l:'M2',v:48},{l:'M3',v:54},{l:'M4',v:68},{l:'M5',v:89},{l:'M6',v:121}],
+ eventDensityMonthly:[{l:'Sep 25',v:0},{l:'Okt 25',v:0},{l:'Nov 25',v:0},{l:'Des 25',v:3},{l:'Jan 26',v:2},{l:'Feb 26',v:0},{l:'Mar 26',v:0},{l:'Apr 26',v:1},{l:'Mei 26',v:2},{l:'Jun 26',v:1},{l:'Jul 26',v:1}],
  sentiment:[
   {group:'Pemerintah',before:58,after:68,note:'Suportif — kejelasan kebijakan insentif dinilai positif meski ada penyesuaian ke bawah'},
   {group:'Industri Otomotif (Astra/Toyota)',before:41,after:57,note:'Positif — respons produk konkret (Veloz Hybrid EV) direspons pasar dengan baik'},
@@ -5347,6 +5366,18 @@ function renderActorTable(){
    <td style="max-width:190px;font-size:12px;">${a.nextMove}</td>
   </tr>`).join('');
 }
+function renderTurningPoint(){
+ const el=document.getElementById('turning-point-body');if(!el)return;
+ el.innerHTML=`
+  <div class="flex g8" style="align-items:center;margin-bottom:6px;flex-wrap:wrap;">
+   <span class="claim-label claim-analysis">AI Interpretation</span>
+   <span style="font-size:11px;font-weight:700;color:var(--m);">🔀 Turning Point · 19 Des 2025</span>
+  </div>
+  <div style="font-size:13.5px;font-weight:700;color:var(--n);margin-bottom:6px;">Kepastian Kebijakan Insentif CBU</div>
+  <div style="font-size:12px;color:var(--t);line-height:1.6;margin-bottom:6px;"><strong>Sebelum:</strong> arah kebijakan insentif EV 2026 tidak jelas — status "Awaiting Official Confirmation" bertahan berbulan-bulan, membuat semua pemain (termasuk Astra) menunda kalkulasi biaya pasti.</div>
+  <div style="font-size:12px;color:var(--t);line-height:1.6;margin-bottom:8px;"><strong>Sesudah:</strong> narasi bergeser total — insentif CBU dipastikan berakhir, produsen diwajibkan mulai produksi lokal. Ini mengubah kalkulus strategis seluruh pemain di signal ini. ${citChip('c10')}</div>
+  <div style="font-size:11px;color:var(--s);font-style:italic;">Penentuan turning point ini adalah interpretasi AI berdasarkan pergeseran nada pemberitaan sebelum/sesudah tanggal tersebut — bukan fakta tunggal yang bisa diverifikasi independen, dan tetap perlu ditinjau ulang oleh pengguna.</div>`;
+}
 function renderEmergingPattern(){
  const el=document.getElementById('emerging-pattern-body');if(!el)return;
  const ep=EV_SIGNAL.emergingPattern;if(!ep)return;
@@ -5356,7 +5387,7 @@ function renderEmergingPattern(){
    ${ep.facts.map(f=>`<div class="rss-sig"><span class="bx bl" style="font-size:10px;flex-shrink:0;">Fact</span><div style="font-size:12.5px;">${f}</div></div>`).join('')}
   </div>
   <div style="margin-bottom:12px;">
-   <div style="font-size:11.5px;font-weight:700;text-transform:uppercase;color:var(--bl);margin-bottom:7px;letter-spacing:.4px;">◐ Analyst Interpretation</div>
+   <div style="font-size:11.5px;font-weight:700;text-transform:uppercase;color:var(--bl);margin-bottom:7px;letter-spacing:.4px;">◐ AI Interpretation</div>
    ${ep.interpretations.map(f=>`<div class="rss-sig"><span class="bx blm" style="font-size:10px;flex-shrink:0;">Interp.</span><div style="font-size:12.5px;">${f}</div></div>`).join('')}
   </div>
   <div>
@@ -5407,9 +5438,9 @@ function renderEvidenceTable(){
 }
 function renderVelocityChart(){
  const el=document.getElementById('vel-chart');if(!el)return;
- const data=EV_SIGNAL.velocityWeekly;
- const max=Math.max(...data.map(d=>d.v));
- el.innerHTML=`<div class="bc-wrap">${data.map(d=>`<div class="bc-col"><div class="bc-val">${d.v}</div><div class="bc-bar" style="height:${Math.round((d.v/max)*90)}px;background:var(--r);"></div><div class="bc-lbl">${d.l}</div></div>`).join('')}</div>`;
+ const data=EV_SIGNAL.eventDensityMonthly;
+ const max=Math.max(...data.map(d=>d.v),1);
+ el.innerHTML=`<div class="bc-wrap">${data.map(d=>`<div class="bc-col"><div class="bc-val">${d.v}</div><div class="bc-bar" style="height:${Math.max(Math.round((d.v/max)*90),2)}px;background:${d.v>=3?'var(--r)':d.v===0?'var(--b2)':'var(--am)'};"></div><div class="bc-lbl">${d.l}</div></div>`).join('')}</div>`;
 }
 
 // Real tab switching for the Signal Insight Page — each nav item shows exactly one section
@@ -5445,7 +5476,7 @@ function openSignal(origin){
   document.getElementById('watch-modal-signal').textContent='Astra EV Policy and Market Monitor';
  }
  _currentSignalOrigin=origin;
- renderSnapshot();renderWhatChanged();renderActorTable();renderTimeline();renderVelocityChart();renderSentiment();renderDominantNarratives();renderPrecedents();renderEmergingPattern();renderScenarios();renderWatchV2();renderNextSteps();renderEvidenceTable();
+ renderSnapshot();renderWhatChanged();renderActorTable();renderTimeline();renderVelocityChart();renderTurningPoint();renderSentiment();renderDominantNarratives();renderPrecedents();renderEmergingPattern();renderScenarios();renderWatchV2();renderNextSteps();renderEvidenceTable();
  insNavTo('ins-sec-overview');
  const ctEl=document.querySelector('.ct');if(ctEl)ctEl.scrollTop=0;
 }
