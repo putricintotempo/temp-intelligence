@@ -123,6 +123,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
 /* loading */
 .ldw{display:flex;flex-direction:column;align-items:center;padding:48px 24px;}
 .lsp{width:44px;height:44px;border:3px solid var(--b);border-top-color:var(--r);border-radius:50%;animation:spin .8s linear infinite;margin-bottom:13px;}
+.spinner-sm{width:16px;height:16px;border:2.5px solid var(--b);border-top-color:var(--bl);border-radius:50%;animation:spin .8s linear infinite;flex-shrink:0;}
 @keyframes spin{to{transform:rotate(360deg);}}
 .lttl{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--n);margin-bottom:4px;}
 .lsteps{list-style:none;max-width:380px;width:100%;}
@@ -1266,6 +1267,14 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);displa
  .lens-desc{font-size:12px;color:var(--m);line-height:1.5;}
  /* Structure toggle */
  .struct-toggle{display:inline-flex;background:var(--bg);border:1.5px solid var(--b);border-radius:8px;padding:3px;gap:2px;}
+ .lm-card{border:1.5px solid var(--b);border-radius:8px;padding:11px 13px;cursor:pointer;flex:1;min-width:190px;transition:border-color .15s,background .15s;}
+ .lm-card.sel{border-color:var(--n);border-width:2px;background:var(--bg);}
+ .lm-card-hd{display:flex;align-items:center;gap:8px;margin-bottom:4px;}
+ .lm-radio{width:16px;height:16px;border-radius:50%;border:2px solid var(--b2);flex-shrink:0;position:relative;}
+ .lm-card.sel .lm-radio{border-color:var(--n);}
+ .lm-card.sel .lm-radio::after{content:'';position:absolute;top:2px;left:2px;width:8px;height:8px;border-radius:50%;background:var(--n);}
+ .lm-card-title{font-size:12.5px;font-weight:700;color:var(--n);}
+ .lm-card-desc{font-size:11px;color:var(--m);line-height:1.5;}
  .struct-toggle button{border:none;background:transparent;padding:6px 13px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;color:var(--m);font-family:'DM Sans',sans-serif;}
  .struct-toggle button.on{background:#fff;color:var(--n);box-shadow:0 1px 4px rgba(0,0,0,.1);}
  /* Dimension status pill (Company Risk Lens) */
@@ -2069,6 +2078,20 @@ Pantau insentif fiskal, ketentuan TKDN, penjualan kendaraan penumpang, harga dan
     </div>
    </div>
    <div style="background:var(--bll);border-radius:7px;padding:11px 13px;font-size:12.5px;color:var(--bl);margin-bottom:14px;line-height:1.6;">ℹ️ Tempo Intelligence akan secara otomatis mencari, mengurutkan, menghapus duplikasi, dan menganalisis sumber relevan berdasarkan cakupan monitoring Anda. Cakupan sumber dan sitasi akan ditampilkan bersama insight yang dihasilkan.</div>
+
+   <div style="font-size:12.5px;font-weight:700;color:var(--n);margin-bottom:3px;">Pengaturan Social Listening</div>
+   <div style="font-size:11.5px;color:var(--m);margin-bottom:10px;">Menentukan bagaimana tab Sentimen Publik di signal ini akan diperbarui. Bisa diubah lagi kapan saja setelah signal dibuat.</div>
+   <div class="flex g10 wrap" style="margin-bottom:16px;">
+    <div class="lm-card sel" id="wiz-lm-trigger" onclick="wizPickListeningMode('trigger')">
+     <div class="lm-card-hd"><div class="lm-radio"></div><div class="lm-card-title">On-Demand</div></div>
+     <div class="lm-card-desc">Listening &amp; sintesis hanya berjalan saat Anda memicu update secara manual.</div>
+    </div>
+    <div class="lm-card" id="wiz-lm-always" onclick="wizPickListeningMode('always')">
+     <div class="lm-card-hd"><div class="lm-radio"></div><div class="lm-card-title">Always Listening</div></div>
+     <div class="lm-card-desc">Berjalan otomatis terjadwal. <span id="wiz-lm-interval-wrap" style="display:none;">Setiap <select class="tf-sel" id="wiz-lm-interval" style="padding:2px 6px;font-size:11px;" onclick="event.stopPropagation()" onchange="_wizListeningInterval=this.value"><option>6 jam</option><option>12 jam</option><option selected>Harian</option><option>Mingguan</option></select></span></div>
+    </div>
+   </div>
+
    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:16px;">
     <div style="background:var(--bg);border-radius:7px;padding:10px;text-align:center;"><div style="font-size:10px;color:var(--m);font-weight:700;text-transform:uppercase;margin-bottom:3px;">Cakupan Historis</div><div style="font-size:13px;font-weight:700;color:var(--gr);">Tinggi</div></div>
     <div style="background:var(--bg);border-radius:7px;padding:10px;text-align:center;"><div style="font-size:10px;color:var(--m);font-weight:700;text-transform:uppercase;margin-bottom:3px;">Signal Terkini</div><div style="font-size:13px;font-weight:700;color:var(--gr);">Tinggi</div></div>
@@ -2131,7 +2154,7 @@ Pantau insentif fiskal, ketentuan TKDN, penjualan kendaraan penumpang, harga dan
    <div class="insight-nav-item" data-sec="ins-sec-actors" onclick="insNav(this,'ins-sec-actors')">Actors</div>
    <div class="insight-nav-item" data-sec="ins-sec-timeline" onclick="insNav(this,'ins-sec-timeline')">Timeline</div>
    <div class="insight-nav-item" data-sec="ins-sec-velocity" onclick="insNav(this,'ins-sec-velocity')">Velocity</div>
-   <div class="insight-nav-item" data-sec="ins-sec-sentiment" onclick="insNav(this,'ins-sec-sentiment')">Sentiment</div>
+   <div class="insight-nav-item" data-sec="ins-sec-sentiment" onclick="insNav(this,'ins-sec-sentiment')">Sentimen Publik</div>
    <div class="insight-nav-item" data-sec="ins-sec-precedents" onclick="insNav(this,'ins-sec-precedents')">Precedents</div>
    <div class="insight-nav-item" data-sec="ins-sec-implications" onclick="insNav(this,'ins-sec-implications')">Outlook &amp; Scenarios</div>
    <div class="insight-nav-item" data-sec="ins-sec-evidence" onclick="insNav(this,'ins-sec-evidence')">Evidence</div>
@@ -2249,25 +2272,77 @@ Pantau insentif fiskal, ketentuan TKDN, penjualan kendaraan penumpang, harga dan
 
   <!-- ═══ SENTIMENT ═══ -->
   <div class="insight-section card cp m14" id="ins-sec-sentiment" style="margin-top:18px;">
-   <div class="sh m8"><div class="ser" style="font-size:15px;font-weight:600;color:var(--n);">Trajektori Sentimen per Stakeholder</div><span class="bx bn" title="Skor per-stakeholder bersifat indikatif berdasarkan pola pemberitaan, bukan hasil social listening terukur">ⓘ Lihat keterbatasan data di bawah</span></div>
-   <div class="flex g6 wrap m14">
-    <select class="tf-sel"><option>Semua Teknologi</option><option>BEV</option><option>HEV</option><option>PHEV</option></select>
-    <select class="tf-sel"><option>Semua Aktor</option><option>Pemerintah</option><option>Astra</option><option>Kompetitor</option></select>
-    <select class="tf-sel"><option>Semua Topic Cluster</option><option>Kebijakan</option><option>Pasar</option><option>Lingkungan</option></select>
-    <select class="tf-sel"><option>6 Minggu Terakhir</option><option>3 Bulan Terakhir</option><option>Sejak Awal Tahun</option></select>
+   <div class="sh m8" style="flex-wrap:wrap;gap:8px;">
+    <div class="ser" style="font-size:15px;font-weight:600;color:var(--n);">Sentimen Publik</div>
    </div>
-   <div id="sentiment-rows"><!-- populated by JS --></div>
-   <div class="snote m10">🧭 Nada pemerintah dan industri tetap suportif karena kejelasan kebijakan insentif dan respons produk konkret dari Toyota-Astra. Nada konsumen justru sedikit memburuk seiring munculnya keluhan kualitas produk kompetitor Cina di ruang publik.</div>
 
-   <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--m);margin:16px 0 8px;letter-spacing:.5px;">Narasi Dominan</div>
-   <div class="tbl-scroll">
-   <div class="mon-tbl" style="border:none;">
-    <table><thead><tr><th>Narasi</th><th>Evidence</th><th>Kelompok</th><th>Tren</th><th>Potensi Dampak</th></tr></thead>
-     <tbody id="dominant-narratives-body"><!-- populated by JS --></tbody>
-    </table>
+   <!-- Listening status bar (collapsed view, not a tab) -->
+   <div style="background:var(--bg);border-radius:8px;padding:11px 13px;margin-bottom:16px;">
+    <div id="sp-status-bar"><!-- populated by JS: renderListeningStatus() --></div>
+
+    <!-- Expandable settings editor, hidden by default -->
+    <div id="sp-settings-panel" style="display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--b);">
+     <div class="flex g10 wrap" style="margin-bottom:10px;">
+      <div class="lm-card sel" id="sp-lm-trigger" onclick="pickListeningMode('trigger')">
+       <div class="lm-card-hd"><div class="lm-radio"></div><div class="lm-card-title">On-Demand</div></div>
+       <div class="lm-card-desc">Listening &amp; sintesis hanya berjalan saat Anda memicu update secara manual.</div>
+      </div>
+      <div class="lm-card" id="sp-lm-always" onclick="pickListeningMode('always')">
+       <div class="lm-card-hd"><div class="lm-radio"></div><div class="lm-card-title">Always Listening</div></div>
+       <div class="lm-card-desc">Berjalan otomatis terjadwal. <span id="sp-lm-interval-wrap" style="display:none;">Setiap <select class="tf-sel" id="sp-lm-interval" style="padding:2px 6px;font-size:11px;" onclick="event.stopPropagation()" onchange="_spPendingInterval=this.value"><option>6 jam</option><option>12 jam</option><option selected>Harian</option><option>Mingguan</option></select></span></div>
+      </div>
+     </div>
+     <div class="flex g8" style="justify-content:flex-end;">
+      <button class="btn bgh bsm" onclick="cancelListeningEdit()">Batal</button>
+      <button class="btn bp bsm" onclick="applyListeningSettings()">Terapkan Perubahan</button>
+     </div>
+    </div>
+
+    <!-- In-progress state, hidden by default -->
+    <div id="sp-progress-panel" style="display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--b);">
+     <div class="flex g8" style="align-items:center;margin-bottom:6px;">
+      <div class="spinner-sm"></div>
+      <div style="font-size:12.5px;font-weight:700;color:var(--n);">Menjalankan social listening &amp; sintesis...</div>
+     </div>
+     <div style="font-size:11.5px;color:var(--m);margin-bottom:8px;">Estimasi selesai dalam ~2–3 menit. Anda akan diberi tahu di sini begitu selesai — tidak perlu menunggu di halaman ini.</div>
+     <div style="background:var(--b); height:6px;border-radius:3px;overflow:hidden;"><div id="sp-progress-bar" style="height:100%;width:0%;background:var(--bl);transition:width .4s linear;"></div></div>
+    </div>
    </div>
+
+   <!-- Volume, User, Engagement, Reach -->
+   <div id="sp-kpi-row" style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px;"><!-- populated by JS --></div>
+
+   <!-- Channel Distribution + Engagement by Channel -->
+   <div class="g2" style="gap:16px;margin-bottom:18px;">
+    <div>
+     <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--m);margin-bottom:9px;letter-spacing:.4px;">Channel Distribution</div>
+     <div id="sp-channel-dist"><!-- populated by JS --></div>
+    </div>
+    <div>
+     <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--m);margin-bottom:9px;letter-spacing:.4px;">Engagement by Channel</div>
+     <div id="sp-engagement-channel"><!-- populated by JS --></div>
+    </div>
    </div>
-   <div style="background:var(--aml);border-radius:7px;padding:10px 13px;font-size:12px;color:var(--am);margin-top:12px;line-height:1.6;">⚠️ <strong>Keterbatasan data:</strong> <span id="sentiment-limitations"></span></div>
+   <div class="snote" style="margin-bottom:20px;">📌 Percakapan didominasi X/Twitter (71% dari total mentions), namun engagement tertinggi justru datang dari YouTube (38%) — menunjukkan konten video ulasan mendapat interaksi lebih dalam meski volume mention-nya lebih kecil.</div>
+
+   <!-- Sentiment Trend -->
+   <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--m);margin-bottom:4px;letter-spacing:.4px;">Mentions Trend by Sentiment</div>
+   <div style="font-size:10.5px;color:var(--s);margin-bottom:8px;">1–21 Jul 2026 · Seluruh sumber</div>
+   <div id="sp-sentiment-chart" style="margin-bottom:6px;"><!-- populated by JS --></div>
+   <div id="sp-sentiment-legend" class="flex g10 wrap" style="font-size:11px;color:var(--m);margin-bottom:10px;"><!-- populated by JS --></div>
+   <div id="sp-sentiment-insights" style="margin-bottom:20px;"><!-- populated by JS --></div>
+
+   <!-- Emotion Trend -->
+   <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--m);margin-bottom:4px;letter-spacing:.4px;">Mentions Trend by Emotions</div>
+   <div style="font-size:10.5px;color:var(--s);margin-bottom:8px;">1–21 Jul 2026 · Seluruh sumber</div>
+   <div id="sp-emotion-chart" style="margin-bottom:6px;"><!-- populated by JS --></div>
+   <div id="sp-emotion-legend" class="flex g10 wrap" style="font-size:11px;color:var(--m);margin-bottom:10px;"><!-- populated by JS --></div>
+   <div id="sp-emotion-insights" style="margin-bottom:20px;"><!-- populated by JS --></div>
+
+   <!-- Cluster / SNA-lite -->
+   <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--m);margin-bottom:9px;letter-spacing:.4px;">Peta Klaster Percakapan</div>
+   <div id="sp-cluster-split" style="margin-bottom:12px;"><!-- populated by JS --></div>
+   <div id="sp-clusters" style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;"><!-- populated by JS --></div>
   </div>
 
   <!-- ═══ PRECEDENTS ═══ -->
@@ -5476,13 +5551,24 @@ function openSignal(origin){
   document.getElementById('watch-modal-signal').textContent='Astra EV Policy and Market Monitor';
  }
  _currentSignalOrigin=origin;
- renderSnapshot();renderWhatChanged();renderActorTable();renderTimeline();renderVelocityChart();renderTurningPoint();renderSentiment();renderDominantNarratives();renderPrecedents();renderEmergingPattern();renderScenarios();renderWatchV2();renderNextSteps();renderEvidenceTable();
+ renderSnapshot();renderWhatChanged();renderActorTable();renderTimeline();renderVelocityChart();renderTurningPoint();renderListeningStatus();renderSocialKPIs();renderChannelBars();renderTrendCharts();renderClusters();renderPrecedents();renderEmergingPattern();renderScenarios();renderWatchV2();renderNextSteps();renderEvidenceTable();
  insNavTo('ins-sec-overview');
  const ctEl=document.querySelector('.ct');if(ctEl)ctEl.scrollTop=0;
 }
 let _currentSignalOrigin='custom';
 
 // ── Custom Signal wizard ──
+let _wizListeningMode='trigger',_wizListeningInterval='Harian';
+function wizPickListeningMode(mode){
+ _wizListeningMode=mode;
+ const cTrig=document.getElementById('wiz-lm-trigger'),cAlw=document.getElementById('wiz-lm-always');
+ const ivWrap=document.getElementById('wiz-lm-interval-wrap');
+ if(cTrig)cTrig.classList.toggle('sel',mode==='trigger');
+ if(cAlw)cAlw.classList.toggle('sel',mode==='always');
+ if(ivWrap)ivWrap.style.display=mode==='always'?'inline':'none';
+ const ivSel=document.getElementById('wiz-lm-interval');
+ if(ivSel)_wizListeningInterval=ivSel.value;
+}
 function wizGoStep(n){
  for(let i=1;i<=5;i++){const d=document.getElementById('wiz-s'+i);if(d)d.style.display=i===n?'block':'none';}
  for(let i=1;i<=5;i++){const s=document.getElementById('wst'+i);if(!s)continue;s.classList.remove('on','done');if(i<n)s.classList.add('done');else if(i===n)s.classList.add('on');}
@@ -5629,6 +5715,9 @@ function addExclusion(){
 function runSignalAnalysis(){
  showSV('mon','loading');
  animLD('wps',10,[0,500,1000,1500,2000,2500,3000,3500,4000,4500],[10,20,32,44,54,64,74,84,92,100],'wiz-proc-pct',()=>{
+   SOCIAL_PULSE.listeningMode=_wizListeningMode;
+   SOCIAL_PULSE.listeningInterval=_wizListeningInterval;
+   SOCIAL_PULSE.lastUpdated='Baru saja';
    openSignal('custom');
    const mt=document.getElementById('monitor-toast');
    if(mt){
@@ -6998,6 +7087,263 @@ const TONYWENAS_SOURCES=[
  {title:'Draf perjanjian divestasi saham 12% diserahkan',pub:'Tempo — ringkasan riset',date:'18 Jun 2026',type:'Ringkasan Riset',topic:'tw-kontrak',verif:'Partially Verified',excerpt:'Tindak lanjut MoU perpanjangan IUPK ke pemerintah.'},
  {title:'Keterangan kapasitas smelter di Komisi XII DPR',pub:'Tempo — ringkasan riset',date:'14 Jul 2026',type:'Ringkasan Riset',topic:'tw-smelter',verif:'Partially Verified',excerpt:'Kapasitas gabungan smelter 3 juta ton/tahun, termasuk riwayat kebakaran GCP Okt 2024.'}
 ];
+
+
+// ════════════════════════════════════════════════════════════
+// SOCIAL PULSE — illustrative social-listening dashboard for the
+// EV signal, modeled on Drone Emprit's dashboard format
+// (Volume/User/Engagement/Reach, channel mix, trend lines, SNA clusters)
+// ════════════════════════════════════════════════════════════
+const SOCIAL_PULSE = {
+ lastUpdated: '21 Jul 2026, 09:00 WIB',
+ listeningMode: 'trigger', // 'always' | 'trigger'
+ listeningInterval: '12 jam',
+ dateRange: '1–21 Jul 2026',
+ kpis: [
+  {label:'Total Mentions', value:'34,2K', prev:'21,0K', pct:'+62,9%'},
+  {label:'Total Users', value:'19,6K', prev:'13,0K', pct:'+50,8%'},
+  {label:'Total Engagements', value:'58,4M', prev:'31,0M', pct:'+88,4%'},
+  {label:'Total Reach', value:'612M', prev:'402M', pct:'+52,2%'}
+ ],
+ channelDistribution: [
+  {name:'X/Twitter', icon:'𝕏', pct:71, count:'24,3K'},
+  {name:'YouTube', icon:'▶', pct:14, count:'4,8K'},
+  {name:'Instagram', icon:'◎', pct:7, count:'2,4K'},
+  {name:'TikTok', icon:'♪', pct:5, count:'1,7K'},
+  {name:'Online News', icon:'📰', pct:2, count:'684'},
+  {name:'Facebook', icon:'f', pct:1, count:'342'},
+  {name:'Threads', icon:'@', pct:0, count:'171'}
+ ],
+ engagementByChannel: [
+  {name:'YouTube', icon:'▶', pct:38, count:'22,2M'},
+  {name:'X/Twitter', icon:'𝕏', pct:31, count:'18,1M'},
+  {name:'TikTok', icon:'♪', pct:19, count:'11,1M'},
+  {name:'Instagram', icon:'◎', pct:10, count:'5,8M'},
+  {name:'Facebook', icon:'f', pct:1, count:'584K'},
+  {name:'Threads', icon:'@', pct:1, count:'350K'},
+  {name:'News', icon:'📰', pct:0, count:'0'}
+ ],
+ sentimentTrend: {
+  labels:['1 Jul','4 Jul','7 Jul','10 Jul','13 Jul','15 Jul','16 Jul','18 Jul','21 Jul'],
+  series:[
+   {name:'Negative', color:'#CC1F2D', data:[220,240,260,290,340,980,870,520,310]},
+   {name:'Positive', color:'#16A34A', data:[180,210,240,320,380,290,250,220,160]},
+   {name:'Neutral', color:'#94A3B8', data:[150,160,170,190,210,240,220,190,150]}
+  ],
+  insights:[
+   'Puncak sentimen negatif pada <strong>15 Jul 2026 (±980 mentions)</strong> dipicu spillover pemberitaan skandal refund BYD di Australia — warganet Indonesia mulai mempertanyakan kredibilitas purna jual BYD secara lebih luas.',
+   'Sentimen positif sempat naik pada <strong>10–13 Jul 2026</strong> seiring ulasan-ulasan YouTube soal New Veloz Hybrid EV yang mulai beredar luas menjelang pengiriman unit pre-booking.'
+  ]
+ },
+ emotionTrend: {
+  labels:['1 Jul','4 Jul','7 Jul','10 Jul','13 Jul','15 Jul','16 Jul','18 Jul','21 Jul'],
+  series:[
+   {name:'Anger', color:'#CC1F2D', data:[90,95,100,110,130,540,460,280,150]},
+   {name:'Surprise', color:'#7C3AED', data:[40,45,50,60,80,320,410,190,90]},
+   {name:'Trust', color:'#16A34A', data:[70,80,95,120,160,110,90,100,110]}
+  ],
+  insights:[
+   'Puncak emosi <strong>anger pada 15 Jul 2026</strong> dipicu isu refund BYD Australia — warganet menyamakan pola ini dengan kekhawatiran purna jual BYD di Indonesia sendiri.',
+   'Puncak emosi <strong>surprise bergeser ke 16 Jul 2026</strong> saat rincian nilai refund (Rp760 miliar) mulai banyak dibagikan ulang di X.'
+  ]
+ },
+ clusters: [
+  {name:'Klaster Optimis EV', tone:'positive', points:['Antusiasme peluncuran New Veloz Hybrid EV rakitan lokal.','Apresiasi penambahan SPKLU di luar Jawa.','Framing hilirisasi &amp; kebanggaan produksi nasional.','Dukungan terhadap kejelasan skema insentif TKDN.']},
+  {name:'Klaster Skeptis Kompetitor Cina', tone:'negative', points:['Kekhawatiran purna jual &amp; keandalan baterai BYD.','Referensi silang ke skandal refund BYD Australia.','Perbandingan sinis harga murah vs risiko purna jual.','Skeptisisme terhadap klaim jangkauan baterai kompetitor Cina.']},
+  {name:'Klaster Diskusi Umum', tone:'neutral', points:['Perbandingan spesifikasi &amp; harga antar model.','Pertanyaan seputar simulasi kredit &amp; cicilan.','Diskusi pengalaman test drive di showroom.','Obrolan santai soal desain &amp; warna unit.']},
+  {name:'Klaster Media &amp; Akun Informasi', tone:'media', points:['Distribusi data wholesale GAIKINDO bulanan.','Liputan ulang kebijakan insentif TKDN terbaru.','Amplifikasi berita refund BYD Australia.','Update progres pembangunan SPKLU nasional.']}
+ ],
+ clusterSentimentSplit: {positive:28, neutral:24, negative:48}
+};
+
+function renderSocialKPIs(){
+ const el=document.getElementById('sp-kpi-row');if(!el)return;
+ el.innerHTML=SOCIAL_PULSE.kpis.map(k=>`
+  <div style="background:var(--bg);border-radius:8px;padding:12px 14px;">
+   <div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--m);letter-spacing:.4px;margin-bottom:5px;">${k.label}</div>
+   <div style="font-size:22px;font-weight:700;color:var(--n);font-family:'Playfair Display',serif;">${k.value}</div>
+   <div style="font-size:10.5px;color:var(--s);">Prev ${k.prev} <span style="color:var(--gr);font-weight:600;">${k.pct}</span></div>
+  </div>`).join('');
+}
+
+function renderChannelBars(){
+ const barList=(arr,color)=>arr.map(c=>`
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+   <div style="width:20px;text-align:center;flex-shrink:0;">${c.icon}</div>
+   <div style="width:72px;font-size:11.5px;color:var(--t);flex-shrink:0;">${c.name}</div>
+   <div style="flex:1;background:var(--bg);border-radius:4px;height:9px;overflow:hidden;">
+    <div style="width:${Math.max(c.pct,1.5)}%;height:100%;background:${color};"></div>
+   </div>
+   <div style="width:78px;text-align:right;font-size:11px;color:var(--m);flex-shrink:0;">${c.pct}% (${c.count})</div>
+  </div>`).join('');
+ const elA=document.getElementById('sp-channel-dist');if(elA)elA.innerHTML=barList(SOCIAL_PULSE.channelDistribution,'var(--bl)');
+ const elB=document.getElementById('sp-engagement-channel');if(elB)elB.innerHTML=barList(SOCIAL_PULSE.engagementByChannel,'var(--pu)');
+}
+
+// Compact multi-line SVG chart — plain polyline, no external chart library needed
+function buildTrendSVG(chartData, width, height){
+ const pad={top:14,right:10,bottom:22,left:28};
+ const w=width-pad.left-pad.right, h=height-pad.top-pad.bottom;
+ const allVals=chartData.series.flatMap(s=>s.data);
+ const maxV=Math.max(...allVals)*1.1, minV=0;
+ const n=chartData.labels.length;
+ const xAt=i=>pad.left+(i/(n-1))*w;
+ const yAt=v=>pad.top+h-((v-minV)/(maxV-minV))*h;
+ const gridLines=[0,0.5,1].map(f=>{
+   const y=pad.top+h-f*h;
+   return `<line x1="${pad.left}" y1="${y}" x2="${pad.left+w}" y2="${y}" stroke="var(--b)" stroke-width="1" stroke-dasharray="3,3"/><text x="${pad.left-6}" y="${y+3}" font-size="9" fill="var(--s)" text-anchor="end">${Math.round(maxV*f)}</text>`;
+ }).join('');
+ const xLabels=chartData.labels.map((l,i)=>`<text x="${xAt(i)}" y="${height-4}" font-size="9" fill="var(--s)" text-anchor="middle">${l}</text>`).join('');
+ const lines=chartData.series.map(s=>{
+   const pts=s.data.map((v,i)=>`${xAt(i)},${yAt(v)}`).join(' ');
+   const dots=s.data.map((v,i)=>`<circle cx="${xAt(i)}" cy="${yAt(v)}" r="2.5" fill="${s.color}"/>`).join('');
+   return `<polyline points="${pts}" fill="none" stroke="${s.color}" stroke-width="2"/>${dots}`;
+ }).join('');
+ return `<svg viewBox="0 0 ${width} ${height}" style="width:100%;height:auto;">${gridLines}${lines}${xLabels}</svg>`;
+}
+
+function renderTrendCharts(){
+ const elS=document.getElementById('sp-sentiment-chart');
+ if(elS){
+   elS.innerHTML=buildTrendSVG(SOCIAL_PULSE.sentimentTrend,560,160);
+   const legend=SOCIAL_PULSE.sentimentTrend.series.map(s=>`<div class="flex ic g5"><div style="width:8px;height:8px;background:${s.color};border-radius:2px;"></div>${s.name}</div>`).join('');
+   const legendEl=document.getElementById('sp-sentiment-legend');if(legendEl)legendEl.innerHTML=legend;
+   const insEl=document.getElementById('sp-sentiment-insights');
+   if(insEl)insEl.innerHTML=SOCIAL_PULSE.sentimentTrend.insights.map(i=>`<div class="snote" style="margin-bottom:6px;">📌 ${i}</div>`).join('');
+ }
+ const elE=document.getElementById('sp-emotion-chart');
+ if(elE){
+   elE.innerHTML=buildTrendSVG(SOCIAL_PULSE.emotionTrend,560,160);
+   const legend=SOCIAL_PULSE.emotionTrend.series.map(s=>`<div class="flex ic g5"><div style="width:8px;height:8px;background:${s.color};border-radius:2px;"></div>${s.name}</div>`).join('');
+   const legendEl=document.getElementById('sp-emotion-legend');if(legendEl)legendEl.innerHTML=legend;
+   const insEl=document.getElementById('sp-emotion-insights');
+   if(insEl)insEl.innerHTML=SOCIAL_PULSE.emotionTrend.insights.map(i=>`<div class="snote" style="margin-bottom:6px;">📌 ${i}</div>`).join('');
+ }
+}
+
+function renderClusters(){
+ const el=document.getElementById('sp-clusters');if(!el)return;
+ const toneColor={positive:'var(--gr)',negative:'var(--r)',neutral:'var(--m)',media:'var(--bl)'};
+ const toneBg={positive:'var(--grl)',negative:'var(--rl)',neutral:'var(--bg)',media:'var(--bll)'};
+ el.innerHTML=SOCIAL_PULSE.clusters.map(c=>`
+  <div style="background:${toneBg[c.tone]};border-radius:8px;padding:12px 14px;">
+   <div style="font-size:12.5px;font-weight:700;color:${toneColor[c.tone]};margin-bottom:7px;">${c.name}</div>
+   <ul style="margin:0;padding-left:16px;font-size:11.5px;color:var(--t);line-height:1.7;">${c.points.map(p=>`<li>${p}</li>`).join('')}</ul>
+  </div>`).join('');
+ const split=SOCIAL_PULSE.clusterSentimentSplit;
+ const splitEl=document.getElementById('sp-cluster-split');
+ if(splitEl)splitEl.innerHTML=`
+  <div style="display:flex;height:20px;border-radius:6px;overflow:hidden;margin-bottom:6px;">
+   <div style="width:${split.positive}%;background:var(--gr);display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:700;">${split.positive}%</div>
+   <div style="width:${split.neutral}%;background:#94A3B8;display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:700;">${split.neutral}%</div>
+   <div style="width:${split.negative}%;background:var(--r);display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:700;">${split.negative}%</div>
+  </div>
+  <div class="flex g10 wrap" style="font-size:11px;color:var(--m);">
+   <div class="flex ic g5"><div style="width:8px;height:8px;background:var(--gr);border-radius:2px;"></div>Positive</div>
+   <div class="flex ic g5"><div style="width:8px;height:8px;background:#94A3B8;border-radius:2px;"></div>Neutral</div>
+   <div class="flex ic g5"><div style="width:8px;height:8px;background:var(--r);border-radius:2px;"></div>Negative</div>
+  </div>`;
+}
+
+// ── Listening mode: status bar, settings panel, progress flow ──
+let _spPendingMode=null,_spPendingInterval=null;
+
+function intervalToHours(iv){return {'6 jam':6,'12 jam':12,'Harian':24,'Mingguan':168}[iv]||24;}
+function computeNextUpdateText(interval){
+ const hrs=intervalToHours(interval);
+ if(hrs<24)return `dalam ${hrs} jam`;
+ if(hrs===24)return 'besok, jam 09:00 WIB';
+ return `${Math.round(hrs/24)} hari lagi, jam 09:00 WIB`;
+}
+
+function renderListeningStatus(){
+ const el=document.getElementById('sp-status-bar');if(!el)return;
+ const mode=SOCIAL_PULSE.listeningMode;
+ if(mode==='always'){
+   el.innerHTML=`
+    <div class="flex jb" style="align-items:center;flex-wrap:wrap;gap:8px;">
+     <div>
+      <div class="flex g8" style="align-items:center;margin-bottom:3px;"><span style="font-size:13px;">🔄</span><strong style="font-size:12.5px;color:var(--n);">Always Listening</strong><span class="bx bn" style="font-size:10px;">setiap ${SOCIAL_PULSE.listeningInterval}</span></div>
+      <div style="font-size:11.5px;color:var(--m);">Terakhir diperbarui: <strong style="color:var(--t);">${SOCIAL_PULSE.lastUpdated}</strong> · Update berikutnya: <strong style="color:var(--t);">${computeNextUpdateText(SOCIAL_PULSE.listeningInterval)}</strong></div>
+     </div>
+     <button class="btn bgh bsm" onclick="toggleListeningPanel()">⚙ Ubah Pengaturan</button>
+    </div>`;
+ } else {
+   el.innerHTML=`
+    <div class="flex jb" style="align-items:center;flex-wrap:wrap;gap:8px;">
+     <div>
+      <div class="flex g8" style="align-items:center;margin-bottom:3px;"><span style="font-size:13px;">🔊</span><strong style="font-size:12.5px;color:var(--n);">On-Demand</strong></div>
+      <div style="font-size:11.5px;color:var(--m);">Terakhir diperbarui: <strong style="color:var(--t);">${SOCIAL_PULSE.lastUpdated}</strong> · Listening hanya berjalan saat Anda memicu update manual.</div>
+     </div>
+     <div class="flex g6">
+      <button class="btn bgh bsm" onclick="toggleListeningPanel()">⚙ Ubah Pengaturan</button>
+      <button class="btn bp bsm" onclick="triggerOnDemandUpdate()">↻ Update</button>
+     </div>
+    </div>`;
+ }
+}
+
+function toggleListeningPanel(){
+ const panel=document.getElementById('sp-settings-panel');if(!panel)return;
+ const showing=panel.style.display==='block';
+ panel.style.display=showing?'none':'block';
+ if(!showing){
+   _spPendingMode=SOCIAL_PULSE.listeningMode;
+   _spPendingInterval=SOCIAL_PULSE.listeningInterval;
+   const ivSel=document.getElementById('sp-lm-interval');
+   if(ivSel)ivSel.value=SOCIAL_PULSE.listeningInterval;
+   pickListeningMode(_spPendingMode,true);
+ }
+}
+function cancelListeningEdit(){
+ document.getElementById('sp-settings-panel').style.display='none';
+}
+function pickListeningMode(mode,skipIntervalSync){
+ _spPendingMode=mode;
+ const cTrig=document.getElementById('sp-lm-trigger'),cAlw=document.getElementById('sp-lm-always');
+ const ivWrap=document.getElementById('sp-lm-interval-wrap');
+ if(cTrig)cTrig.classList.toggle('sel',mode==='trigger');
+ if(cAlw)cAlw.classList.toggle('sel',mode==='always');
+ if(ivWrap)ivWrap.style.display=mode==='always'?'inline':'none';
+ if(mode==='always'&&!skipIntervalSync){
+   const sel=document.getElementById('sp-lm-interval');
+   if(sel)_spPendingInterval=sel.value;
+ }
+}
+function applyListeningSettings(){
+ const ivSel=document.getElementById('sp-lm-interval');
+ if(_spPendingMode==='always'&&ivSel)_spPendingInterval=ivSel.value;
+ const changed=(_spPendingMode!==SOCIAL_PULSE.listeningMode)||(_spPendingMode==='always'&&_spPendingInterval!==SOCIAL_PULSE.listeningInterval);
+ document.getElementById('sp-settings-panel').style.display='none';
+ SOCIAL_PULSE.listeningMode=_spPendingMode;
+ if(_spPendingMode==='always')SOCIAL_PULSE.listeningInterval=_spPendingInterval;
+ if(changed){
+   runListeningUpdateFlow();
+ } else {
+   renderListeningStatus();
+ }
+}
+function triggerOnDemandUpdate(){
+ runListeningUpdateFlow();
+}
+function runListeningUpdateFlow(){
+ document.getElementById('sp-status-bar').style.display='none';
+ document.getElementById('sp-settings-panel').style.display='none';
+ const prog=document.getElementById('sp-progress-panel');
+ prog.style.display='block';
+ const bar=document.getElementById('sp-progress-bar');
+ bar.style.width='0%';
+ setTimeout(()=>{bar.style.width='35%';},100);
+ setTimeout(()=>{bar.style.width='70%';},1500);
+ setTimeout(()=>{bar.style.width='100%';},3000);
+ setTimeout(()=>{
+   prog.style.display='none';
+   document.getElementById('sp-status-bar').style.display='block';
+   SOCIAL_PULSE.lastUpdated='Baru saja';
+   renderListeningStatus();
+   toast('✅ Sentimen Publik berhasil diperbarui');
+ },3600);
+}
 
 </script>
 <!-- ENTITY ARTICLES DRAWER -->
